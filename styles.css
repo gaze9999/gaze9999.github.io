@@ -1,0 +1,50 @@
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+
+.title {
+  font-size-adjust: auto;
+  color: rgb(235, 146, 146);
+  background-image: url('bg-2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(70, 60, 120);
+  text-align: center;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 2px;
+  border: 0%;
+}
+
+.ls1 {
+  clear:left;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+  max-width: 100%;
+  display: flex;
+}
+
+.footer {
+  font-weight: bold;
+  font-size: 0.2rem;
+  float: right;
+}
+
+.subti {
+  font-weight: bold;
+}
+
+#sub {
+  font-size: 0.8em;
+  line-height: 1.4em;
+  font-color: rgb(200, 160, 160);
+  padding-top: 2px;
+  padding-bottom: 10px;
+}
