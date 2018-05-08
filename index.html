@@ -5,47 +5,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript"></script>
-  <link type="text/css" rel="stylesheet" href="styles.css">
-  <title>Gazelle Studio</title>
-</head>
 
-<body>
+  <link type="text/css" rel="stylesheet" href="main_styles.css" media="(min-width: 640px)">
+  <link type="text/css" rel="stylesheet" href="min_styles.css" media="(max-width: 640px)">
+  <link type="text/css" rel="stylesheet" href="portrait.css" media="(orientation: portrait)">
+  <link type="text/css" rel="stylesheet" href="landscape.css" media="(orientation: landscape)">
+
+  <title>Gazelle Studio</title>
+
   <div class="title">
     <h1>Gazelle Studio</h1>
     <h2 id="sub">indie game studio</h2>
   </div>
 
-  <div class="bar">
-    <ul class="nev">
-      <li><a href="#"><span id="Cap">A</span>bout</a>
-        <ul>
-          <li><a href="#"><span id="Cap">A</span>bout</a></li>
-          <li><a href="#"><span id="Cap">P</span>roject</a></li>
-          <li><a href="#"><span id="Cap">C</span>ontect</a></li>
-        </ul>
-      </li>
+</head>
 
-      <li><a href="#"><span id="Cap">P</span>rojects</a>
+<body>
+
+  <div class="bar">
+    <ul class="nav">
+      <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
+      <li><a href="sub/Contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
+      <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
+    </ul>
+
+    <ul class="Min_nav">
+      <li><a href="#"><span id="Cap">M</span>enu</a>
         <ul>
-          <li><a href="projectc.html"><span id="Cap">P</span>roject C</a></li>
+          <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
+          <li><a href="sub/Contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
+          <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
         </ul>
       </li>
     </ul>
   </div>
 
-  <div class="about">
-    <p class="subti" id="abo">About</p>
-    <div>
-      <p>It's a place where I put my games and works.
-        <br>I made games with Unity, unreal engine 4, and</p>
-    </div>
-  </div>
-
-  <div class="Contect">
-    <p class="subti" id="cont">Contect</p>
-    <div>
-      <p>Will be announcement.</p>
-    </div>
+  <div>
+    <iframe width=100% height="400" frameborder="0" scrolling="no" src="sub/about.html" name="main_frame"></iframe>
   </div>
 
   <div class="footer">
