@@ -107,18 +107,19 @@ ul.Min_nav li {
 /* use to hide */
 
 .footer {
-  margin-right: 10px;
+  margin-right: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
   float: right;
 }
 
 .subti {
+  text-transform: uppercase;
   font-weight: bold;
 }
 
-#frame {
-  height: 80%;
+iframe {
+  min-height: 40vmin;
 }
 
 #Cap {

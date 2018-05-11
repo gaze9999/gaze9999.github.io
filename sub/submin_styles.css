@@ -12,6 +12,10 @@ a {
   color: black;
 }
 
+p {
+  line-height: 26px;
+}
+
 .title {
   /*border-top-left-radius: 10px;
   border-top-right-radius: 10px;*/
@@ -31,6 +35,7 @@ a {
 }
 
 .subti {
+  text-transform: uppercase;
   font-weight: bold;
 }
 

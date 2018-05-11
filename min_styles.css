@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  margin: 0;
   background-color: rgb(230, 230, 230);
 }
 
@@ -117,17 +118,19 @@ ul.Min_nav li:hover>ul {
 }
 
 .footer {
+  margin-right: 1rem;
   font-weight: bold;
   font-size: 0.8rem;
   float: right;
 }
 
 .subti {
+  text-transform: uppercase;
   font-weight: bold;
 }
 
-#frame {
-  height: 80%;
+iframe {
+  min-height: 250px;
 }
 
 #Cap {

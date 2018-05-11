@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  line-height: 26px;
   background-color: rgb(230, 230, 230);
 }
 
@@ -31,6 +32,7 @@ a {
 }
 
 .subti {
+  text-transform: uppercase;
   font-weight: bold;
 }
 
