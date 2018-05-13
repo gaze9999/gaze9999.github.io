@@ -20,6 +20,18 @@
     body {
       background-color: rgb(230, 230, 230);
     }
+
+    @media only screen and (min-width: 736px) and (max-width: 900px) {
+      body {
+        max-width: 736px;
+        margin: auto;
+      }
+    }
+    @media only screen and (min-width: 900px) {
+      .title {
+        background-image: url("bgi/bg.jpg");
+      }
+    }
   </style>
 
   <link type="text/css" rel="stylesheet" href="main_styles.css" media="(min-width: 640px)">
@@ -27,7 +39,7 @@
   <link type="text/css" rel="stylesheet" href="landscape.css" media="(orientation: landscape)">
   <!-- unuse yet
   <link type="text/css" rel="stylesheet" href="portrait.css" media="(orientation: portrait)">
-  -->
+-->
   <title>Gazelle Studio</title>
 
   <div class="title">
