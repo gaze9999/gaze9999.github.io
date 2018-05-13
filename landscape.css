@@ -120,6 +120,7 @@ ul.Min_nav li {
 
 iframe {
   min-height: 40vmin;
+	padding-left: 1rem;
 }
 
 #Cap {

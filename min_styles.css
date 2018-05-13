@@ -47,11 +47,15 @@ ul.nav li {
 }
 /* use to hide */
 
+ul.white {
+	display: flex;
+	background-color: rgb(170, 170, 180);
+}
+
 ul.Min_nav {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   display: flex;
-  background-color: rgb(170, 170, 180);
   text-shadow: 0.1em 0.1em #888;
 }
 
@@ -69,7 +73,6 @@ ul.Min_nav>li {
 }
 
 ul.Min_nav a {
-  background-color: #999;
   color: #333;
   display: block;
   padding: 0 20px;
@@ -131,6 +134,7 @@ ul.Min_nav li:hover>ul {
 
 iframe {
   min-height: 250px;
+  padding-left: 1rem;
 }
 
 #Cap {

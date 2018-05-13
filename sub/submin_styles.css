@@ -1,19 +1,27 @@
+* {
+	margin:0;
+	padding:0;
+}
+
 html {
   font-family: sans-serif;
   font-size: 16px;
 }
 
 body {
-  background-color: rgb(230, 230, 230);
+  line-height: 26px;
 }
 
 a {
   text-decoration: none;
-  color: black;
 }
 
 p {
   line-height: 26px;
+}
+
+div div {
+	padding-left: 1rem;
 }
 
 .title {
@@ -35,6 +43,7 @@ p {
 }
 
 .subti {
+  margin-top: 10px;
   text-transform: uppercase;
   font-weight: bold;
 }

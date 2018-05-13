@@ -37,13 +37,17 @@ ul {
   list-style: none;
 }
 
+ul.white {
+	display: flex;
+	background-color: rgb(170, 170, 180);
+}
+
 ul.nav {
   font-size: 1rem;
   font-weight: bold;
   display: flex;
-  background-color: rgb(170, 170, 180);
   text-shadow: 0.1em 0.1em #888;
-  float: right;
+  float: left;
 }
 
 ul.nav a {
@@ -61,6 +65,10 @@ ul.nav a:hover {
 ul.nav li:hover>a {
   color: #fff;
   background-color: #999;
+  transition: 0.25s;
+  -moz-transition: 0.25s; /* Firefox */
+  -webkit-transition: 0.25s; /* Safari & Chrome */
+  -o-transition: 0.25s; /* Opera */
 }
 /*global*/
 
@@ -119,7 +127,8 @@ ul.Min_nav li {
 }
 
 iframe {
-  min-height: 40vmin;.
+  min-height: 40vmin;
+	padding-left: 1rem;
 }
 
 #Cap {
