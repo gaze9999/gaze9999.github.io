@@ -9,6 +9,7 @@ html {
 }
 
 body {
+	margin-top: 1.5rem;
   line-height: 26px;
 }
 
@@ -17,30 +18,12 @@ a {
 }
 
 p {
+	font-size: 0.9rem;
   line-height: 26px;
 }
 
 div div {
 	padding-left: 1rem;
-	padding-right: 1rem;
-}
-
-.title {
-  /*border-top-left-radius: 10px;
-  border-top-right-radius: 10px;*/
-  font-size-adjust: auto;
-  color: rgb(240, 180, 152);
-  background-image: url("bgi/bg-2.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center;
-  margin: 0;
-  padding-top: 40px;
-  padding-bottom: 10px;
-  border: 0;
-  text-transform: capitalize;
-  text-shadow: 0.1em 0.1em #333;
 }
 
 .subti {
@@ -49,15 +32,27 @@ div div {
   font-weight: bold;
 }
 
+a:link, a:visited {
+	font-weight: 600;
+	color: #e88;
+}
+
+a:hover {
+	padding: 6px 0;
+	background-color: #ddd;
+	border-radius: 4px;
+	transition: 0.25s;
+  -moz-transition: 0.25s; /* Firefox */
+  -webkit-transition: 0.25s; /* Safari & Chrome */
+  -o-transition: 0.25s; /* Opera */
+}
+
 #Cap {
   color: #e44;
   font-weight: bold;
 }
 
 #subtitle {
-  font-size: 1em;
   line-height: 1.4em;
   color: rgb(200, 120, 60);
-  padding-top: 0;
-  padding-bottom: 0;
 }
