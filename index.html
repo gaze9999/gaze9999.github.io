@@ -1,83 +1,78 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: rgb(230, 230, 230);
+  }
+
+  @media only screen and (min-width: 736px) {
+    body {
+      max-width: 736px;
+      margin: auto;
+    }
+  }
+</style>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript"></script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-family: sans-serif;
-      font-size: 16px;
-    }
-
-    body {
-      background-color: rgb(230, 230, 230);
-    }
-
-    @media only screen and (min-width: 736px) and (max-width: 900px) {
-      body {
-        max-width: 736px;
-        margin: auto;
-      }
-    }
-    @media only screen and (min-width: 900px) {
-      .title {
-        background-image: url("bgi/bg.jpg");
-      }
-    }
-  </style>
-
   <link type="text/css" rel="stylesheet" href="main_styles.css" media="(min-width: 640px)">
   <link type="text/css" rel="stylesheet" href="min_styles.css" media="(max-width: 640px)">
-  <link type="text/css" rel="stylesheet" href="landscape.css" media="(orientation: landscape)">
   <!-- unuse yet
+  <link type="text/css" rel="stylesheet" href="landscape.css" media="(orientation: landscape)">
   <link type="text/css" rel="stylesheet" href="portrait.css" media="(orientation: portrait)">
--->
-  <title>Gazelle Studio</title>
+  -->
 
+  <title>Gazelle Studio</title>
   <div class="title">
     <h1>Gazelle Studio</h1>
     <h2 id="sub">indie game studio</h2>
   </div>
-
 </head>
 
 <body>
-
-  <div class="bar">
-    <ul class="white">
-      <ul class="nav">
-        <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
-        <li><a href="sub/contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
-      </ul>
-      <ul class="nav project" id="pj">
-        <li><a href="sub/project.html" target="main_frame"><span id="Cap">P</span>roject</a>
-          <ul>
-            <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <ul class="Min_nav">
-        <li><a href="#"><span id="Cap">M</span>enu</a>
-          <ul>
-            <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
-            <li><a href="sub/contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
-            <li><a href="sub/project.html" target="main_frame"><span id="Cap">P</span>roject</a>
-              <ul>
-                <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
-              </ul>
-          </ul>
+  <nav>
+    <!--normal navbar-->
+    <div class="bar">
+      <ul class="white">
+        <ul class="nav">
+          <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
+          <li><a href="sub/contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
+        </ul>
+        <ul class="nav project" id="pj">
+          <li><a href="sub/project.html" target="main_frame"><span id="Cap">P</span>roject</a>
+            <ul>
+              <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
+            </ul>
           </li>
-      </ul>
-  </div>
+        </ul>
+
+        <!--mini navbar-->
+        <ul class="Min_nav">
+          <li><a href="#"><span id="Cap">M</span>enu</a>
+            <ul>
+              <li><a href="sub/about.html" target="main_frame"><span id="Cap">A</span>bout</a></li>
+              <li><a href="sub/contect.html" target="main_frame"><span id="Cap">C</span>ontect</a></li>
+              <li><a href="sub/project.html" target="main_frame"><span id="Cap">P</span>roject</a>
+                <ul>
+                  <li><a href="sub/projectc.html" target="main_frame"><span id="Cap">P</span>roject C</a></li>
+                </ul>
+            </ul>
+            </li>
+        </ul>
+    </div>
+  </nav>
 
   <div>
     <iframe width=90% frameborder="0" scrolling="no" src="sub/about.html" name="main_frame" id="frame"></iframe>
