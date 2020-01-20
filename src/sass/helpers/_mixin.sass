@@ -1,25 +1,8 @@
 // helpers/_mixin.sass
 
-=linkColor($color:black)
-  a
-    color: $color
-    @content
-
 =noPaddingMargin
   margin: 0
   padding: 0
-  @content
-
-=whiteBg
-  background: #fff
-  @content
-
-=anime420($name, $a:.4, $b:.2)
-  animation: $name $a + s $b + s both ease-in-out
-  @content
-
-=mouseAnime($name, $easing:linear)
-  animation: $name 5s infinite $easing
   @content
 
 =flexColumn($justify:space-around, $align:center)
@@ -29,19 +12,10 @@
   align-items: $align
   @content
 
-=knowledgeBtn
-  border-radius: 0
-  padding: .5rem 1rem
-  @content
-
 =contentSpaceAround
   justify-content: space-around
   &::before, &::after
     content: ''
-  @content
-
-=contentSpaceEvenly
-  justify-content: space-evenly
   @content
 
 =setMiddle
@@ -49,3 +23,12 @@
   left: 50%
   transform: translate(-50%, -50%)
   @content
+
+=stickyTop($pos: false)
+  position: sticky
+  left: 0
+  right: 0
+  @if $pos
+    top: $pos+px
+  @else
+    top: 0
