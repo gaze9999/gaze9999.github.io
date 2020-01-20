@@ -3,7 +3,7 @@ a, a:visited, a:active, a:hover, a:link
 
 body
   position: relative
-  height: 300vh
+  // height: 300vh
   *
     font-family: 'Noto Sans TC', 'Roboto', sans-serif
     outline: none
@@ -16,9 +16,9 @@ ul,ol,dl
   transition: .4s
 
 .clearfix::after
+  content: ''
   visibility: hidden
   display: block
-  content: ""
   clear: both
 
 .center_all
@@ -27,3 +27,8 @@ ul,ol,dl
 
 .hidden_obj
   display: none
+
+.img_contain
+  width: auto
+  height: 100%
+  object-fit: contain

@@ -1,4 +1,28 @@
 .main_landing
   height: 100vh
   overflow: hidden
-  background: linear-gradient(45deg, #ccc, #666)
+  // background: linear-gradient(45deg, #ccc, #666)
+
+.main_header
+  @extend %flexColumnCenter
+  img
+    box-shadow: 0 0 4rem -3rem #000
+    padding: 1.5rem
+  hgroup
+    height: 64px
+    perspective: 10rem
+    .title_shadow
+      color: transparent
+      opacity: .15
+      transform: scale(1) rotateX(20deg)
+      text-shadow: 0 1rem .1rem #999
+
+.footerHeight
+  height: 64px
+.main_frame
+  .work_row
+    & > div
+      @extend %flexColumnCenter
+    .work_card
+      width: 20rem
+      height: 20rem

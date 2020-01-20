@@ -7,15 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Noto+Serif+TC|Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Noto+Serif+TC|Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="./dist/css/all.min.css">
   </head>
   <body>
-    <header class="main_landing">
-
+    <header class="d-flex center_all main_landing">
+      <figure class="main_header" data-aos="fade-up" data-aos-duration="1000">
+        <img class="img_contain" src="./img/works/deer2x.png" alt="">
+        <hgroup class="position-relative d-flex center_all">
+          <h2 class="position-absolute">Gazelle</h2>
+          <h2 class="position-absolute title_shadow">Gazelle</h2>
+        </hgroup>
+      </figure>
     </header>
 
-    <nav class="navbar sticky-top navbar-expand-lg main_nav">
+    <nav class="navbar navbar-expand-lg main_nav">
       <header class="header d-flex center_all">
           <h1>Gazelle</h1>
       </header>
@@ -25,10 +33,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
-            <a href="#" class="nav-link active">Active</a>
+            <a href="#" class="nav-link active">簡介</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link disabled">個人作品</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">資策會作品</a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
@@ -37,7 +48,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link disabled">link</a>
+            <a href="#" class="nav-link disabled">聯絡方式</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link disabled">link</a>
@@ -46,24 +57,70 @@
       </div>
     </nav>
 
-    <div class="container">
+    <main class="container main_frame py-3">
       <div class="row">
         <div class="col-12">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis minus aut culpa cum, voluptate at pariatur qui fugit dignissimos cumque quod exercitationem iste, architecto nisi dolorum, placeat quisquam ea rerum.
+          <article>
+            <!-- <p>這裡放的目前主要以資策會作品為主，個人作品會慢慢補齊<br>請參閱。</p>             -->
+          </article>
         </div>
       </div>
-    </div>
-
       
+      <div class="row work_row">
+        <div class="col-6 align-items-end">
+          <article>
+            <p>Adobe Illustrator 履歷製作成品</p>
+          </article>
+        </div>
+        <div class="col-6">
+          <figure class="work_card">
+            <img class="img_contain w-100" src="./img/works/resume2x.png" alt="">
+          </figure>
+        </div>
+      </div>
+
+      <div class="row work_row">
+        <div class="col-6">
+            <figure class="work_card">
+              <img class="img_contain w-100" src="./img/works/buddha2x.png" alt="">
+            </figure>
+        </div>
+        <div class="col-6 align-items-start">
+          <article>
+            <p>以Adobe Illustrator 做的構圖</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- <div class="row work_row">
+        <div class="col-6 align-items-end">
+          <article>
+            <p>Adobe Illustrator 履歷製作成品</p>
+          </article>
+        </div>
+        <div class="col-6">
+          <figure class="work_card">
+            <img class="img_contain w-100" src="./img/works/resume2x.png" alt="">
+          </figure>
+        </div>
+      </div> -->
+    </main class="container">
+
+    <div class="footerHeight"></div>
+    <footer class="footer">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-12 d-flex center_all">
+            <h6>2020 Gazelle</h6>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="./src/js/funcs/globalFuncs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script defer src="./src/js/funcs/globalFuncs.js"></script>
     <script src="./src/js/vars/globalVars.js"></script>
     <script src="./src/js/globalBtns.js"></script>
   </body>

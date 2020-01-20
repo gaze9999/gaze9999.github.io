@@ -1,10 +1,5 @@
 // helpers/_mixin.sass
 
-=noPaddingMargin
-  margin: 0
-  padding: 0
-  @content
-
 =flexColumn($justify:space-around, $align:center)
   display: flex
   flex-flow: column wrap
@@ -25,10 +20,19 @@
   @content
 
 =stickyTop($pos: false)
-  position: sticky
+  position: sticky !important
   left: 0
   right: 0
   @if $pos
-    top: $pos+px
+    top: $pos
   @else
     top: 0
+
+=stickyBottom($pos: false)
+  position: sticky !important
+  left: 0
+  right: 0
+  @if $pos
+    bottom: $pos
+  @else
+    bottom: 0
