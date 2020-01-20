@@ -1,0 +1,7 @@
+package-lock.json
+webpack.config.js
+
+.vscode/
+vendor/
+php/
+node_modules/
