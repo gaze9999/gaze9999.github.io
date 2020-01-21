@@ -29,14 +29,12 @@
       background-size: contain
 
 .main_about
-  > div > article
+  article
     padding: 1rem 0
-    & > p::before
-      content: ''
-      display: inline-block
-      width: 2rem
-    & > p
-      color: $mainMedium
-      padding: .5rem
-      line-height: 1.75rem
-      letter-spacing: .05rem
+  p
+    color: $mainMedium
+    padding: .5rem
+    line-height: 1.75rem
+    letter-spacing: .05rem
+    &::before
+      +pWhitespace
