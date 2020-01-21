@@ -307,6 +307,12 @@ ul, ol, dl {
   .github_wrap {
     top: 64px;
   }
+  .page_header h1 {
+    padding: 1rem 4rem;
+  }
+  .main_about h2, .main_skill h2 {
+    text-align: center;
+  }
 }
 
 .icons i {
