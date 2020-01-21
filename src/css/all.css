@@ -222,11 +222,19 @@ ul, ol, dl {
   margin: 2rem 0;
 }
 
-.view_figure h2 {
+.view_figure h2, .view_figure h5 {
   text-align: center;
+}
+
+.view_figure h2 {
   border: 1px solid #4e4e4e;
-  padding: .75rem 0;
-  margin: 1rem 2rem;
+  padding: .5rem 0;
+  margin: 2rem 4rem;
+}
+
+.view_figure h5 {
+  padding: 1rem 0;
+  color: #4e4e4e;
 }
 
 .page_header {
@@ -366,5 +374,20 @@ ul, ol, dl {
   padding: .5rem;
   line-height: 1.75rem;
   letter-spacing: .05rem;
+}
+
+.contact_frame .card {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 16rem;
+  height: 15rem;
+}
+
+.contact_frame .card::before, .contact_frame .card::after {
+  content: '';
+}
+
+.contact_frame .card .mail, .contact_frame .card p {
+  font-size: 1.25rem;
 }
 /*# sourceMappingURL=all.css.map */
