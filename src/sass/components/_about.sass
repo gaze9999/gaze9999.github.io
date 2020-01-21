@@ -1,0 +1,42 @@
+.icons
+  i
+    padding: 1rem
+    font-size: 6rem
+  .fa-html5
+    color: $html5Color
+  .fa-css3-alt
+    color: $css3Color
+  .fa-sass
+    color: $sassColor
+  .fa-js-square
+    color: $jsColor
+  .fa-bootstrap
+    color: $bs4Color
+  .fa-git-square
+    color: $gitColor
+  .fa-python
+    color: $pythonColor
+  .fa-php
+    color: $phpColor
+  .jquery_icon
+    width: 128px
+    max-height: 128px
+    &::before
+      content: ''
+      display: block
+      height: 96px
+      background: url(../../img/icons/jq.gif)
+      background-size: contain
+
+.main_about
+  > div > article
+    padding: 1rem 0
+    & > p::before
+      content: ''
+      display: inline-block
+      width: 2rem
+    & > p
+      color: $mainMedium
+      padding: .5rem
+      line-height: 1.75rem
+      letter-spacing: .05rem
