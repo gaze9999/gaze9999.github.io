@@ -1,8 +1,11 @@
 .contact_frame
   .card
     +contentSpaceAround
+    position: relative
     width: 16rem
     height: 15rem
+    overflow: hidden
+    box-shadow: 0 0 16px -12px #ccc
     h2
       +noPaddingMargin
       color: $mainMedium
@@ -10,3 +13,16 @@
       font-size: 2rem
     a
       font-size: 1.25rem
+    .decor
+      &::before
+        position: absolute
+        top: 0
+        left: -50%
+        right: 0
+        transform: rotate(-45deg)
+        content: ''
+        background: #ccc
+        width: 100%
+        height: 10%
+    &:hover
+      transform: translateY(-8px)
