@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./dist/css/all.min.css">
   </head>
   <body>
-    <header class="flex_center main_landing">
+    <header class="position-relative flex_center main_landing">
       <figure class="position-absolute main_header" data-aos="fade-up" data-aos-duration="1000">
         <img class="img_contain" src="./img/works/deer2x.png" alt="">
         <hgroup class="position-relative d-flex center_all">
@@ -21,13 +21,13 @@
           <h2 class="position-absolute title_shadow">Gazelle</h2>
         </hgroup>
       </figure>
-      <div class="github_wrap w-100 h-100 position-relative">
-        <div class="github_tab">
+      <!-- <div class="github_wrap w-100 h-100 position-relative"> -->
+        <div class="position-absolute github_tab">
           <a href="https://github.com/gaze9999/" target="_blank">
             <i class="fa fa-github" aria-hidden="true"></i>
           </a>
         </div>
-      </div>
+      <!-- </div> -->
     </header>
 
     <div class="headerHeight"></div>
@@ -72,7 +72,7 @@
     <main class="container main_frame py-3">
       <div class="row">
         <div class="col-12">
-          <section>
+          <section class="news text-center">
             <h2>網站消息</h2>
             <time>2020-01-21</time><p>更新聯絡方式，新增圖像設計。</p>
             <time>2020-01-21</time><p>更新關於我，資策會網站設計及專題。</p>
@@ -83,6 +83,9 @@
       </div>
 
       <div class="row work_row">
+        <div class="col-md-12">
+          <h2>過去作品</h2>
+        </div>
         <div class="col-12 col-md-6 align-items-end article_col">
           <article>
             <p>Adobe Illustrator 履歷製作成品</p>
@@ -116,8 +119,8 @@
         </div>
         <div class="col-12 col-md-6 figure_col">
           <figure class="work_card flex_center" data-aos="fade-left" data-aos-duration="1000">
-            <img class="img_contain px-3" src="./img/works/websitedesktop.jpg" alt="">
-            <img class="img_contain px-3" src="./img/works/websitemobile.jpg" alt="">
+            <img class="img_contain w-50" src="./img/works/websitedesktop.jpg" alt="">
+            <img class="img_contain w-50" src="./img/works/websitemobile.jpg" alt="">
           </figure>
         </div>
       </div>
