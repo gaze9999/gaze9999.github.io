@@ -387,7 +387,17 @@ ul, ol, dl {
   content: '';
 }
 
-.contact_frame .card .mail, .contact_frame .card p {
+.contact_frame .card h2 {
+  margin: 0;
+  padding: 0;
+  color: #4e4e4e;
+}
+
+.contact_frame .card .mail {
+  font-size: 2rem;
+}
+
+.contact_frame .card a {
   font-size: 1.25rem;
 }
 /*# sourceMappingURL=all.css.map */
