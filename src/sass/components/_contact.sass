@@ -4,15 +4,21 @@
     position: relative
     width: 16rem
     height: 15rem
+    padding: 1rem
+    margin: 1rem
     overflow: hidden
     box-shadow: 0 0 16px -12px #ccc
     h2
       +noPaddingMargin
       color: $mainMedium
-    .mail
-      font-size: 2rem
+    font-size: 2rem
     a
       font-size: 1.25rem
+    .card_title
+      display: flex
+      flex-flow: column wrap
+      justify-content: center
+      align-items: center
     .decor
       &::before
         position: absolute
