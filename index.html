@@ -13,19 +13,30 @@
     <link rel="stylesheet" href="./dist/css/all.min.css">
   </head>
   <body>
-    <header class="d-flex center_all main_landing">
-      <figure class="main_header" data-aos="fade-up" data-aos-duration="1000">
+    <header class="flex_center main_landing">
+      <figure class="position-absolute main_header" data-aos="fade-up" data-aos-duration="1000">
         <img class="img_contain" src="./img/works/deer2x.png" alt="">
         <hgroup class="position-relative d-flex center_all">
           <h2 class="position-absolute">Gazelle</h2>
           <h2 class="position-absolute title_shadow">Gazelle</h2>
         </hgroup>
       </figure>
+      <div class="github_wrap w-100 h-100 position-relative">
+        <div class="github_tab">
+          <a href="https://github.com/gaze9999/" target="_blank">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg main_nav">
+    <div class="headerHeight"></div>
+    <nav class="navbar navbar-expand-lg navbar-light main_nav">
       <header class="header d-flex center_all">
-          <h1>Gazelle</h1>
+        <a href="./"><h1>Gazelle</h1></a>
+      </header>
+      <header class="header_m d-flex center_all">
+        <a href="./"><h1>G</h1></a>
       </header>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,7 +44,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
-            <a href="#" class="nav-link active">簡介</a>
+            <a href="./about.html" class="nav-link">關於我</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link disabled">個人作品</a>
@@ -41,17 +52,18 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">資策會作品</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item p-2" href="./graph.html">圖像設計</a>
+              <a class="dropdown-item p-2" href="./webdesign.html">網站設計</a>
+              <a class="dropdown-item p-2" href="./btndesign.html">按鈕互動設計</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item p-2" href="./project.html">專題</a>
             </div>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link disabled">聯絡方式</a>
+            <a href="./contact.html" class="nav-link">聯絡方式</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link disabled">link</a>
+            <a href="#" class="nav-link disabled"></a>
           </li>
         </ul>
       </div>
@@ -60,51 +72,53 @@
     <main class="container main_frame py-3">
       <div class="row">
         <div class="col-12">
-          <article>
-            <!-- <p>這裡放的目前主要以資策會作品為主，個人作品會慢慢補齊<br>請參閱。</p>             -->
-          </article>
+          <!-- <article> -->
+            <!-- <p>這裡放的目前主要以資策會作品為主，個人作品會慢慢補齊<br>請參閱。</p> -->
+          <!-- </article> -->
         </div>
       </div>
-      
+
       <div class="row work_row">
-        <div class="col-6 align-items-end">
+        <div class="col-12 col-md-6 align-items-end article_col">
           <article>
             <p>Adobe Illustrator 履歷製作成品</p>
           </article>
         </div>
-        <div class="col-6">
-          <figure class="work_card">
-            <img class="img_contain w-100" src="./img/works/resume2x.png" alt="">
+        <div class="col-12 col-md-6 figure_col">
+          <figure class="work_card" data-aos="fade-left" data-aos-duration="1000">
+            <img class="img_contain" src="./img/works/resume2x.png" alt="">
           </figure>
         </div>
       </div>
 
       <div class="row work_row">
-        <div class="col-6">
-            <figure class="work_card">
-              <img class="img_contain w-100" src="./img/works/buddha2x.png" alt="">
+        <div class="col-12 col-md-6 figure_col">
+            <figure class="work_card" data-aos="fade-right" data-aos-duration="1000">
+              <img class="img_contain" src="./img/works/buddha2x.png" alt="">
             </figure>
         </div>
-        <div class="col-6 align-items-start">
+        <div class="col-12 col-md-6 align-items-start article_col">
           <article>
             <p>以Adobe Illustrator 做的構圖</p>
           </article>
         </div>
       </div>
 
-      <!-- <div class="row work_row">
-        <div class="col-6 align-items-end">
+      <div class="row work_row">
+        <div class="col-12 col-md-6 align-items-end article_col">
           <article>
-            <p>Adobe Illustrator 履歷製作成品</p>
+            <p>Adobe Photoshop 網站排版</p>
           </article>
         </div>
-        <div class="col-6">
-          <figure class="work_card">
-            <img class="img_contain w-100" src="./img/works/resume2x.png" alt="">
+        <div class="col-12 col-md-6 figure_col">
+          <figure class="work_card flex_center" data-aos="fade-left" data-aos-duration="1000">
+            <img class="img_contain px-3" src="./img/works/websitedesktop.jpg" alt="">
+            <img class="img_contain px-3" src="./img/works/websitemobile.jpg" alt="">
           </figure>
         </div>
-      </div> -->
+      </div>
     </main class="container">
+
 
     <div class="footerHeight"></div>
     <footer class="footer">
