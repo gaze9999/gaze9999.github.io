@@ -209,6 +209,10 @@ body {
   color: #0A0301;
 }
 
+.main_frame .news p {
+  padding: 0 0 1rem;
+}
+
 .main_frame article {
   position: relative;
 }
