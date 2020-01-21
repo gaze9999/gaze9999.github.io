@@ -1,0 +1,95 @@
+@media screen and ( max-width: 768px )
+  .main_landing
+    background: transparent
+  .navbar
+    position: fixed !important
+    .header
+      display: none !important
+    .header_m
+      display: flex !important
+      padding: 0
+  .headerHeight
+    height: 64px
+
+  .navbar
+    padding: 0
+    .header_m
+      h1
+        +noPaddingMargin
+        margin: .5rem 1rem
+        font-family: sans-serif
+    .navbar-toggler
+      margin: .5rem 1rem
+    .navbar-collapse
+      &.show, &.collapsing
+        ul
+          // +contentSpaceAround
+          // background: #fff
+          height: 100vh
+          width: 100vw
+          li
+            font-size: 1.25rem
+            width: 100%
+            padding: 2rem 0
+            text-align: center
+            background: #fcfcfc
+            &:last-child
+              box-shadow: 0 0 16px -10px #666
+          .dropdown-menu
+            border: none
+            border-radius: 0
+            box-shadow: 0 1px 16px -10px #666
+            a
+              font-size: 1.25rem
+              text-align: center
+
+  .main_header
+    img
+      box-shadow: unset
+    flex-flow: column wrap
+    height: 20rem
+    & > *
+      // width: 100%
+      flex-grow: 1
+      // flex-basis: 100%
+  .main_frame
+    .work_row
+      .article_col
+        order: 0
+        article
+          p
+            font-size: 1.5rem
+          margin: 1rem 0
+          width: 100%
+          text-align: center
+          &::before
+            left: 25%
+            top: 75%
+            width: 80%
+            height: 25%
+      .figure_col
+        order: 1
+      &::after
+        order: 2
+        content: ''
+        border: .5px solid #ccc
+        width: 100%
+        margin: 2rem 1rem
+
+  .github_tab
+    top: 32px
+
+  .page_header
+    // display: none
+    h1
+      padding: 1rem 4rem
+      &::before
+        width: 50%
+    h6
+      word-break: break-word
+      padding: 1rem 2rem
+      font-size: 1rem
+
+  .main_about, .main_skill
+    h2
+      text-align: center
