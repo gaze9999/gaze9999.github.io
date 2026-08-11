@@ -141,6 +141,9 @@ definePageMeta({
 
 type TabId = 'community' | 'sales'
 
+const serverFeaturesEnabled = useRuntimeConfig().public.serverFeaturesEnabled
+const staticDeploymentMessage = 'Steam 新聞需要 Nuxt 伺服器 API，此功能在 GitHub Pages 靜態版本中暫停使用。'
+
 interface Tab {
   id: TabId
   label: string
@@ -175,7 +178,7 @@ const activeTab = ref<TabId>('community')
 const communityNews = ref<SteamNewsItem[]>([])
 const salesNews = ref<SteamNewsItem[]>([])
 const loading = ref(!1)
-const error = ref<string | null>(null)
+const error = ref<string | null>(serverFeaturesEnabled ? null : staticDeploymentMessage)
 
 // 分頁狀態 - 使用歷史堆疊追蹤每頁的 enddate
 const communityPageHistory = ref<(number | undefined)[]>([void 0]) // [undefined, enddate1, enddate2, ...]
@@ -211,6 +214,11 @@ const getTabCount = (tabId: TabId): number => {
 
 // 載入社群新聞
 const loadCommunityNews = async (enddate?: number) => {
+  if (!serverFeaturesEnabled) {
+    error.value = staticDeploymentMessage
+    return
+  }
+
   loading.value = !0
   error.value = null
 
@@ -225,6 +233,11 @@ const loadCommunityNews = async (enddate?: number) => {
 
 // 載入特賣新聞
 const loadSalesNews = async (enddate?: number) => {
+  if (!serverFeaturesEnabled) {
+    error.value = staticDeploymentMessage
+    return
+  }
+
   loading.value = !0
   error.value = null
 
@@ -309,7 +322,9 @@ watch(activeTab, (newTab) => {
 
 // 頁面載入時自動載入社群新聞
 onMounted(() => {
-  loadCommunityNews()
+  if (serverFeaturesEnabled) {
+    loadCommunityNews()
+  }
 })
 </script>
 

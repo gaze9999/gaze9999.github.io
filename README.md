@@ -1,10 +1,10 @@
-# Vue Practice - Modern Nuxt 3 Project
+# gaze9999 Personal Website
 
-A modern, production-ready Nuxt 3 project demonstrating industry best practices including TypeScript, Pinia state management, API service layers, and comprehensive development tooling.
+The source for [gaze9999.github.io](https://gaze9999.github.io), a Nuxt 4 personal website and project showcase built with TypeScript and Pinia.
 
 ## 🎯 Project Features
 
-- **Nuxt 3** - Latest Vue 3 framework with file-based routing
+- **Nuxt 4** - Vue framework with file-based routing
 - **TypeScript** - Full type safety with strict mode
 - **Pinia** - Modern state management with composition API
 - **Structured Architecture** - Services, utilities, types, constants, composables
@@ -32,7 +32,7 @@ app/
 
 ### Prerequisites
 
-- Node.js 16+
+- Node.js 22.12+
 - pnpm (recommended) or npm/yarn
 
 ### Installation
@@ -63,6 +63,13 @@ pnpm build
 # Preview production build
 pnpm preview
 ```
+
+### GitHub Pages
+
+Pushes to `main` build the static site with `pnpm build:pages` and deploy
+`.output/public` through GitHub Actions. GitHub Pages cannot run the Nitro server,
+so features backed by `server/api/**` show an unavailable state there and require
+a separate Nuxt server deployment to operate.
 
 ## 📝 Available Scripts
 

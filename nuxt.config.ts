@@ -3,11 +3,11 @@ export default defineNuxtConfig({
   // Application metadata
   app: {
     head: {
-      title: 'Vue Practice - Nuxt 3',
+      title: 'gaze9999 | Personal Website',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Modern Nuxt 3 practice project' },
+        { name: 'description', content: 'Personal website and project showcase for gaze9999' },
       ],
       link: [
         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' },
@@ -59,8 +59,9 @@ export default defineNuxtConfig({
 
     // Public keys (exposed to client)
     public: {
-      appName: 'Vue Practice',
+      appName: 'gaze9999',
       apiBaseUrl: 'http://localhost:3000/api',
+      serverFeaturesEnabled: process.env.NUXT_PUBLIC_SERVER_FEATURES_ENABLED !== 'false',
     },
   },
 
@@ -72,7 +73,37 @@ export default defineNuxtConfig({
 
   // Experimental features
   experimental: {
-    payloadExtraction: false,
+    payloadExtraction: true,
+  },
+
+  // Keep page-local implementation folders out of Nuxt file-based routing.
+  hooks: {
+    'pages:extend'(pages) {
+      const removeImplementationRoutes = (routes: typeof pages) => {
+        for (let index = routes.length - 1; index >= 0; index -= 1) {
+          const route = routes[index]
+          const filePath = route?.file?.replace(/\\/g, '/') ?? ''
+
+          if (/\/(api|components|composables)\//.test(filePath)) {
+            routes.splice(index, 1)
+            continue
+          }
+
+          if (route?.children) {
+            removeImplementationRoutes(route.children)
+          }
+        }
+      }
+
+      removeImplementationRoutes(pages)
+    },
+  },
+
+  // GitHub Pages prerendering
+  nitro: {
+    prerender: {
+      ignore: ['/shop/admin'],
+    },
   },
 
   // Features
