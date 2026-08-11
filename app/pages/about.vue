@@ -1,275 +1,607 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-    <!-- Hero Section -->
-    <header class="bg-white border-b border-gray-200">
-      <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-        <div class="mb-6">
-          <h1 class="text-5xl font-bold text-gray-900 mb-4">林洧</h1>
-          <p class="text-xl text-gray-600 mb-2">前端工程師</p>
-          <p class="text-base text-gray-500 max-w-2xl mx-auto">以工程實作為核心，具備高度自學能力與跨領域吸收能力</p>
-        </div>
-        <div class="flex justify-center gap-4 mt-8">
-          <a href="https://github.com/gaze9999/" target="_blank" class="px-6 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <NuxtLink to="/projects" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-            查看專案
-          </NuxtLink>
+  <div class="about-page">
+    <section class="hero" aria-labelledby="about-title">
+      <div class="hero-copy">
+        <p class="eyebrow">About / Engineering Profile</p>
+        <h1 id="about-title">把複雜的前端系統，整理成可靠且可持續演進的產品體驗。</h1>
+        <p class="hero-summary">
+          專注於企業級 Web 前端與系統整合，累積十年以上的開發經驗。從 Angular、TypeScript 到 Vue /
+          Nuxt，我重視可維護的架構、可量測的效能，以及能讓團隊安心協作的交付品質。
+        </p>
+        <div class="hero-actions">
+          <NuxtLink to="/projects" class="primary-action">查看作品與實作</NuxtLink>
+          <a href="#approach" class="secondary-action">了解工程方法</a>
         </div>
       </div>
-    </header>
 
-    <!-- Skills Section -->
-    <section class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">技術專長</h2>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Frontend -->
-        <div class="bg-white rounded-xl shadow-md p-6">
-          <h3 class="text-lg font-semibold text-blue-600 mb-4 flex items-center gap-2">
-            <i class="fas fa-code"></i>
-            Frontend
-          </h3>
-          <div class="space-y-3">
-            <div v-for="skill in skillCategories.frontend" :key="skill.name" class="flex items-center gap-3">
-              <i :class="skill.icon" class="text-2xl" :style="{ color: skill.color }"></i>
-              <span class="text-sm text-gray-700">{{ skill.name }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Backend & Data -->
-        <div class="bg-white rounded-xl shadow-md p-6">
-          <h3 class="text-lg font-semibold text-green-600 mb-4 flex items-center gap-2">
-            <i class="fas fa-database"></i>
-            Backend & Data
-          </h3>
-          <div class="space-y-3">
-            <div v-for="skill in skillCategories.backend" :key="skill.name" class="flex items-center gap-3">
-              <i :class="skill.icon" class="text-2xl" :style="{ color: skill.color }"></i>
-              <span class="text-sm text-gray-700">{{ skill.name }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Design & Creative -->
-        <div class="bg-white rounded-xl shadow-md p-6">
-          <h3 class="text-lg font-semibold text-purple-600 mb-4 flex items-center gap-2">
-            <i class="fas fa-palette"></i>
-            Design & Creative
-          </h3>
-          <div class="space-y-3">
-            <div v-for="skill in skillCategories.design" :key="skill.name" class="flex items-center gap-3">
-              <i :class="skill.icon" class="text-2xl" :style="{ color: skill.color }"></i>
-              <span class="text-sm text-gray-700">{{ skill.name }}</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tools & Others -->
-        <div class="bg-white rounded-xl shadow-md p-6">
-          <h3 class="text-lg font-semibold text-orange-600 mb-4 flex items-center gap-2">
-            <i class="fas fa-tools"></i>
-            Tools & Others
-          </h3>
-          <div class="space-y-3">
-            <div v-for="skill in skillCategories.tools" :key="skill.name" class="flex items-center gap-3">
-              <i :class="skill.icon" class="text-2xl" :style="{ color: skill.color }"></i>
-              <span class="text-sm text-gray-700">{{ skill.name }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <aside class="focus-card" aria-label="目前專注方向">
+        <p class="focus-label">Current Focus</p>
+        <h2>Frontend Engineering<br />&amp; System Analysis</h2>
+        <ul>
+          <li>大型前端系統的架構演進與維護</li>
+          <li>資料流程、API 整合與 SSR 體驗</li>
+          <li>效能量測、問題定位與漸進式改善</li>
+          <li>從資深前端延伸至技術規劃與系統分析</li>
+        </ul>
+      </aside>
     </section>
 
-    <!-- About Me Section -->
-    <section class="max-w-5xl mx-auto px-6 py-16">
-      <div class="space-y-12">
-        <!-- Core Introduction -->
-        <article class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-600">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-user-circle text-blue-600"></i>
-            核心定位
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              您好，我是<strong class="text-gray-900">林洧</strong>。我是一名以工程實作為核心、同時具備高度自學能力與跨領域吸收能力的前端工程師。對我而言，學習並非單點技能的累積，而是透過理解底層原理、反覆實作與跨技術對照，逐步建立可遷移、可延展的知識結構。這樣的學習方式，使我能在不同技術、框架與領域之間快速轉換，同時保持足夠的深度。
-            </p>
-            <p>
-              我對<strong class="text-gray-900">遊戲、互動式內容與數位產品</strong>始終抱持高度興趣，也正是這份動機，引導我從創作端走向工程端，並一路延伸至系統架構、資料處理與 AI 應用層面。
-            </p>
+    <div class="content">
+      <section class="section" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="section-index">01</p>
+          <div>
+            <h2 id="skills-title">技術視角</h2>
+            <p>技術選擇服務於問題本身；我偏好以清楚的邊界、型別與資料流，降低系統長期維護成本。</p>
           </div>
-        </article>
+        </div>
 
-        <!-- Early Journey -->
-        <article class="bg-white rounded-2xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-seedling text-green-600"></i>
-            從創作導向到工程基礎的累積
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              在早期的自學階段，我以 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-600">Python</code> 作為程式設計入門語言，培養基礎邏輯與資料處理能力；同時接觸 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-purple-600">Blender</code> 進行 3D 建模、使用 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-600">Photoshop</code> 製作視覺素材，並透過 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-orange-600">FL Studio</code> 嘗試音樂製作。這段期間讓我建立對「產品不是單一技術，而是多個系統整合」的直覺理解，也形塑了我後續在工程上特別重視結構與整體性的思考方式。
-            </p>
-            <p>
-              為了補齊設計與使用者體驗的系統性知識，我進一步參加<strong class="text-gray-900">資策會 UI／UX 設計課程</strong>，學習 UI／UX 設計流程、工具操作與使用者導向的分析方法，並在課程中接觸 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-indigo-600">PHP</code> 與資料庫操作，逐步建立對前後端分工與資料流動的整體輪廓。
-            </p>
+        <div class="skill-grid">
+          <article v-for="category in skillCategories" :key="category.title" class="skill-card">
+            <p class="skill-kicker">{{ category.kicker }}</p>
+            <h3>{{ category.title }}</h3>
+            <p>{{ category.description }}</p>
+            <ul class="tag-list" :aria-label="`${category.title} 技術項目`">
+              <li v-for="skill in category.skills" :key="skill">{{ skill }}</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="section-index">02</p>
+          <div>
+            <h2 id="experience-title">工程實踐</h2>
+            <p>不只完成畫面，也處理資料量、版本演進、效能與團隊協作帶來的系統性挑戰。</p>
           </div>
-        </article>
+        </div>
 
-        <!-- Professional Development -->
-        <article class="bg-white rounded-2xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-chart-line text-blue-600"></i>
-            專業化發展與工程深度的建立
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              進入職場後，我逐步將重心放在前端工程的專業深化。初期以 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-red-600">Angular</code> 為主要技術棧，從功能實作、元件拆分與樣式模組化開始，逐漸深入至專案架構、套件管理與工程流程。
-            </p>
-            <p>
-              在實務中，我曾主導並實際執行 <strong class="text-gray-900">Angular 版本升級專案</strong>，將既有系統由舊版升級至較新版本，負責升級風險評估、相依套件盤點與分階段調整。這段經驗使我不再只關注「功能是否完成」，而是更重視長期可維護性、架構穩定度與升級策略。
-            </p>
-            <p>
-              同時，我持續深化對<strong class="text-gray-900">原生 JavaScript</strong> 的理解，熟悉 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-yellow-600">ES2022</code> 以後的語言特性，並刻意避免過度依賴框架語法糖，確保在不同技術環境下仍能保持判斷力。
-            </p>
-          </div>
-        </article>
-
-        <!-- Recent Experience -->
-        <article class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-green-600">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-rocket text-green-600"></i>
-            近年經歷：深度與廣度並進
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              近年來，我主要參與<strong class="text-gray-900">企業級 ERP 管理平台、金融官網（SSR）與公共服務系統</strong>的前端開發與重構，技術層面涵蓋 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-red-600">Angular 18–19</code>、<code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-600">SSR</code>、微架構設計與效能調校。
-            </p>
-            <p>
-              在大型系統中，我導入 <strong class="text-gray-900">Angular Signals</strong> 重構資料流，並以單向資料流與細粒度依賴追蹤為核心，將 UI、狀態管理與資料轉換清楚拆分；同時，我亦熟悉 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-green-600">Vue 3 Composition API</code>，能以相同的心智模型理解不同框架，確保資料流設計在跨技術選型下仍具一致性。
-            </p>
-            <p>
-              在效能與體驗層面，我實際參與 <strong class="text-gray-900">SSR 架構重構</strong>，處理首屏渲染、Hydration、版面穩定性與互動回應，並以 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-orange-600">Lighthouse</code> 與 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-purple-600">Chrome DevTools</code> 指標（FCP、LCP、CLS、INP）作為量化依據，而非僅憑感覺調整。
-            </p>
-          </div>
-        </article>
-
-        <!-- Extended Learning -->
-        <article class="bg-white rounded-2xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-brain text-purple-600"></i>
-            學習廣度的延伸：資料、AI 與跨技術整合
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              在專業工程之外，我持續擴展學習範圍。業餘時間以 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-600">Python</code> 撰寫爬蟲進行資料蒐集，並以 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-cyan-600">Golang</code> 進行資料清洗、格式正規化與結構化處理，搭配 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-700">PostgreSQL</code> 儲存資料，完整實作從資料來源到前端呈現的流程。
-            </p>
-            <p>
-              前端呈現上，我亦持續學習 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-green-600">Vue</code>、<code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-600">React</code> 與 <code class="px-2 py-1 bg-gray-100 rounded text-sm font-mono text-blue-500">React Native</code>，並將其視為不同設計哲學的對照工具，而非單純技能清單。此外，我也實際導入<strong class="text-gray-900">生成式 AI（如 ChatGPT API）</strong>於專案與 Side Project 中，用於智慧化功能與工程輔助，並以工程判斷確保品質與可維護性。
-            </p>
-          </div>
-        </article>
-
-        <!-- Future Vision -->
-        <article class="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-orange-600">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-            <i class="fas fa-compass text-orange-600"></i>
-            學習觀點與未來方向
-          </h2>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              回顧至今，我的學習路徑並非線性，而是透過不斷擴展廣度、再回頭加深深度的方式前進。這使我能在面對新技術或陌生領域時，快速建立理解框架，同時保有足夠的專業深度。
-            </p>
-            <p>
-              未來，我希望能在日本不論是投入 <strong class="text-gray-900">IT 產業</strong>深化大型系統與架構能力，或進入<strong class="text-gray-900">遊戲產業</strong>完整理解遊戲製作流程、AI 技術與產品生命週期，都願意長期投入學習與實作。對我而言，<strong class="text-gray-900">持續學習本身，就是我作為工程師與創作者最核心的價值</strong>。
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Projects Overview -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">作品集專案</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <NuxtLink v-for="project in projects" :key="project.to" :to="project.to" 
-          class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-6 border border-gray-100 hover:border-blue-200">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg flex items-center justify-center text-2xl" :class="project.bgColor">
-              <i :class="project.icon" style="color: inherit;"></i>
+        <div class="experience-list">
+          <article v-for="item in experiences" :key="item.title" class="experience-card">
+            <div class="experience-header">
+              <span>{{ item.label }}</span>
+              <h3>{{ item.title }}</h3>
             </div>
-            <div class="flex-1">
-              <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
-                {{ project.title }}
-              </h3>
-              <p class="text-sm text-gray-600">{{ project.desc }}</p>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </section>
+            <p>{{ item.summary }}</p>
+            <ul>
+              <li v-for="highlight in item.highlights" :key="highlight">{{ highlight }}</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <p class="text-sm">© 2020-{{ new Date().getFullYear() }} 林洧. All rights reserved.</p>
-        <p class="text-xs mt-2">Built with Nuxt 4 & Tailwind CSS</p>
-      </div>
-    </footer>
+      <section id="approach" class="section split-section" aria-labelledby="approach-title">
+        <div class="section-heading compact-heading">
+          <p class="section-index">03</p>
+          <div>
+            <h2 id="approach-title">工程方法</h2>
+            <p>以證據推進決策，讓每一次改善都能被理解、驗證與延續。</p>
+          </div>
+        </div>
+
+        <div class="principles">
+          <article v-for="(principle, index) in principles" :key="principle.title">
+            <span>{{ String(index + 1).padStart(2, '0') }}</span>
+            <div>
+              <h3>{{ principle.title }}</h3>
+              <p>{{ principle.description }}</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="direction-title">
+        <p class="eyebrow">Next Direction</p>
+        <h2 id="direction-title">在前端工程與系統規劃之間，持續建立更好的協作介面。</h2>
+        <p>
+          我期待參與需要釐清需求、整合多方限制並長期優化的產品工作，將前端實作轉化為可被團隊共同維護的系統能力。
+        </p>
+        <NuxtLink to="/projects" class="primary-action">探索作品與實作</NuxtLink>
+      </section>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Skill {
-  name: string
-  icon: string
-  color: string
-}
+  interface SkillCategory {
+    kicker: string
+    title: string
+    description: string
+    skills: string[]
+  }
 
-interface SkillCategories {
-  frontend: Skill[]
-  backend: Skill[]
-  design: Skill[]
-  tools: Skill[]
-}
+  interface Experience {
+    label: string
+    title: string
+    summary: string
+    highlights: string[]
+  }
 
-const skillCategories: SkillCategories = {
-  frontend: [
-    { name: 'Angular ~19', icon: 'fab fa-angular', color: '#DD0031' },
-    { name: 'Vue 3', icon: 'fab fa-vuejs', color: '#42b883' },
-    { name: 'React', icon: 'fab fa-react', color: '#61DAFB' },
-    { name: 'TypeScript', icon: 'fas fa-code', color: '#3178C6' },
-    { name: 'JavaScript ES2022+', icon: 'fab fa-js-square', color: '#F7DF1E' },
-    { name: 'HTML5 / CSS3', icon: 'fab fa-html5', color: '#E34F26' },
-  ],
-  backend: [
-    { name: 'Python', icon: 'fab fa-python', color: '#3776AB' },
-    { name: 'Golang', icon: 'fab fa-golang', color: '#00ADD8' },
-    { name: 'PostgreSQL', icon: 'fas fa-database', color: '#336791' },
-    { name: 'PHP', icon: 'fab fa-php', color: '#777BB4' },
-  ],
-  design: [
-    { name: 'UI/UX Design', icon: 'fas fa-pencil-ruler', color: '#FF6B6B' },
-    { name: 'Photoshop', icon: 'fas fa-images', color: '#31A8FF' },
-    { name: 'Blender 3D', icon: 'fas fa-cube', color: '#F5792A' },
-    { name: 'FL Studio', icon: 'fas fa-music', color: '#F87C25' },
-  ],
-  tools: [
-    { name: 'Git', icon: 'fab fa-git-square', color: '#F05032' },
-    { name: 'SSR / Hydration', icon: 'fas fa-server', color: '#68A063' },
-    { name: 'Lighthouse', icon: 'fas fa-tachometer-alt', color: '#F44B21' },
-    { name: 'AI / ChatGPT API', icon: 'fas fa-brain', color: '#10A37F' },
-  ],
-}
+  interface Principle {
+    title: string
+    description: string
+  }
 
-const projects = [
-  { title: '購物網站', desc: 'E-Commerce 前台展示', to: '/projects/shop', icon: 'fas fa-shopping-bag', bgColor: 'bg-blue-50' },
-  { title: '購物後台', desc: 'ERP 後台管理系統', to: '/projects/shop-admin', icon: 'fas fa-sliders-h', bgColor: 'bg-purple-50' },
-  { title: 'Python 爬蟲', desc: '展覽資料抓取展示', to: '/projects/python-scraper', icon: 'fab fa-python', bgColor: 'bg-green-50' },
-  { title: '審計系統', desc: '企業內控稽核管理', to: '/projects/audit', icon: 'fas fa-chart-bar', bgColor: 'bg-orange-50' },
-  { title: '新聞系統', desc: 'FFXIV 新聞抓取', to: '/projects/news', icon: 'fas fa-newspaper', bgColor: 'bg-red-50' },
-  { title: 'YouTube 電視牆', desc: '影片嵌入展示', to: '/projects/youtube', icon: 'fas fa-tv', bgColor: 'bg-pink-50' },
-]
+  useSeoMeta({
+    title: '關於｜前端工程與系統分析',
+    description: '聚焦 Angular、TypeScript、Vue / Nuxt、SSR 與效能優化的前端工程介紹。',
+  })
+
+  const skillCategories: SkillCategory[] = [
+    {
+      kicker: 'Primary Expertise',
+      title: '前端工程',
+      description: '以 Angular 為主要實戰場域，兼顧元件設計、狀態管理與跨裝置體驗。',
+      skills: [
+        'Angular 9–19',
+        'TypeScript',
+        'JavaScript',
+        'RxJS',
+        'NgRx',
+        'Signals',
+        'SASS/SCSS',
+        'RWD',
+      ],
+    },
+    {
+      kicker: 'Full-stack Context',
+      title: 'Web 整合',
+      description: '理解從前端呈現到 API、伺服端渲染與非同步流程之間的整體資料路徑。',
+      skills: [
+        'Vue 3',
+        'Nuxt',
+        'Pinia',
+        'Node.js',
+        'REST API',
+        'SSR/SSG',
+        'TransferState',
+        'D3.js',
+      ],
+    },
+    {
+      kicker: 'Product Quality',
+      title: '體驗與品質',
+      description: '把效能與可用性視為產品品質的一部分，從設計到上線持續觀察與調整。',
+      skills: [
+        'Core Web Vitals',
+        'Lighthouse',
+        'Chrome DevTools',
+        'Figma',
+        'UI/UX',
+        'Photoshop',
+        'Illustrator',
+      ],
+    },
+    {
+      kicker: 'Technical Exploration',
+      title: '技術探索',
+      description: '保持跨領域實作能力，將遊戲開發與本機 AI 工具的經驗帶回工程思考。',
+      skills: [
+        'Unity',
+        'C#',
+        'FSM',
+        'Behavior Tree',
+        'ScriptableObject',
+        'Stable Diffusion',
+        'ComfyUI',
+        'LoRA',
+        'Local LLM',
+      ],
+    },
+  ]
+
+  const experiences: Experience[] = [
+    {
+      label: 'Enterprise Frontend',
+      title: '大型 Angular 系統維護與演進',
+      summary: '在企業前端情境中，處理元件規模、資料一致性與既有架構逐步演進的需求。',
+      highlights: [
+        '維護超過 100 個 Angular 元件，持續整理可重用的介面與互動模式。',
+        '運用 Signals、computed、effect、RxJS 與 NgRx，讓狀態與非同步流程更容易追蹤。',
+        '以 Map / Set 處理大量資料比對，降低資料轉換與查找的複雜度。',
+      ],
+    },
+    {
+      label: 'Migration & Architecture',
+      title: '版本升級與架構落地',
+      summary: '面對框架升級時，先辨識相依性與風險，再將轉換拆成可驗證的階段。',
+      highlights: [
+        '參與 Angular 9 至 15 的升級工作，也投入 Angular 18–19 的專案開發。',
+        '在既有系統中逐步導入較清楚的型別、元件邊界與資料流。',
+        '與設計、後端及需求端協作，讓技術決策能回應實際使用情境。',
+      ],
+    },
+    {
+      label: 'SSR & Performance',
+      title: '以量測驅動效能改善',
+      summary: '從真實載入路徑與 Core Web Vitals 出發，找出影響體驗的瓶頸並驗證改善結果。',
+      highlights: [
+        '結合 Angular SSR 與 TransferState，避免不必要的重複資料請求。',
+        '曾將 LCP 由約 20 秒改善至 4 秒內，並將 CLS 由 0.9 降至 0.001。',
+        '使用 Lighthouse 與 Chrome DevTools 檢視載入、渲染與互動過程。',
+      ],
+    },
+    {
+      label: 'Integration',
+      title: 'API 與資料視覺化整合',
+      summary: '以 Node.js 與 REST API 的整合經驗，協助前端穩定處理資料交換與非同步互動。',
+      highlights: [
+        '設計可追蹤的請求、錯誤與載入狀態，讓 UI 能正確回應資料生命週期。',
+        '使用 D3.js 將資料關係與趨勢轉化為容易理解的視覺呈現。',
+        '在 Vue 3 / Nuxt / Pinia 專案中，實作 SSR / SSG 與前端狀態管理。',
+      ],
+    },
+  ]
+
+  const principles: Principle[] = [
+    {
+      title: '先拆解，再承諾',
+      description: '先確認需求、假設與限制，將模糊問題拆成可討論、可驗證的工作單位。',
+    },
+    {
+      title: '以量測定位根因',
+      description: '不以直覺取代證據；透過效能指標、瀏覽器工具與資料流觀察來判斷改善方向。',
+    },
+    {
+      title: '漸進式改善',
+      description: '尊重既有系統與交付節奏，以低風險、可回溯的步驟持續降低複雜度。',
+    },
+    {
+      title: 'AI 輔助後仍人工驗證',
+      description:
+        '善用 AI 加速探索與草擬，但仍以人工 Code Review、型別檢查、API 與套件版本確認、Build 和實際測試守住品質。',
+    },
+  ]
 </script>
+
+<style scoped>
+  .about-page {
+    --ink: #20212b;
+    --muted: #676472;
+    --line: #20212b1a;
+    --accent: #e87836;
+    --accent-soft: #fff0e5;
+    min-height: 100vh;
+    color: var(--ink);
+  }
+  .hero,
+  .content {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.75fr);
+    gap: 2rem;
+    align-items: stretch;
+    padding-block: 3.5rem 4.5rem;
+  }
+  .hero-copy {
+    padding: 1rem 0;
+  }
+  .eyebrow,
+  .skill-kicker,
+  .focus-label {
+    color: #a65327;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    max-width: 48rem;
+    margin: 1rem 0 1.25rem;
+    font-size: clamp(2.35rem, 5vw, 4.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
+  .hero-summary {
+    max-width: 47rem;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .primary-action,
+  .secondary-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.9rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 750;
+    text-decoration: none;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      background 160ms ease;
+  }
+  .primary-action {
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 0.7rem 1.5rem #20212b24;
+  }
+  .secondary-action {
+    border: 1px solid var(--line);
+    background: #ffffff99;
+    color: var(--ink);
+  }
+  .primary-action:hover,
+  .secondary-action:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  .primary-action:focus-visible,
+  .secondary-action:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .focus-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 26rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: var(--ink);
+    color: #fff;
+    box-shadow: 0 1.5rem 3.5rem #20212b2e;
+  }
+  .focus-card h2 {
+    margin: 0.8rem 0 1.5rem;
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    line-height: 1.2;
+  }
+  .focus-card ul,
+  .experience-card ul {
+    display: grid;
+    gap: 0.7rem;
+    padding-left: 1.2rem;
+    line-height: 1.65;
+  }
+  .focus-card li::marker {
+    color: #ffad75;
+  }
+  .content {
+    display: grid;
+    gap: 5rem;
+    padding-bottom: 4rem;
+  }
+  .section {
+    scroll-margin-top: 2rem;
+  }
+  .section-heading {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-heading h2 {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.8rem, 3vw, 2.55rem);
+  }
+  .section-heading p:not(.section-index),
+  .skill-card > p:not(.skill-kicker),
+  .experience-card > p,
+  .principles p,
+  .closing > p:not(.eyebrow) {
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .section-index {
+    padding-top: 0.4rem;
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-weight: 800;
+  }
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .skill-card,
+  .experience-card {
+    border: 1px solid var(--line);
+    border-radius: 1.2rem;
+    background: #ffffffb8;
+  }
+  .skill-card {
+    padding: 1.6rem;
+  }
+  .skill-card h3 {
+    margin: 0.45rem 0 0.65rem;
+    font-size: 1.4rem;
+  }
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+  .tag-list li {
+    padding: 0.4rem 0.65rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: #8d431d;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .experience-list {
+    display: grid;
+    gap: 1rem;
+  }
+  .experience-card {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.65fr) minmax(0, 1.35fr);
+    gap: 1.5rem 2.5rem;
+    padding: 1.8rem;
+  }
+  .experience-header span {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .experience-header h3 {
+    margin-top: 0.6rem;
+    font-size: 1.45rem;
+    line-height: 1.35;
+  }
+  .experience-card > p {
+    margin: 0;
+  }
+  .experience-card ul {
+    grid-column: 2;
+    margin: 0;
+    color: #3f3d47;
+  }
+  .experience-card li::marker {
+    color: var(--accent);
+  }
+  .split-section {
+    display: grid;
+    grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+    gap: 3rem;
+  }
+  .compact-heading {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    align-content: start;
+    margin: 0;
+    border: 0;
+  }
+  .principles {
+    display: grid;
+  }
+  .principles article {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .principles article:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .principles span {
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .principles h3 {
+    margin-bottom: 0.35rem;
+    font-size: 1.1rem;
+  }
+  .closing {
+    padding: clamp(2rem, 6vw, 4rem);
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, #fff5ec, #fffdf9 62%, #f0eee8);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .closing h2 {
+    max-width: 48rem;
+    margin: 0.7rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.2;
+  }
+  .closing > p:not(.eyebrow) {
+    max-width: 48rem;
+    margin-bottom: 1.6rem;
+  }
+  @media (max-width: 54rem) {
+    .hero,
+    .split-section {
+      grid-template-columns: 1fr;
+    }
+    .hero {
+      padding-top: 1.5rem;
+    }
+    .focus-card {
+      min-height: 0;
+    }
+    .experience-card {
+      grid-template-columns: 1fr;
+    }
+    .experience-card ul {
+      grid-column: 1;
+    }
+  }
+  @media (max-width: 38rem) {
+    .hero {
+      padding-bottom: 3.5rem;
+    }
+    .hero h1 {
+      font-size: 2.45rem;
+    }
+    .skill-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-heading,
+    .compact-heading {
+      grid-template-columns: 2.5rem minmax(0, 1fr);
+    }
+    .skill-card,
+    .experience-card,
+    .focus-card {
+      padding: 1.3rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .primary-action,
+    .secondary-action {
+      transition: none;
+    }
+  }
+</style>
+
+<style>
+  html.dark-mode .about-page {
+    --ink: #f0f2f7;
+    --muted: #aeb4c2;
+    --line: #ffffff1f;
+    --accent: #ffab73;
+    --accent-soft: #ff9f4a1f;
+  }
+
+  html.dark-mode .about-page .focus-card {
+    background: #202538;
+  }
+
+  html.dark-mode .about-page .primary-action {
+    background: #ffab73;
+    color: #171b2a;
+    box-shadow: 0 0.7rem 1.5rem #00000040;
+  }
+
+  html.dark-mode .about-page .skill-card,
+  html.dark-mode .about-page .experience-card,
+  html.dark-mode .about-page .secondary-action {
+    background: #171b2acc;
+  }
+
+  html.dark-mode .about-page .tag-list li {
+    color: #ffc399;
+  }
+
+  html.dark-mode .about-page .experience-card ul {
+    color: #d2d6e0;
+  }
+
+  html.dark-mode .about-page .closing {
+    background: linear-gradient(135deg, #202538, #171b2a 65%, #121521);
+  }
+</style>
