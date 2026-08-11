@@ -1,0 +1,14 @@
+# Keep source and configuration stable across Windows and macOS worktrees.
+* text=auto eol=lf
+
+# Preserve binary assets exactly.
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.pdf binary
