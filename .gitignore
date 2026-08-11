@@ -192,6 +192,10 @@ ui-debug.log
 # 本地配置
 .local
 
+# Codex local agent configuration
+/.codex/
+/AGENTS.md
+
 # Sentry
 .sentryclirc
 
