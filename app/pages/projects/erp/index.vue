@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="hero-panel">
-      <div class="panel-header">後台控制中樞</div>
+      <div class="panel-header">後台功能一覽</div>
       <div class="panel-grid">
         <div class="panel-card">
           <h4>採購與供應</h4>
@@ -58,7 +58,7 @@
   </section>
 
   <section class="project-section dark">
-    <h2>系統架構亮點</h2>
+    <h2>介面設計重點</h2>
     <div class="architecture-list">
       <div class="arch-item">
         <span>01</span>
@@ -84,7 +84,7 @@
     <div class="showcase">
       <div>
         <h3>視覺展示</h3>
-        <p>提供跨模組的工作台與總覽視圖, 強調營運效率</p>
+        <p>在總覽頁查看各模組的進度與待處理事項</p>
       </div>
       <div>
         <h3>流程示意</h3>

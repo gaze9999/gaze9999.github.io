@@ -17,7 +17,7 @@
       </nav>
       
       <div class="mt-auto text-xs text-amber-50/70">
-        <p class="m-0">固定示範資料, 用於展示後台介面</p>
+        <p class="m-0">使用範例資料的後台示範</p>
       </div>
     </aside>
 
@@ -25,7 +25,7 @@
     <div class="flex flex-col">
       <header class="flex justify-between items-center px-8 py-6 bg-white border-b border-gray-900/8">
         <div>
-          <p class="m-0 mb-1 text-xs tracking-widest uppercase text-amber-700">模組標題</p>
+          <p class="m-0 mb-1 text-xs tracking-widest uppercase text-amber-700">目前頁面</p>
           <h1 class="m-0 text-[26px] text-gray-900">{{ activeTitle }}</h1>
         </div>
         <div class="flex gap-2.5 items-center">
@@ -39,7 +39,7 @@
       </header>
 
       <section class="p-8">
-        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">介面示範: 圖表與清單使用固定示範資料, 不代表實際營運狀態; 角色切換只模擬畫面權限, 未連接登入與後端作業</p>
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料; 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
         <slot />
       </section>
     </div>

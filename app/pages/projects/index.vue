@@ -4,23 +4,25 @@
       <p class="eyebrow">作品概覽</p>
       <h1 id="projects-title">公開專案與實作展示</h1>
       <p class="subtitle">
-        近期專注 Python 工具, coding-agent 工作流程與遊戲原型; 從這裡前往原始碼,
-        試玩版與本站介面示範
+        最近在做 Python 工具, 整理 AI 輔助開發的經驗, 也嘗試製作放置遊戲; 這裡可以找到原始碼,
+        遊戲試玩版與互動示範
       </p>
     </section>
 
     <section class="repository-section" aria-labelledby="repositories-title">
       <div class="section-heading">
         <h2 id="repositories-title">近期公開專案</h2>
-        <p>依主題整理的公開作品, 完整使用方式與目前限制請參考各專案 README</p>
+        <p>點選 GitHub 可查看原始碼與使用說明, 有試玩版的作品也能直接開啟</p>
       </div>
       <ProjectsRepositoryCards />
     </section>
 
     <section id="demonstrations" class="demo-section" aria-labelledby="demonstrations-title">
       <div class="section-heading">
-        <h2 id="demonstrations-title">本站介面示範與資料成果</h2>
-        <p>以下保留既有展示路由, 各卡片標示內容性質; UI 示範與範例資料用來呈現互動設計</p>
+        <h2 id="demonstrations-title">介面設計與爬蟲作品</h2>
+        <p>
+          瀏覽電商, 後台與影音介面的互動示範, 或查詢 TGS 2025 展覽商資料; 示範頁會標示使用的範例資料
+        </p>
       </div>
       <div class="demo-grid">
         <article v-for="demo in demonstrations" :key="demo.path" class="demo-card">
@@ -41,9 +43,9 @@
   useSeoMeta({
     title: '作品概覽 | gaze9999',
     description:
-      'gaze9999 的公開 repositories 與實作展示, 包含 Universe Idle, My Py Tools, Codex Setup, Codex Playbook 與本機活動工具',
+      'gaze9999 的公開專案與作品, 包含 Universe Idle, My Py Tools, Codex Setup, Codex Playbook 與 Codex 使用紀錄工具',
     ogTitle: '公開專案與實作展示 | gaze9999',
-    ogDescription: '探索 Python 工具, coding-agent 工作流程, 遊戲原型與前端互動示範',
+    ogDescription: '瀏覽 Python 工具, AI 輔助開發筆記, 放置遊戲試玩版與前端互動示範',
   })
 </script>
 

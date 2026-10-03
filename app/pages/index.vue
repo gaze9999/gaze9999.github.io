@@ -2,21 +2,19 @@
   <div class="home-page">
     <section class="portfolio-hero" aria-labelledby="home-title">
       <div class="hero-copy">
-        <p class="eyebrow">gaze9999 / 個人作品與工程筆記</p>
-        <h1 id="home-title">把工程探索,<br />做成能使用的作品</h1>
-        <p class="lead">
-          從前端介面到 Python 工具與 coding-agent 工作流程, 記錄我持續實作, 整理與驗證的過程
-        </p>
+        <p class="eyebrow">gaze9999 / 個人作品與開發筆記</p>
+        <h1 id="home-title">把想法寫成程式,<br />做出實用的作品</h1>
+        <p class="lead">分享前端作品, Python 工具與 AI 輔助開發筆記, 也記錄遊戲製作與介面設計</p>
         <div class="hero-actions">
-          <NuxtLink to="/projects" class="btn primary">探索作品概覽 →</NuxtLink>
-          <NuxtLink to="/about" class="btn secondary">關於我的工程方法</NuxtLink>
+          <NuxtLink to="/projects" class="btn primary">查看作品 →</NuxtLink>
+          <NuxtLink to="/about" class="btn secondary">關於我</NuxtLink>
         </div>
       </div>
       <aside class="hero-panel" aria-labelledby="featured-title">
         <p class="eyebrow">近期作品 / 遊戲試玩</p>
         <h2 id="featured-title">Universe Idle</h2>
-        <p>從一片地面開始, 安排工人, 生產資源, 建造與研究, 逐步推進你的放置遊戲進度</p>
-        <div class="panel-note">地面原型 · 繁體中文 / English · 本機存檔</div>
+        <p>安排工人生產資源, 建造設施並進行研究, 讓進度隨時間慢慢累積</p>
+        <div class="panel-note">早期試玩版 · 繁體中文 / English · 瀏覽器存檔</div>
         <a
           href="https://gaze9999.github.io/universe-idle/"
           target="_blank"
@@ -30,7 +28,7 @@
     <section class="repository-section" aria-labelledby="repositories-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">持續實作的公開專案</p>
+          <p class="eyebrow">最近在做的事</p>
           <h2 id="repositories-title">近期 GitHub 專案</h2>
         </div>
         <a
@@ -48,12 +46,12 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">本站展示</p>
-          <h2 id="demos-title">介面示範與資料成果</h2>
+          <h2 id="demos-title">介面設計與爬蟲作品</h2>
         </div>
         <NuxtLink to="/projects#demonstrations" class="text-link">查看全部展示 →</NuxtLink>
       </div>
       <p class="section-note">
-        保留電商, 後台與多媒體等互動示範; TGS 2025 爬蟲頁呈現實際擷取的展覽商資料
+        可以瀏覽電商, 後台與影音介面, 也能查詢用 Python 收集的 TGS 2025 展覽商資料
       </p>
       <div class="demo-links">
         <NuxtLink v-for="demo in demonstrations" :key="demo.path" :to="demo.path">
@@ -69,11 +67,11 @@
   import { demonstrations } from '~/modules/projects'
 
   useSeoMeta({
-    title: 'gaze9999 | 個人作品與工程探索',
+    title: 'gaze9999 | 個人作品與開發筆記',
     description:
-      '探索 gaze9999 的公開作品: Universe Idle, Python 開發工具, Codex Skills 與 MCP, 工程工作流程, 以及前端互動示範',
-    ogTitle: 'gaze9999 | 個人作品與工程探索',
-    ogDescription: '從前端介面到 Python 工具與 coding-agent 工作流程, 持續實作與驗證的公開作品',
+      'gaze9999 的個人作品, 包含 Universe Idle 放置遊戲, Python 工具, Codex 開發筆記與前端介面設計',
+    ogTitle: 'gaze9999 | 個人作品與開發筆記',
+    ogDescription: '分享前端作品, Python 工具與 AI 輔助開發筆記, 也記錄遊戲製作與介面設計',
   })
 </script>
 

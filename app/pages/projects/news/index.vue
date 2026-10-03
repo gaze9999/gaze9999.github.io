@@ -4,8 +4,8 @@
     <section class="hero-section">
       <div class="hero-text">
         <p class="eyebrow">Daily News</p>
-        <h1>每日新聞抓取範例</h1>
-        <p class="lead">整合 FFXIV 新聞與維護公告, 展示外部 API 資料彙整; 公告內容與更新時間依來源服務提供</p>
+        <h1>FFXIV 新聞與維護公告</h1>
+        <p class="lead">在這裡查看 FFXIV 新聞與維護消息; 內容與更新時間以來源服務提供的資料為準</p>
       </div>
       <div class="hero-controls">
         <div class="locale-switch">
@@ -32,11 +32,11 @@
         </article>
         <article class="info-card">
           <h3>載入與重新整理</h3>
-          <p>支援日文, 英文, 法文與德文; 切換語言或重新整理時向外部 API 載入資料</p>
+          <p>可選擇日文, 英文, 法文與德文; 切換語言或按下重新整理, 就會再次載入公告</p>
         </article>
         <article class="info-card">
-          <h3>結構化資料</h3>
-          <p>展示如何將外部 API 資料轉換為結構化格式, 便於前端展示與互動</p>
+          <h3>查看公告</h3>
+          <p>切換下方頁籤可查看維護資訊或最新話題, 點選公告連結可閱讀原文</p>
         </article>
       </div>
     </section>

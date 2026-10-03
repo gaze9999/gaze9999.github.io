@@ -3,12 +3,12 @@ export default defineNuxtConfig({
   // Application metadata
   app: {
     head: {
-      title: 'gaze9999 | 個人作品與工程探索',
+      title: 'gaze9999 | 個人作品與開發筆記',
       htmlAttrs: { lang: 'zh-Hant' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'gaze9999 的公開專案, 前端實作, Python 工具與 coding-agent 工作流程' },
+        { name: 'description', content: 'gaze9999 的公開專案, 前端作品, Python 工具與 AI 輔助開發筆記' },
       ],
       link: [
         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' },

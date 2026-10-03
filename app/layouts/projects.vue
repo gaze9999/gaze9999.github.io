@@ -27,7 +27,7 @@
     <div class="flex flex-col">
       <header class="flex justify-between items-center px-8 py-6 bg-white border-b border-gray-900/8">
         <div>
-          <p class="m-0 mb-1 text-xs tracking-widest uppercase text-amber-700">模組標題</p>
+          <p class="m-0 mb-1 text-xs tracking-widest uppercase text-amber-700">目前頁面</p>
           <h1 class="m-0 text-[26px] text-gray-900">{{ activeTitle }}</h1>
         </div>
         <div class="flex gap-2.5 items-center">

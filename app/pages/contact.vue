@@ -24,7 +24,7 @@
           </div>
           <h3>GitHub</h3>
           <a href="https://github.com/gaze9999/" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/gaze9999</a>
-          <p class="card-desc">查看我的公開專案 與程式碼</p>
+          <p class="card-desc">查看我的公開專案與程式碼</p>
         </div>
 
         <div class="contact-card">
@@ -42,7 +42,7 @@
           </div>
           <h3>LinkedIn</h3>
           <a href="https://www.linkedin.com/in/lin-wei-76a142193/" target="_blank" rel="noopener noreferrer" class="contact-link">lin-wei-76a142193</a>
-          <p class="card-desc">查看我的專業經歷與交流資訊</p>
+          <p class="card-desc">了解我的工作經歷與專業背景</p>
         </div>
       </div>
     </section>
