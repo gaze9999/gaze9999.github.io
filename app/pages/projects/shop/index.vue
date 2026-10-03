@@ -124,7 +124,7 @@
           <span class="time">Closed</span>
         </div>
         <div class="business-item">
-          <span class="label">假日資訊示例</span>
+          <span class="label">假日資訊範例</span>
           <span class="time">僅供版面示範</span>
         </div>
       </div>

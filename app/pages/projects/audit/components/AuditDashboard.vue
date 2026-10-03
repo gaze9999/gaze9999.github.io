@@ -152,7 +152,7 @@ const recentActivities = [
   {
     icon: 'fas fa-edit',
     color: '#764ba2',
-    text: '更新規則[人資權限配置]設定',
+    text: '更新規則[人資權限設定]',
     time: '2天前',
   },
   {

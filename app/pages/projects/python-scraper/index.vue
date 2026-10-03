@@ -3,7 +3,7 @@
     <div class="hero-text">
       <p class="eyebrow">Data Scraping Results</p>
       <h1>TGS 2025 展覽商資料</h1>
-      <p class="lead">根據 Tokyo Game Show 2025 官方資料整理的展覽商名單, 可以搜尋, 篩選與排序; 內容為 2025 年的歷史資料</p>
+      <p class="lead">根據 Tokyo Game Show 2025 官方資料整理的展覽商名單, 可以搜尋, 篩選與排序. 內容為 2025 年的歷史資料</p>
       <p class="notion-source">
         這份資料最初整理在
         <a 

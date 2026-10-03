@@ -11,16 +11,16 @@
         </div>
       </div>
       <aside class="hero-panel" aria-labelledby="featured-title">
-        <p class="eyebrow">近期作品 / 遊戲試玩</p>
+        <p class="eyebrow">近期作品 / 開發中</p>
         <h2 id="featured-title">Universe Idle</h2>
         <p>安排工人生產資源, 建造設施並進行研究, 讓進度隨時間慢慢累積</p>
-        <div class="panel-note">早期試玩版 · 繁體中文 / English · 瀏覽器存檔</div>
+        <div class="panel-note">開發中 · 繁體中文 / English</div>
         <a
           href="https://gaze9999.github.io/universe-idle/"
           target="_blank"
           rel="noopener noreferrer"
           class="btn primary"
-          >開啟試玩版 ↗<span class="sr-only"> (另開分頁)</span></a
+          >查看開發版本 ↗<span class="sr-only"> (另開分頁)</span></a
         >
       </aside>
     </section>

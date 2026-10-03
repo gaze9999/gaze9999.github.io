@@ -186,7 +186,7 @@
         id: '1',
         name: '傳輸層加密',
         status: 'pass',
-        message: 'HTTPS/TLS 配置正確, 版本 1.3',
+        message: 'HTTPS/TLS 設定正確, 版本 1.3',
       },
       {
         id: '2',
@@ -208,9 +208,9 @@
       },
       {
         id: '5',
-        name: '日誌加密',
+        name: '操作紀錄加密',
         status: 'pass',
-        message: '敏感日誌資訊已加密記錄',
+        message: '敏感操作紀錄已加密',
       },
     ],
   })

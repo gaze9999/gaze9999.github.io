@@ -71,7 +71,7 @@
 
       <!-- Content Area -->
       <section class="min-w-0 p-4 sm:p-8">
-        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料; 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料. 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
         <slot />
       </section>
     </div>
@@ -102,7 +102,7 @@ const projectsLinks = [
   { label: '購物網站', to: '/projects/shop' },
   { label: '購物後台', to: '/projects/shop-admin' },
   { label: 'Python 爬蟲', to: '/projects/python-scraper' },
-  { label: '審計系統', to: '/projects/shop-admin/audit' },
+  { label: '後台稽核', to: '/projects/shop-admin/audit' },
   { label: '新聞系統', to: '/projects/news' },
   { label: 'YouTube', to: '/projects/youtube' },
 ]
@@ -121,7 +121,7 @@ const isShopAdminRoute = computed(() => route.path.startsWith('/shop/admin'))
 
 const brandTitle = computed(() => {
   if (isProjectsRoute.value) {
-    return '專案示例'
+    return '專案展示'
   }
   return '購物後台'
 })

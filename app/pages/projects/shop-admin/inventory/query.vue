@@ -696,7 +696,7 @@ const handleReset = () => {
 }
 
 const handleExport = () => {
-  alert('匯出操作示範; 此頁不會產生或下載報表')
+  alert('匯出操作示範. 此頁不會產生或下載報表')
 }
 
 const toggleSort = (column: keyof InventoryItem) => {
@@ -729,7 +729,7 @@ const viewDetails = (item: InventoryItem) => {
 }
 
 const editItem = (item: InventoryItem) => {
-  alert(`編輯操作示範; 不會修改商品資料\n商品: ${item.name}`)
+  alert(`編輯操作示範. 不會修改商品資料\n商品: ${item.name}`)
 }
 
 const closeModal = () => {

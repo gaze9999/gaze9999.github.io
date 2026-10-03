@@ -177,7 +177,7 @@ const mockData = [
   },
   {
     id: '4',
-    checkName: '人資權限配置稽核',
+    checkName: '人資權限設定稽核',
     category: '人資',
     status: 'passed',
     priority: 'medium',

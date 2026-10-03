@@ -3,7 +3,7 @@
     <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <header class="page-header">
       <h1>檢查規則管理</h1>
-      <p class="subtitle">定義和配置稽核檢查規則</p>
+      <p class="subtitle">設定稽核檢查規則</p>
     </header>
 
     <!-- 規則清單 -->
@@ -128,10 +128,10 @@
     },
     {
       id: 'RULE006',
-      name: '日誌記錄',
-      description: '驗證詳細的稽核日誌記錄',
+      name: '操作紀錄',
+      description: '檢查稽核操作紀錄是否完整',
       status: 'inactive',
-      category: '稽核日誌',
+      category: '稽核紀錄',
       priority: 'medium',
     },
   ])

@@ -20,8 +20,8 @@
           :href="repository.demo"
           target="_blank"
           rel="noopener noreferrer"
-          :aria-label="`${repository.name} 線上試玩 (另開分頁)`"
-          >線上試玩 <span aria-hidden="true">↗</span></a
+          :aria-label="`${repository.name} 線上版本 (另開分頁)`"
+          >線上版本 <span aria-hidden="true">↗</span></a
         >
       </div>
     </article>

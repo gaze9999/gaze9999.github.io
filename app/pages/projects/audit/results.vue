@@ -151,7 +151,7 @@
       name: '資料加密檢查',
       status: 'pass',
       executedAt: '2024-02-10 14:30',
-      remarks: '所有資料加密配置正確',
+      remarks: '所有資料加密設定正確',
     },
     {
       id: '2',
@@ -180,10 +180,10 @@
     {
       id: '5',
       checkId: 'CHK005',
-      name: '日誌記錄檢查',
+      name: '操作紀錄檢查',
       status: 'fail',
       executedAt: '2024-02-08 16:45',
-      remarks: '某些關鍵操作日誌遺失',
+      remarks: '部分重要操作缺少紀錄',
     },
   ])
 </script>

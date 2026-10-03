@@ -5,7 +5,7 @@
       <div class="header-content">
         <p class="eyebrow">Steam Store News</p>
         <h1 class="title">Steam 商店新聞</h1>
-        <p class="description">透過伺服器 API 展示 Steam 社群與活動新聞; GitHub Pages 靜態版本不提供此功能</p>
+        <p class="description">透過伺服器 API 展示 Steam 社群與活動新聞. GitHub Pages 靜態版本不提供此功能</p>
       </div>
       <button @click="refreshCurrentTab" class="refresh-button" :disabled="loading">
         <span class="refresh-icon"><i v-if="loading" class="fas fa-hourglass-end"></i><i v-else class="fas fa-sync"></i></span>
@@ -136,7 +136,7 @@ definePageMeta({
 type TabId = 'community' | 'sales'
 
 const serverFeaturesEnabled = useRuntimeConfig().public.serverFeaturesEnabled
-const staticDeploymentMessage = '此靜態版本未提供 Steam 新聞服務; 請至 Steam 官方網站查看最新消息'
+const staticDeploymentMessage = '此靜態版本未提供 Steam 新聞服務, 請至 Steam 官方網站查看最新消息'
 
 interface Tab {
   id: TabId

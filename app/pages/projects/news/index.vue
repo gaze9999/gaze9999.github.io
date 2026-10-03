@@ -5,7 +5,7 @@
       <div class="hero-text">
         <p class="eyebrow">Daily News</p>
         <h1>FFXIV 新聞與維護公告</h1>
-        <p class="lead">在這裡查看 FFXIV 新聞與維護消息; 內容與更新時間以來源服務提供的資料為準</p>
+        <p class="lead">查看 FFXIV 最新消息與維護公告, 點選公告可閱讀官方原文</p>
       </div>
       <div class="hero-controls">
         <div class="locale-switch">
@@ -32,11 +32,11 @@
         </article>
         <article class="info-card">
           <h3>載入與重新整理</h3>
-          <p>可選擇日文, 英文, 法文與德文; 切換語言或按下重新整理, 就會再次載入公告</p>
+          <p>可選擇日文, 英文, 法文與德文. 切換語言或按下重新整理, 就會再次載入公告</p>
         </article>
         <article class="info-card">
           <h3>查看公告</h3>
-          <p>切換下方頁籤可查看維護資訊或最新話題, 點選公告連結可閱讀原文</p>
+          <p>切換下方頁籤可查看維護公告或最新消息, 點選公告連結可閱讀原文</p>
         </article>
       </div>
     </section>
@@ -49,14 +49,14 @@
           class="tab-btn"
           :class="{ active: activeTab === 'maintenance' }"
         >
-          服務狀態
+          維護公告
         </button>
         <button
           @click="activeTab = 'topics'"
           class="tab-btn"
           :class="{ active: activeTab === 'topics' }"
         >
-          最新話題
+          最新消息
         </button>
       </div>
 
