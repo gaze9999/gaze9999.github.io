@@ -1,5 +1,6 @@
 <template>
   <div class="audit-system">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">稽核介面示範: 清單與統計使用固定資料; 新增, 儲存與審核只展示操作流程, 不會寫入或送出至後端</p>
     <!-- 頁面選擇器 -->
     <div class="audit-tabs">
       <button 
@@ -18,7 +19,7 @@
       <AuditQuery @mode-change="handleModeChange" />
     </div>
 
-    <!-- 編輯/新建頁面 -->
+    <!-- 編輯/新增頁面 -->
     <div v-if="activeTab === 'edit'" class="tab-content">
       <AuditEdit 
         :mode="editMode" 
@@ -141,13 +142,18 @@ const handleModeChange = (data: { mode: 'create' | 'edit'; selectedData?: any })
   }
 
   .tab-button {
-    min-width: 10rem;
+    min-width: 0;
     font-size: 0.75rem;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.5rem;
+    white-space: nowrap;
 
     i {
       display: none;
     }
+  }
+
+  .tab-content {
+    padding: 1rem;
   }
 }
 

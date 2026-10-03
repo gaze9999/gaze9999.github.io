@@ -1,11 +1,11 @@
 <template>
   <section class="page-block">
     <h2>採購與供應鏈</h2>
-    <p class="lead">涵蓋需求申請、詢價、審核與供應商績效追蹤。</p>
+    <p class="lead">涵蓋需求申請, 詢價, 審核與供應商績效追蹤</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、營運主管</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 營運主管</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
@@ -29,8 +29,8 @@
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：採購申請清單</h3>
-        <p>查看各部門申請、審核狀態與需求摘要。</p>
+        <h3>子頁面: 採購申請清單</h3>
+        <p>查看各部門申請, 審核狀態與需求摘要</p>
       </div>
       <NuxtLink to="/projects/shop-admin/procurement/requests" class="sub-link">前往清單 →</NuxtLink>
     </div>
@@ -41,10 +41,10 @@
         <div v-for="step in approvalSteps" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
-          <p>負責角色：{{ step.owner }}</p>
+          <p>負責角色: {{ step.owner }}</p>
           <p class="note">{{ step.note }}</p>
         </div>
       </div>
@@ -52,24 +52,26 @@
 
     <div class="table-section">
       <h3>進行中流程</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>流程編號</th>
-            <th>項目</th>
-            <th>目前節點</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in processRows" :key="item.id">
-            <td>{{ item.id }}</td>
-            <td>{{ item.item }}</td>
-            <td>{{ item.stage }}</td>
-            <td><span :class="['badge', item.status]">{{ item.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="採購流程資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>流程編號</th>
+              <th>項目</th>
+              <th>目前節點</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in processRows" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.item }}</td>
+              <td>{{ item.stage }}</td>
+              <td><span :class="['badge', item.status]">{{ item.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>

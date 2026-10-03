@@ -1,35 +1,35 @@
 <template>
   <section class="page-block">
     <h2>財務管理</h2>
-    <p class="lead">本月結帳、現金流與憑證狀態總覽。</p>
+    <p class="lead">本月結帳, 現金流與憑證狀態總覽</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、財務專員</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 財務專員</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
       <article class="card">
         <h3>月結進度</h3>
         <p>{{ financeSummary.monthClose }}</p>
-        <p>未結筆數：{{ financeSummary.pending }}</p>
+        <p>未結筆數: {{ financeSummary.pending }}</p>
       </article>
       <article class="card">
         <h3>現金流概況</h3>
-        <p>收入：{{ financeSummary.income }}</p>
-        <p>支出：{{ financeSummary.expense }}</p>
+        <p>收入: {{ financeSummary.income }}</p>
+        <p>支出: {{ financeSummary.expense }}</p>
       </article>
       <article class="card">
         <h3>應收應付</h3>
-        <p>應收：{{ financeSummary.receivable }}</p>
-        <p>應付：{{ financeSummary.payable }}</p>
+        <p>應收: {{ financeSummary.receivable }}</p>
+        <p>應付: {{ financeSummary.payable }}</p>
       </article>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：憑證與結帳明細</h3>
-        <p>展示應收應付與憑證分錄的細項清單。</p>
+        <h3>子頁面: 憑證與結帳明細</h3>
+        <p>展示應收應付與憑證分錄的細項清單</p>
       </div>
       <NuxtLink to="/projects/shop-admin/finance/vouchers" class="sub-link">前往憑證 →</NuxtLink>
     </div>
@@ -40,7 +40,7 @@
         <div v-for="step in closeFlow" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
           <p class="note">{{ step.note }}</p>
@@ -50,24 +50,26 @@
 
     <div class="table-section">
       <h3>待核對清單</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>憑證編號</th>
-            <th>類型</th>
-            <th>金額</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="row in voucherRows" :key="row.id">
-            <td>{{ row.id }}</td>
-            <td>{{ row.type }}</td>
-            <td>{{ row.amount }}</td>
-            <td><span :class="['badge', row.status]">{{ row.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="財務明細資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>憑證編號</th>
+              <th>類型</th>
+              <th>金額</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in voucherRows" :key="row.id">
+              <td>{{ row.id }}</td>
+              <td>{{ row.type }}</td>
+              <td>{{ row.amount }}</td>
+              <td><span :class="['badge', row.status]">{{ row.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>

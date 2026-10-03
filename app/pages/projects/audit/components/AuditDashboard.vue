@@ -79,13 +79,13 @@
       </ul>
     </section>
 
-    <!-- 按優先級分佈 -->
+    <!-- 按優先順序分佈 -->
     <section class="distribution-section">
-      <h2>後台稽核項目按優先級分佈</h2>
+      <h2>後台稽核項目按優先順序分佈</h2>
       <div class="distribution-grid">
         <div class="distribution-item">
           <div class="distribution-header">
-            <span class="label">高優先級</span>
+            <span class="label">高優先順序</span>
             <span class="count">12</span>
           </div>
           <div class="distribution-bar">
@@ -94,7 +94,7 @@
         </div>
         <div class="distribution-item">
           <div class="distribution-header">
-            <span class="label">中優先級</span>
+            <span class="label">中優先順序</span>
             <span class="count">18</span>
           </div>
           <div class="distribution-bar">
@@ -103,7 +103,7 @@
         </div>
         <div class="distribution-item">
           <div class="distribution-header">
-            <span class="label">低優先級</span>
+            <span class="label">低優先順序</span>
             <span class="count">15</span>
           </div>
           <div class="distribution-bar">
@@ -134,25 +134,25 @@ const recentActivities = [
   {
     icon: 'fas fa-check-circle',
     color: '#28a745',
-    text: '稽核「採購申請流程」已通過',
+    text: '稽核[採購申請流程]已通過',
     time: '2小時前',
   },
   {
     icon: 'fas fa-exclamation-circle',
     color: '#ffc107',
-    text: '稽核「庫存盤點差異」需改善',
+    text: '稽核[庫存盤點差異]需改善',
     time: '5小時前',
   },
   {
     icon: 'fas fa-plus-circle',
     color: '#667eea',
-    text: '新增稽核項目「財務憑證核對」',
+    text: '新增稽核項目[財務憑證核對]',
     time: '1天前',
   },
   {
     icon: 'fas fa-edit',
     color: '#764ba2',
-    text: '更新規則「人資權限配置」設定',
+    text: '更新規則[人資權限配置]設定',
     time: '2天前',
   },
   {

@@ -1,5 +1,6 @@
 <template>
   <div class="check-detail-page">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <!-- 返回按鈕 -->
     <div class="back-link">
       <NuxtLink to="/projects/audit/checks">← 返回檢查清單</NuxtLink>
@@ -152,7 +153,7 @@
   const checkDetail = ref<CheckDetail>({
     id: 'CHK001',
     name: '資料加密檢查',
-    description: '驗證系統中的所有敏感數據是否已正確加密',
+    description: '驗證系統中的所有敏感資料是否已正確加密',
     status: 'completed',
     result: 'pass',
     createdAt: '2024-01-15',
@@ -169,14 +170,14 @@
       },
       {
         id: 'RULE002',
-        name: '數據庫加密',
-        description: '驗證數據庫中的敏感字段已加密',
+        name: '資料庫加密',
+        description: '驗證資料庫中的敏感欄位已加密',
         applied: !0,
       },
       {
         id: 'RULE003',
-        name: '密鑰管理',
-        description: '檢查加密密鑰的安全管理',
+        name: '金鑰管理',
+        description: '檢查加密金鑰的安全管理',
         applied: !0,
       },
     ],
@@ -185,31 +186,31 @@
         id: '1',
         name: '傳輸層加密',
         status: 'pass',
-        message: 'HTTPS/TLS 配置正確，版本 1.3',
+        message: 'HTTPS/TLS 配置正確, 版本 1.3',
       },
       {
         id: '2',
-        name: '靜態數據加密',
+        name: '靜態資料加密',
         status: 'pass',
-        message: '數據庫使用 AES-256 加密',
+        message: '資料庫使用 AES-256 加密',
       },
       {
         id: '3',
-        name: '密鑰存儲',
+        name: '金鑰儲存',
         status: 'pass',
-        message: '密鑰安全保存在密鑰管理系統',
+        message: '金鑰安全儲存在金鑰管理系統',
       },
       {
         id: '4',
         name: '備份加密',
         status: 'pass',
-        message: '備份文件已加密存儲',
+        message: '備份檔案已加密儲存',
       },
       {
         id: '5',
         name: '日誌加密',
         status: 'pass',
-        message: '敏感日誌信息已加密記錄',
+        message: '敏感日誌資訊已加密記錄',
       },
     ],
   })

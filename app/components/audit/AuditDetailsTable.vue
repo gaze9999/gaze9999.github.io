@@ -1,5 +1,5 @@
 <template>
-  <div class="audit-table" :class="{ 'is-scroll': rows.length > 10 }">
+  <div class="audit-table" :class="{ 'is-scroll': rows.length > 10 }" role="region" aria-label="稽核詳細結果資料表, 可左右捲動" tabindex="0">
     <table>
       <thead>
         <tr>
@@ -42,10 +42,12 @@ defineProps<Props>()
 <style scoped>
 .audit-table {
   width: 100%;
+  overflow-x: auto;
 }
 
 .audit-table table {
   width: 100%;
+  min-width: 35rem;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
@@ -75,6 +77,7 @@ defineProps<Props>()
 }
 
 .badge {
+  white-space: nowrap;
   padding: 0.25rem 0.625rem;
   border-radius: 62.4375rem;
   font-size: 0.6875rem;

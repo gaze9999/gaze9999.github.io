@@ -2,6 +2,8 @@
 
 The source for [gaze9999.github.io](https://gaze9999.github.io), a Nuxt 4 personal website and project showcase built with TypeScript and Pinia.
 
+The homepage and project overview showcase Universe Idle, My Py Tools, Codex Setup, Codex Playbook, Local Activity Monitor, and Codex Sidebar Cleaner. These are curated static entries based on public repository READMEs, maintained in `app/modules/projects/index.ts` and displayed through the shared RepositoryCards component; repository data is not fetched at runtime. The original internal demo pages remain available.
+
 ## 🎯 Project Features
 
 - **Nuxt 4** - Vue framework with file-based routing
@@ -32,7 +34,7 @@ app/
 
 ### Prerequisites
 
-- Node.js 22.12+
+- Node.js 22.19+ (22.x), 24.11+ (24.x), or 26.0+ (matching `package.json` engines)
 - pnpm (recommended) or npm/yarn
 
 ### Installation
@@ -231,7 +233,7 @@ Install VS Code extensions for best experience:
 
 ## 📚 Resources
 
-- [Nuxt 3 Documentation](https://nuxt.com/docs)
+- [Nuxt 4 Documentation](https://nuxt.com/docs/4.x/getting-started/introduction)
 - [Vue 3 Guide](https://vuejs.org/)
 - [Pinia Documentation](https://pinia.vuejs.org/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)

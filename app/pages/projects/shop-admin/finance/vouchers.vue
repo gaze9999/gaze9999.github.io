@@ -3,35 +3,37 @@
     <div class="header">
       <div>
         <h2>憑證與結帳明細</h2>
-        <p class="lead">掌握本期憑證與應收應付對帳狀態。</p>
+        <p class="lead">掌握本期憑證與應收應付對帳狀態</p>
       </div>
-      <div class="badge">可存取：系統管理、財務專員</div>
+      <div class="badge">可存取: 系統管理, 財務專員</div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>憑證編號</th>
-          <th>類型</th>
-          <th>金額</th>
-          <th>期間</th>
-          <th>狀態</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in vouchers" :key="row.id">
-          <td>{{ row.id }}</td>
-          <td>{{ row.type }}</td>
-          <td>{{ row.amount }}</td>
-          <td>{{ row.period }}</td>
-          <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto" role="region" aria-label="憑證與結帳資料表, 可左右捲動" tabindex="0">
+      <table class="data-table min-w-[35rem]">
+        <thead>
+          <tr>
+            <th>憑證編號</th>
+            <th>類型</th>
+            <th>金額</th>
+            <th>期間</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in vouchers" :key="row.id">
+            <td>{{ row.id }}</td>
+            <td>{{ row.type }}</td>
+            <td>{{ row.amount }}</td>
+            <td>{{ row.period }}</td>
+            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note-card">
       <h3>提醒</h3>
-      <p>月結前需完成所有憑證覆核，避免報表延遲。</p>
+      <p>月結前需完成所有憑證覆核, 避免報表延遲</p>
     </div>
   </section>
 </template>

@@ -17,7 +17,7 @@
       </nav>
       
       <div class="mt-auto text-xs text-amber-50/70">
-        <p class="m-0">資料皆為去識別化樣本</p>
+        <p class="m-0">固定示範資料, 用於展示後台介面</p>
       </div>
     </aside>
 
@@ -39,6 +39,7 @@
       </header>
 
       <section class="p-8">
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">介面示範: 圖表與清單使用固定示範資料, 不代表實際營運狀態; 角色切換只模擬畫面權限, 未連接登入與後端作業</p>
         <slot />
       </section>
     </div>

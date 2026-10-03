@@ -4,12 +4,12 @@
       <p class="eyebrow">Commerce Back Office</p>
       <h1>購物後台管理系統</h1>
       <p class="lead">
-        以電商營運為情境，參考 TSRDERP 組織方式，展示採購、庫存、財務、人資與報表的整合後台設計。
+        以電商營運為情境, 使用固定示範資料呈現採購, 庫存, 財務, 人資與報表的後台介面設計
       </p>
       <div class="hero-meta">
-        <span>模組數量：6</span>
-        <span>角色權限：7</span>
-        <span>資料流：20+ 節點</span>
+        <span>模組介面展示</span>
+        <span>角色切換示範</span>
+        <span>跨模組流程示意</span>
       </div>
     </div>
     <div class="hero-panel">
@@ -21,15 +21,15 @@
         </div>
         <div class="panel-card">
           <h4>庫存管理</h4>
-          <p>批次控管、庫位盤點與異動追蹤</p>
+          <p>批次控管, 庫位盤點與異動追蹤</p>
         </div>
         <div class="panel-card">
           <h4>財務結算</h4>
-          <p>憑證、應收應付、月結報表</p>
+          <p>憑證, 應收應付, 月結報表</p>
         </div>
         <div class="panel-card">
           <h4>人資流程</h4>
-          <p>招募、排班、績效、薪資結算</p>
+          <p>招募, 排班, 績效, 薪資結算</p>
         </div>
       </div>
     </div>
@@ -40,19 +40,19 @@
     <div class="module-grid">
       <article>
         <h3>供應鏈管理</h3>
-        <p>涵蓋需求規劃、供應商評分、交期監控與採購風險。</p>
+        <p>以需求申請, 供應商評等與簽核節點呈現採購流程</p>
       </article>
       <article>
         <h3>資產與庫存</h3>
-        <p>支援批次追溯、序號管理、庫存預警與倉庫動線。</p>
+        <p>展示庫存清單, 批次資訊, 異動紀錄與預警畫面</p>
       </article>
       <article>
         <h3>財務與稅務</h3>
-        <p>整合費用與收入資料，建立自動對帳與稅務報表。</p>
+        <p>以示範金額與憑證呈現收入, 支出及月結核對畫面</p>
       </article>
       <article>
         <h3>人資管理</h3>
-        <p>角色權限、薪資結構、考勤管理與績效指標。</p>
+        <p>展示部門人力, 招募進度與待處理任務</p>
       </article>
     </div>
   </section>
@@ -62,19 +62,19 @@
     <div class="architecture-list">
       <div class="arch-item">
         <span>01</span>
-        <p>模組化設計，支援快速擴充新流程</p>
+        <p>按營運功能分組的模組頁面</p>
       </div>
       <div class="arch-item">
         <span>02</span>
-        <p>多層權限控管，對應各部門角色</p>
+        <p>模擬角色切換與導覽可見範圍</p>
       </div>
       <div class="arch-item">
         <span>03</span>
-        <p>即時監控與 KPI 儀表板</p>
+        <p>以固定資料呈現 KPI 與圖表</p>
       </div>
       <div class="arch-item">
         <span>04</span>
-        <p>集中式報表輸出與匯出服務</p>
+        <p>報表清單與匯出操作示意</p>
       </div>
     </div>
   </section>
@@ -84,15 +84,15 @@
     <div class="showcase">
       <div>
         <h3>視覺展示</h3>
-        <p>提供跨模組的工作台與總覽視圖，強調營運效率。</p>
+        <p>提供跨模組的工作台與總覽視圖, 強調營運效率</p>
       </div>
       <div>
         <h3>流程示意</h3>
-        <p>以圖卡形式描述「需求 → 採購 → 交付 → 結算」完整流程。</p>
+        <p>以圖卡形式描述[需求 → 採購 → 交付 → 結算]完整流程</p>
       </div>
       <div>
         <h3>資料分析</h3>
-        <p>即時監控供應鏈績效與財務風險。</p>
+        <p>以示範指標與預警清單呈現分析介面</p>
       </div>
     </div>
   </section>
@@ -101,7 +101,7 @@
     <div class="entry-card">
       <div>
         <h2>體驗購物後台</h2>
-        <p>瀏覽實際模組頁面與角色權限配置示範。</p>
+        <p>瀏覽模組介面與角色切換示範; 資料不會送往後端系統</p>
       </div>
       <NuxtLink to="/shop/admin" class="btn">前往後台 →</NuxtLink>
     </div>
@@ -116,7 +116,7 @@
   .project-hero {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(17.5rem, 100%), 1fr));
     align-items: center;
     padding: 3.75rem 2rem 2.5rem;
     background: linear-gradient(135deg, #f2f5ff 0%, #fff8ef 100%);
@@ -191,7 +191,7 @@
 
   .module-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
     gap: 1rem;
   }
 
@@ -223,6 +223,11 @@
   }
 
   @media (max-width: 45rem) {
+    .project-hero,
+    .project-section {
+      padding-inline: 1rem;
+    }
+
     .entry-card {
       flex-direction: column;
       align-items: flex-start;
@@ -257,7 +262,7 @@
   .showcase {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
   }
 
   .project-footer {

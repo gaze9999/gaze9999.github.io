@@ -1,13 +1,13 @@
 <template>
-  <div class="grid grid-cols-[240px_1fr] min-h-screen bg-gray-50">
+  <div class="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)] min-h-screen bg-gray-50">
     <!-- Sidebar -->
-    <aside class="bg-gray-900 text-amber-50 flex flex-col p-6">
-      <div class="mb-7">
+    <aside class="bg-gray-900 text-amber-50 flex flex-col p-4 lg:p-6">
+      <div class="mb-4 lg:mb-7">
         <span class="text-lg font-bold block">購物後台</span>
         <span class="text-xs text-amber-50/70 mt-1.5 block">Commerce Admin Console</span>
       </div>
       
-      <nav class="flex flex-col gap-2.5">
+      <nav class="flex flex-wrap gap-2.5 lg:flex-col">
         <NuxtLink
           v-for="link in visibleLinks"
           :key="link.to"
@@ -30,15 +30,15 @@
         </NuxtLink>
       </div>
       
-      <div class="mt-auto text-xs text-amber-50/70">
-        <p class="m-0">資料皆為去識別化樣本</p>
+      <div class="mt-4 lg:mt-auto text-xs text-amber-50/70">
+        <p class="m-0">固定示範資料, 用於展示後台介面</p>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex flex-col">
+    <div class="flex flex-col min-w-0">
       <!-- Breadcrumb -->
-      <nav class="flex items-center gap-2 px-8 py-3 bg-amber-50 border-b border-amber-100 text-xs">
+      <nav class="flex flex-wrap items-center gap-2 px-4 sm:px-8 py-3 bg-amber-50 border-b border-amber-100 text-xs">
         <NuxtLink to="/projects" class="text-orange-500 font-semibold hover:text-orange-600 transition-colors">
           ◄ 返回專案
         </NuxtLink>
@@ -47,12 +47,12 @@
       </nav>
 
       <!-- Topbar -->
-      <header class="flex justify-between items-center px-8 py-6 bg-white border-b border-gray-900/8">
+      <header class="flex flex-wrap gap-4 justify-between items-center px-4 sm:px-8 py-6 bg-white border-b border-gray-900/8">
         <div>
           <p class="m-0 mb-1 text-xs tracking-widest uppercase text-amber-700">模組標題</p>
           <h1 class="m-0 text-[26px] text-gray-900">{{ activeTitle }}</h1>
         </div>
-        <div class="flex gap-2.5 items-center">
+        <div class="flex flex-wrap gap-2.5 items-center">
           <!-- Role Switcher -->
           <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-amber-50 text-xs text-amber-900">
             <span class="font-semibold">角色</span>
@@ -75,12 +75,13 @@
       </header>
 
       <!-- Access Denied Alert -->
-      <div v-if="lastDeniedRoute" class="mx-8 mt-4 px-4 py-3 rounded-xl bg-red-100 text-red-700 text-sm font-semibold">
-        權限不足，已導回總覽。無法進入：{{ lastDeniedRoute }}
+      <div v-if="lastDeniedRoute" class="mx-4 sm:mx-8 mt-4 px-4 py-3 break-words rounded-xl bg-red-100 text-red-700 text-sm font-semibold">
+        權限不足, 已導回總覽無法進入: {{ lastDeniedRoute }}
       </div>
 
       <!-- Content Area -->
-      <section class="p-8">
+      <section class="min-w-0 p-4 sm:p-8">
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">介面示範: 圖表與清單使用固定示範資料, 不代表實際營運狀態; 角色切換只模擬畫面權限, 未連接登入與後端作業</p>
         <slot />
       </section>
     </div>

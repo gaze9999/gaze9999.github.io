@@ -10,7 +10,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <h1 class="title">YouTube 電視牆</h1>
-      <p class="subtitle">展示多個YouTube影片，支援播放控制與聊天功能</p>
+      <p class="subtitle">展示多個 YouTube 嵌入影片, 提供影片清單管理與聊天室顯示切換</p>
     </section>
 
     <!-- Information Section -->
@@ -18,15 +18,15 @@
       <div class="info-grid">
         <article class="info-card">
           <h3>功能說明</h3>
-          <p>在下方輸入YouTube連結，系統會自動解析影片ID並添加至電視牆中展示。支援多個影片同時播放與管理。</p>
+          <p>在下方輸入 YouTube 連結, 解析影片 ID 後加入清單; 能否嵌入播放依影片與瀏覽器限制</p>
         </article>
         <article class="info-card">
-          <h3>播放控制</h3>
-          <p>支援全局播放/暫停控制、靜音設定、聊天室顯示切換。所有設定會自動保存至本地存儲。</p>
+          <h3>控制範圍</h3>
+          <p>上方播放與音量按鈕為設定示範, 尚未控制嵌入播放器; 請使用各影片內的播放控制, 清單與設定會嘗試儲存在此瀏覽器</p>
         </article>
         <article class="info-card">
-          <h3>連結格式</h3>
-          <p>支援 youtube.com 或 youtu.be 的標準連結格式，如：youtube.com/watch?v=... 或 youtu.be/...</p>
+          <h3>連結格式與限制</h3>
+          <p>支援 youtube.com 或 youtu.be 的標準連結格式, 如: youtube.com/watch?v=... 或 youtu.be/...</p>
         </article>
       </div>
     </section>
@@ -52,8 +52,8 @@
       <!-- Empty State -->
       <div v-if="!hasVideos" class="empty-state">
         <p class="empty-icon"><i class="fas fa-tv"></i></p>
-        <p class="empty-text">尚未添加任何影片</p>
-        <p class="empty-hint">請在上方輸入YouTube連結開始使用</p>
+        <p class="empty-text">尚未新增任何影片</p>
+        <p class="empty-hint">請在上方輸入 YouTube 連結開始使用</p>
       </div>
 
       <!-- Video Grid -->
@@ -190,7 +190,7 @@ const toggleChat = () => {
 
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
       gap: 20px;
 
       .info-card {

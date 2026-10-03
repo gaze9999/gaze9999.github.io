@@ -4,13 +4,13 @@
       <button @click="$emit('back')" class="btn-back">
         <i class="fas fa-arrow-left"></i> 返回
       </button>
-      <h1>{{ mode === 'create' ? '新建檢查項目' : '編輯檢查項目' }}</h1>
+      <h1>{{ mode === 'create' ? '新增檢查項目' : '編輯檢查項目' }}</h1>
     </div>
 
     <div class="content">
-      <!-- 基本信息 -->
+      <!-- 基本資訊 -->
       <section class="form-section">
-        <h2>基本信息</h2>
+        <h2>基本資訊</h2>
         <div class="form-grid">
           <div class="form-group">
             <label>檢查項目名稱 *</label>
@@ -21,12 +21,12 @@
             <select v-model="formData.category" class="input-field">
               <option>安全性</option>
               <option>權限管理</option>
-              <option>數據保護</option>
-              <option>系統運維</option>
+              <option>資料保護</option>
+              <option>系統維運</option>
             </select>
           </div>
           <div class="form-group">
-            <label>優先級 *</label>
+            <label>優先順序 *</label>
             <select v-model="formData.priority" class="input-field">
               <option value="high">高</option>
               <option value="medium">中</option>
@@ -60,7 +60,7 @@
             <label>檢查頻率</label>
             <select v-model="formData.frequency" class="input-field">
               <option>每日</option>
-              <option>每周</option>
+              <option>每週</option>
               <option>每月</option>
               <option>每季</option>
             </select>
@@ -87,7 +87,7 @@
           <i class="fas fa-times"></i> 取消
         </button>
         <button @click="saveForm" class="btn-submit">
-          <i class="fas fa-save"></i> {{ mode === 'create' ? '新建' : '保存' }}
+          <i class="fas fa-save"></i> {{ mode === 'create' ? '新增示範' : '儲存示範' }}
         </button>
       </div>
     </div>
@@ -133,7 +133,7 @@ const saveForm = () => {
     alert('請填寫必填項目')
     return
   }
-  alert('保存成功！')
+  alert('已完成表單操作示範; 此內容未儲存至資料清單或後端')
 }
 </script>
 
@@ -145,6 +145,7 @@ const saveForm = () => {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -159,6 +160,8 @@ const saveForm = () => {
 }
 
 .btn-back {
+  flex-shrink: 0;
+  white-space: nowrap;
   padding: 0.625rem 1rem;
   background: #e8ecf5;
   border: none;
@@ -201,7 +204,7 @@ const saveForm = () => {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -244,6 +247,7 @@ textarea.input-field {
 .form-actions {
   padding: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: flex-end;
   background: #f9fafb;
@@ -253,6 +257,7 @@ textarea.input-field {
 .btn-cancel,
 .btn-submit {
   padding: 0.625rem 1.5rem;
+  white-space: nowrap;
   border: none;
   border-radius: 0.375rem;
   font-weight: 600;
@@ -280,6 +285,16 @@ textarea.input-field {
   &:hover {
     transform: translateY(-0.125rem);
     box-shadow: 0 0.5rem 1rem #667eea4d;
+  }
+}
+@media (max-width: 48rem) {
+  .header {
+    padding: 0 1rem;
+  }
+
+  .form-section,
+  .form-actions {
+    padding: 1rem;
   }
 }
 </style>

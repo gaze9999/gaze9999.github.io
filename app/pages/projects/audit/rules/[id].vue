@@ -1,5 +1,6 @@
 <template>
   <div class="rule-detail-page">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <div class="back-link">
       <NuxtLink to="/projects/audit/rules">← 返回規則清單</NuxtLink>
     </div>
@@ -112,7 +113,7 @@
     conditions: [
       {
         name: '最小 TLS 版本',
-        description: '伺服器應配置為至少支持 TLS 1.2',
+        description: '伺服器應配置為至少支援 TLS 1.2',
         expression: 'tlsVersion >= 1.2',
       },
       {

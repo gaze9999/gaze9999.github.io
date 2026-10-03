@@ -1,7 +1,7 @@
 <template>
   <div class="ffxiv-maintenance">
     <div class="maintenance-header">
-      <h2>FF XIV Service Status</h2>
+      <h2>FFXIV 維護公告</h2>
       <button @click="refresh" class="refresh-btn" :disabled="loading">
         {{ loading ? '更新中...' : '重新整理' }}
       </button>
@@ -24,17 +24,18 @@
 
     <!-- 當前服務狀態 -->
     <div v-if="currentStatus" class="service-status">
-      <h3>服務狀態</h3>
+      <h3>目前維護公告</h3>
+      <p>依 API 提供的維護清單顯示, 不代表即時連線或服務可用性檢測</p>
       <div class="status-grid">
         <!-- Game Status -->
         <div class="status-item">
           <h4>遊戲伺服器</h4>
           <span v-if="!currentStatus.game.some(d => d.current)" class="status-badge online">
-            ● 正常運作
+            ● 未標示進行中的維護
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.game" :key="item.id">
-              <a :href="item.url" target="_blank">{{ item.title }}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -43,11 +44,11 @@
         <div class="status-item">
           <h4>Lodestone</h4>
           <span v-if="!currentStatus.lodestone.some(d => d.current)" class="status-badge online">
-            ● 正常運作
+            ● 未標示進行中的維護
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.lodestone" :key="item.id">
-              <a :href="item.url" target="_blank">{{ item.title }}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -56,11 +57,11 @@
         <div class="status-item">
           <h4>Companion App</h4>
           <span v-if="!currentStatus.companion.some(d => d.current)" class="status-badge online">
-            ● 正常運作
+            ● 未標示進行中的維護
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.companion" :key="item.id">
-              <a :href="item.url" target="_blank">{{ item.title }}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -69,11 +70,11 @@
         <div class="status-item">
           <h4>Mog Station</h4>
           <span v-if="!currentStatus.mog.some(d => d.current)" class="status-badge online">
-            ● 正常運作
+            ● 未標示進行中的維護
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.mog" :key="item.id">
-              <a :href="item.url" target="_blank">{{ item.title }}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -82,11 +83,11 @@
         <div class="status-item">
           <h4>PSN</h4>
           <span v-if="!currentStatus.psn.some(d => d.current)" class="status-badge online">
-            ● 正常運作
+            ● 未標示進行中的維護
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.psn" :key="item.id">
-              <a :href="item.url" target="_blank">{{ item.title }}</a>
+              <a :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
             </li>
           </ul>
         </div>
@@ -133,7 +134,7 @@ const fetchData = async () => {
     maintenanceList.value = sortByTimeDesc(formattedMaintenance)
     currentStatus.value = current
   } catch (err: any) {
-    error.value = err.message || '獲取維護資料失敗'
+    error.value = err.message || '載入維護資料失敗'
     console.error('Failed to fetch maintenance data:', err)
   } finally {
     loading.value = false
@@ -159,6 +160,8 @@ watch(() => props.locale, () => {
 .ffxiv-maintenance {
   .maintenance-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -172,6 +175,8 @@ watch(() => props.locale, () => {
     }
 
     .refresh-btn {
+      flex-shrink: 0;
+      white-space: nowrap;
       padding: 8px 16px;
       background: #1976d2;
       color: white;
@@ -249,7 +254,7 @@ watch(() => props.locale, () => {
 
     .status-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
       gap: 20px;
 
       .status-item {

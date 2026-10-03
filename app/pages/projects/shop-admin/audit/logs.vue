@@ -3,7 +3,7 @@
     <section class="logs-header">
       <div class="filter-controls">
         <div class="filter-group">
-          <label>篩選類型：</label>
+          <label>篩選類型: </label>
           <select v-model="filterType" class="select-control">
             <option value="">全部</option>
             <option value="create">新增</option>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="filter-group">
-          <label>嚴重程度：</label>
+          <label>嚴重程度: </label>
           <select v-model="filterSeverity" class="select-control">
             <option value="">全部</option>
             <option value="info">一般</option>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="filter-group">
-          <label>使用者：</label>
+          <label>使用者: </label>
           <input v-model="searchUser" type="text" class="input-control" placeholder="搜尋使用者名稱">
         </div>
 

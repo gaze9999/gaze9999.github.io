@@ -32,7 +32,7 @@ export const getSteamCommunityNews = async (
   language?: string
 ): Promise<SteamNewsItem[]> => {
   if (!appIds || appIds.length === 0) {
-    throw new Error('appIds 參數為必填，請提供至少一個遊戲 AppID');
+    throw new Error('請提供至少一個遊戲 AppID');
   }
 
   try {
@@ -62,7 +62,7 @@ export const getSteamCommunityNews = async (
 
     // 如果是 503 錯誤（API Key 未配置），拋出特定錯誤
     if (error?.statusCode === 503) {
-      throw new Error('Steam API Key 未配置，請聯繫管理員設定');
+      throw new Error('Steam API Key 尚未設定, 請聯繫網站維護者');
     }
 
     throw error;
@@ -86,7 +86,7 @@ export const getSteamSalesNews = async (
   language?: string
 ): Promise<SteamNewsItem[]> => {
   if (!appIds || appIds.length === 0) {
-    throw new Error('appIds 參數為必填，請提供至少一個遊戲 AppID');
+    throw new Error('請提供至少一個遊戲 AppID');
   }
 
   try {
@@ -117,7 +117,7 @@ export const getSteamSalesNews = async (
 
     // 如果是 503 錯誤（API Key 未配置），拋出特定錯誤
     if (error?.statusCode === 503) {
-      throw new Error('Steam API Key 未配置，請聯繫管理員設定');
+      throw new Error('Steam API Key 尚未設定, 請聯繫網站維護者');
     }
 
     throw error;

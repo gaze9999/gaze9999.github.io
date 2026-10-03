@@ -20,9 +20,9 @@
             <h3>{{ module.name }}</h3>
             <span :class="['status', module.status]">{{ module.status }}</span>
           </div>
-          <p class="owner">負責單位：{{ module.owner }}</p>
+          <p class="owner">負責單位: {{ module.owner }}</p>
           <p class="kpi">{{ module.kpi }}</p>
-          <p class="update">更新時間：{{ module.updatedAt }}</p>
+          <p class="update">更新時間: {{ module.updatedAt }}</p>
         </article>
       </div>
     </section>
@@ -35,7 +35,7 @@
       <div class="charts-grid">
         <!-- 營收趨勢圖 -->
         <div class="chart-container">
-          <h3>營收趨勢（近6個月）</h3>
+          <h3>營收趨勢(近6個月)</h3>
           <div ref="revenueChartRef" class="chart"></div>
         </div>
         <!-- 採購狀態分佈 -->
@@ -43,9 +43,9 @@
           <h3>採購狀態分佈</h3>
           <div ref="procurementChartRef" class="chart pie-chart"></div>
         </div>
-        <!-- 模組運營效率 -->
+        <!-- 模組營運效率 -->
         <div class="chart-container">
-          <h3>模組運營效率對比</h3>
+          <h3>模組營運效率對比</h3>
           <div ref="moduleChartRef" class="chart"></div>
         </div>
         <!-- 人力資源配置 -->
@@ -65,12 +65,12 @@
         <div v-for="step in workflowSteps" :key="step.id" class="workflow-card">
           <div class="workflow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h3>{{ step.title }}</h3>
-          <p class="owner">責任角色：{{ step.owner }}</p>
+          <p class="owner">責任角色: {{ step.owner }}</p>
           <p class="note">{{ step.note }}</p>
-          <span class="time">期限：{{ step.due }}</span>
+          <span class="time">期限: {{ step.due }}</span>
         </div>
       </div>
     </section>
@@ -78,8 +78,8 @@
     <section class="access-section">
       <h2>權限顯示</h2>
       <div class="access-card">
-        <p>目前角色：{{ roleLabel }}</p>
-        <p>可存取模組：{{ accessSummary }}</p>
+        <p>目前角色: {{ roleLabel }}</p>
+        <p>可存取模組: {{ accessSummary }}</p>
       </div>
     </section>
 
@@ -312,7 +312,7 @@ const accessSummary = computed(() => {
   if (erpStore.canAccessPath('/projects/shop-admin/reports')) {
     modulesList.push('報表')
   }
-  return modulesList.join('、')
+  return modulesList.join(', ')
 })
 
 const setSummaryRef = (el: HTMLElement | null, index: number) => {
@@ -401,7 +401,13 @@ const initProcurementChart = () => {
 
   if (procurementChartRef.value) {
     procurementChart = echarts.init(procurementChartRef.value)
-    procurementChart.setOption(option)
+    procurementChart.setOption({
+      ...option,
+      media: [
+        { query: { maxWidth: 300 }, option: { series: [{ label: { show: false }, labelLine: { show: false } }] } },
+        { option: { series: [{ label: { show: true }, labelLine: { show: true } }] } },
+      ],
+    })
   }
 }
 
@@ -414,7 +420,7 @@ const initModuleChart = () => {
     yAxis: { type: 'value', max: 100 },
     series: [
       {
-        name: '運營效率(%)',
+        name: '營運效率(%)',
         data: [85, 78, 92, 88, 81],
         type: 'bar',
         itemStyle: {
@@ -448,7 +454,7 @@ const initHrChart = () => {
         data: [
           { value: 35, name: '採購部' },
           { value: 28, name: '倉儲部' },
-          { value: 22, name: '運營部' },
+          { value: 22, name: '營運部' },
           { value: 15, name: '行政部' },
         ],
         label: { formatter: '{b}', overflow: 'truncate', width: 72 },
@@ -461,7 +467,13 @@ const initHrChart = () => {
 
   if (hrChartRef.value) {
     hrChart = echarts.init(hrChartRef.value)
-    hrChart.setOption(option)
+    hrChart.setOption({
+      ...option,
+      media: [
+        { query: { maxWidth: 300 }, option: { series: [{ label: { show: false }, labelLine: { show: false } }] } },
+        { option: { series: [{ label: { show: true }, labelLine: { show: true } }] } },
+      ],
+    })
   }
 }
 
@@ -546,12 +558,13 @@ onUnmounted(() => {
 
   .charts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(23.75rem, 100%), 1fr));
     gap: 1.25rem;
     margin-bottom: 2rem;
   }
 
   .chart-container {
+    min-width: 0;
     background: #ffffff;
     border-radius: 1.25rem;
     padding: 1.5rem;
@@ -584,7 +597,7 @@ onUnmounted(() => {
 
   .workflow-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
     gap: 1rem;
   }
 
@@ -652,7 +665,7 @@ onUnmounted(() => {
 
   .warning-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
     gap: 1rem;
   }
 
@@ -807,6 +820,8 @@ onUnmounted(() => {
 
   .section-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.25rem;
@@ -828,7 +843,7 @@ onUnmounted(() => {
 
   .module-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
     gap: 1rem;
   }
 
@@ -841,6 +856,8 @@ onUnmounted(() => {
 
   .module-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
@@ -896,6 +913,8 @@ onUnmounted(() => {
 
   .notice-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
@@ -995,5 +1014,14 @@ onUnmounted(() => {
     margin-top: 0.75rem;
     font-size: 0.75rem;
     color: #f5f0e6b3;
+  }
+
+  @media (max-width: 48rem) {
+    .module-section,
+    .workflow-section,
+    .warning-section,
+    .chart-container {
+      padding: 1rem;
+    }
   }
 </style>
