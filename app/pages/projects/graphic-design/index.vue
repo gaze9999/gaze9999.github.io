@@ -18,7 +18,7 @@
     <section class="graphics-hero">
       <h1>平面設計作品集</h1>
       <p class="subtitle">Graphic Design Portfolio</p>
-      <p class="lead">整理個人標誌, 插畫, 履歷與網站畫面設計; 點選作品可放大查看</p>
+      <p class="lead">整理個人標誌, 插畫, 履歷與網站畫面設計, 點選作品可放大查看</p>
     </section>
 
     <!-- Navigation Highlights -->

@@ -11,6 +11,9 @@ export default defineNuxtConfig({
         { name: 'description', content: 'gaze9999 的公開專案, 前端作品, Python 工具與 AI 輔助開發筆記' },
       ],
       link: [
+        { rel: 'icon', type: 'image/x-icon', sizes: '16x16 32x32 48x48', href: '/favicon.ico?v=20261004' },
+        { rel: 'icon', type: 'image/svg+xml', sizes: 'any', href: '/favicon.svg?v=20261004' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png?v=20261004' },
         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' },
       ],
     },

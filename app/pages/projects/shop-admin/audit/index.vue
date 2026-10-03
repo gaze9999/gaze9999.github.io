@@ -23,10 +23,10 @@
 
       <article class="overview-card">
         <div class="card-header">
-          <h3>系統日誌</h3>
+          <h3>系統紀錄</h3>
           <span class="icon"><i class="fas fa-chart-bar"></i></span>
         </div>
-        <p class="description">系統事件與錯誤日誌查詢</p>
+        <p class="description">查詢系統事件與錯誤紀錄</p>
         <div class="info-badge">計畫中</div>
       </article>
 
@@ -35,7 +35,7 @@
           <h3>合規報告</h3>
           <span class="icon">✅</span>
         </div>
-        <p class="description">生成稽核與合規相關報告</p>
+        <p class="description">產生稽核與合規相關報告</p>
         <div class="info-badge">計畫中</div>
       </article>
     </section>

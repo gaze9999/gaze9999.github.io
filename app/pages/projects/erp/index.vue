@@ -101,7 +101,7 @@
     <div class="entry-card">
       <div>
         <h2>體驗購物後台</h2>
-        <p>瀏覽模組介面與角色切換示範; 資料不會送往後端系統</p>
+        <p>瀏覽模組介面與角色切換示範, 資料不會送往後端系統</p>
       </div>
       <NuxtLink to="/shop/admin" class="btn">前往後台 →</NuxtLink>
     </div>

@@ -135,7 +135,7 @@
     },
     {
       id: 'CHK005',
-      name: '日誌記錄檢查',
+      name: '操作紀錄檢查',
       status: 'completed',
       executedAt: '2024-02-08 16:45',
       result: 'fail',

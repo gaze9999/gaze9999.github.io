@@ -4,15 +4,14 @@
       <p class="eyebrow">作品概覽</p>
       <h1 id="projects-title">公開專案與實作展示</h1>
       <p class="subtitle">
-        最近在做 Python 工具, 整理 AI 輔助開發的經驗, 也嘗試製作放置遊戲; 這裡可以找到原始碼,
-        遊戲試玩版與互動示範
+        這裡收錄 Python 工具, AI 協作開發筆記與開發中的放置遊戲, 可以查看原始碼, 線上版本與介面展示
       </p>
     </section>
 
     <section class="repository-section" aria-labelledby="repositories-title">
       <div class="section-heading">
         <h2 id="repositories-title">近期公開專案</h2>
-        <p>點選 GitHub 可查看原始碼與使用說明, 有試玩版的作品也能直接開啟</p>
+        <p>點選 GitHub 可查看原始碼與使用說明, 有線上版本的作品也能直接開啟</p>
       </div>
       <ProjectsRepositoryCards />
     </section>
@@ -21,7 +20,7 @@
       <div class="section-heading">
         <h2 id="demonstrations-title">介面設計與爬蟲作品</h2>
         <p>
-          瀏覽電商, 後台與影音介面的互動示範, 或查詢 TGS 2025 展覽商資料; 示範頁會標示使用的範例資料
+          瀏覽電商, 後台與影音介面的互動示範, 或查詢 TGS 2025 展覽商資料. 示範頁會標示使用的範例資料
         </p>
       </div>
       <div class="demo-grid">
@@ -45,7 +44,7 @@
     description:
       'gaze9999 的公開專案與作品, 包含 Universe Idle, My Py Tools, Codex Setup, Codex Playbook 與 Codex 使用紀錄工具',
     ogTitle: '公開專案與實作展示 | gaze9999',
-    ogDescription: '瀏覽 Python 工具, AI 輔助開發筆記, 放置遊戲試玩版與前端互動示範',
+    ogDescription: '瀏覽 Python 工具, AI 協作開發筆記, 開發中的放置遊戲與前端互動示範',
   })
 </script>
 

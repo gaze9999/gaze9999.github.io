@@ -39,7 +39,7 @@
       </header>
 
       <section class="p-8">
-        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料; 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料. 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
         <slot />
       </section>
     </div>

@@ -113,7 +113,7 @@
     conditions: [
       {
         name: '最小 TLS 版本',
-        description: '伺服器應配置為至少支援 TLS 1.2',
+        description: '伺服器應設定為至少支援 TLS 1.2',
         expression: 'tlsVersion >= 1.2',
       },
       {

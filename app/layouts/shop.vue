@@ -9,7 +9,7 @@
       </div>
     </header>
     <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8">
-      <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是商城介面示範, 商品, 價格與優惠都是展示內容; 目前無法下單或付款, 也未提供客服服務</p>
+      <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是商城介面示範, 商品, 價格與優惠都是展示內容. 目前無法下單或付款, 也未提供客服服務</p>
       <slot />
     </main>
   </div>

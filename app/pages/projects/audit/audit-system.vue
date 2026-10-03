@@ -1,6 +1,6 @@
 <template>
   <div class="audit-system">
-    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是稽核介面示範, 清單與統計使用範例資料; 可以試用新增, 儲存與審核流程, 操作結果不會送到後端或永久保存</p>
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是稽核介面示範, 清單與統計使用範例資料. 可以試用新增, 儲存與審核流程, 操作結果不會送到後端或永久保存</p>
     <!-- 頁面選擇器 -->
     <div class="audit-tabs">
       <button 

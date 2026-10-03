@@ -25,13 +25,13 @@
     <!-- 當前服務狀態 -->
     <div v-if="currentStatus" class="service-status">
       <h3>目前維護公告</h3>
-      <p>下方顯示來源提供的維護資訊, 目前沒有檢測伺服器是否能連線</p>
+      <p>維護資訊依 Lodestone 公告更新</p>
       <div class="status-grid">
         <!-- Game Status -->
         <div class="status-item">
           <h4>遊戲伺服器</h4>
           <span v-if="!currentStatus.game.some(d => d.current)" class="status-badge online">
-            ● 未標示進行中的維護
+            ● 目前無維護作業
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.game" :key="item.id">
@@ -44,7 +44,7 @@
         <div class="status-item">
           <h4>Lodestone</h4>
           <span v-if="!currentStatus.lodestone.some(d => d.current)" class="status-badge online">
-            ● 未標示進行中的維護
+            ● 目前無維護作業
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.lodestone" :key="item.id">
@@ -57,7 +57,7 @@
         <div class="status-item">
           <h4>Companion App</h4>
           <span v-if="!currentStatus.companion.some(d => d.current)" class="status-badge online">
-            ● 未標示進行中的維護
+            ● 目前無維護作業
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.companion" :key="item.id">
@@ -70,7 +70,7 @@
         <div class="status-item">
           <h4>Mog Station</h4>
           <span v-if="!currentStatus.mog.some(d => d.current)" class="status-badge online">
-            ● 未標示進行中的維護
+            ● 目前無維護作業
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.mog" :key="item.id">
@@ -83,7 +83,7 @@
         <div class="status-item">
           <h4>PSN</h4>
           <span v-if="!currentStatus.psn.some(d => d.current)" class="status-badge online">
-            ● 未標示進行中的維護
+            ● 目前無維護作業
           </span>
           <ul v-else class="maintenance-list">
             <li v-for="item in currentStatus.psn" :key="item.id">

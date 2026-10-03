@@ -3,7 +3,7 @@
     <!-- Sidebar -->
     <aside class="bg-gray-900 text-amber-50 flex flex-col p-6">
       <div class="mb-7">
-        <span class="text-lg font-bold block">專案示例</span>
+        <span class="text-lg font-bold block">專案展示</span>
         <span class="text-xs text-amber-50/70 mt-1.5 block">Project Examples</span>
       </div>
       

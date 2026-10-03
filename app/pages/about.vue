@@ -5,8 +5,8 @@
         <p class="eyebrow">About / 關於我</p>
         <h1 id="about-title">讓前端系統好用,<br />也方便長期維護</h1>
         <p class="hero-summary">
-          我主要做 Web 前端與系統整合, 使用 Angular, TypeScript 與 Vue / Nuxt; 開發時會一起考慮架構,
-          效能與後續維護, 讓團隊更容易接手與協作
+          我主要做 Web 前端與系統整合, 使用 Angular, TypeScript 與 Vue / Nuxt. 個人專案中也使用 AI
+          協作開發, 從需求整理, agent 分工到實作驗證, 並留下文件與開發紀錄
         </p>
         <div class="hero-actions">
           <NuxtLink to="/projects" class="primary-action">查看作品與實作</NuxtLink>
@@ -21,7 +21,7 @@
           <li>大型前端系統的維護與架構調整</li>
           <li>資料處理, API 整合與伺服器端渲染</li>
           <li>Python 文件處理與開發流程工具</li>
-          <li>Codex Skills, MCP 與 AI 輔助開發</li>
+          <li>Codex Skills, MCP 與 agent 協作流程</li>
         </ul>
       </aside>
     </section>
@@ -75,8 +75,8 @@
         <div class="section-heading compact-heading">
           <p class="section-index">03</p>
           <div>
-            <h2 id="approach-title">我的開發方式</h2>
-            <p>先把問題弄清楚, 再實作, 測試, 並留下之後能查閱的紀錄</p>
+            <h2 id="approach-title">我的 AI 協作流程</h2>
+            <p>用專案文件交代需求與背景, 依工作需要安排 agent 分工, 並記下每次修改與驗證結果</p>
           </div>
         </div>
 
@@ -92,11 +92,11 @@
       </section>
 
       <section class="closing" aria-labelledby="direction-title">
-        <p class="eyebrow">一起合作</p>
-        <h2 id="direction-title">一起把產品做好, 也讓後續維護更順手</h2>
+        <p class="eyebrow">Side Projects / 個人專案</p>
+        <h2 id="direction-title">近期作品與開發筆記</h2>
         <p>
-          我希望參與需要長期開發與維護的產品, 和設計, 後端及需求端一起把問題理清楚,
-          做出符合使用情境, 也方便團隊持續修改的介面
+          我會把開發時反覆遇到的問題整理成工具, 也記下 AI 協作的做法. 最近正在開發 Universe Idle,
+          並持續更新 Python 工具與 Codex 相關專案
         </p>
         <NuxtLink to="/projects" class="primary-action">查看我的作品</NuxtLink>
       </section>
@@ -127,9 +127,10 @@
   useSeoMeta({
     title: '關於 | gaze9999 的前端開發與工具作品',
     description:
-      '了解 gaze9999 的前端開發經驗, 包含 Angular, TypeScript, Vue / Nuxt, Python 工具與 AI 輔助開發',
+      '了解 gaze9999 的前端開發經驗, Python 工具與 AI 協作流程, 包含 agent 分工, 專案文件與開發紀錄',
     ogTitle: '關於 | gaze9999 的前端開發與工具作品',
-    ogDescription: '分享前端開發與系統整合經驗, 以及 Python 工具, AI 輔助開發與放置遊戲的製作嘗試',
+    ogDescription:
+      '分享前端開發與系統整合經驗, 以及 agent 協作, 開發紀錄, Python 工具與開發中的放置遊戲',
   })
 
   const skillCategories: SkillCategory[] = [
@@ -181,7 +182,7 @@
       kicker: 'Side Projects',
       title: '個人專案',
       description:
-        '寫 Python 工具處理文件, 整理 Codex Skills 與 MCP 設定, 也製作 Universe Idle 放置遊戲, 嘗試不同的開發方式',
+        '寫 Python 工具處理文件, 整理 Codex Skills 與 MCP 設定, 並使用 AI 協作開發 Universe Idle 放置遊戲',
       skills: [
         'Python',
         '文件轉 Markdown',
@@ -214,7 +215,7 @@
       highlights: [
         '參與 Angular 9 至 15 的升級工作, 也投入 Angular 18–19 的專案開發',
         '在既有系統中逐步導入較清楚的型別, 元件邊界與資料流',
-        '與設計, 後端及需求端協作, 讓技術決策能回應實際使用情境',
+        '和設計, 後端及需求提出者確認操作流程, 再調整介面與資料處理方式',
       ],
     },
     {
@@ -241,21 +242,24 @@
 
   const principles: Principle[] = [
     {
-      title: '先釐清需求',
-      description: '先確認要解決的問題與目前限制, 再拆成能實作與驗收的步驟',
-    },
-    {
-      title: '用實際結果判斷',
-      description: '透過效能指標, 瀏覽器工具與資料流檢查, 找出問題發生的位置',
-    },
-    {
-      title: '分階段改善',
-      description: '配合既有系統與開發時程, 每次處理一個明確問題, 確認結果後再繼續',
-    },
-    {
-      title: 'AI 協助, 自己確認',
+      title: '先整理需求與專案規則',
       description:
-        '用 AI 協助查找資料與撰寫初稿, 再自己檢查程式碼, 核對 API 與套件版本, 並執行型別檢查, 建置與測試',
+        '先讀既有程式與文件, 確認要解決的問題. 將需求, 修改範圍與驗收方式寫進專案文件, 再開始實作',
+    },
+    {
+      title: '依工作需要安排 agent 分工',
+      description:
+        '由主要 agent 負責實作與整合, 適合獨立處理的工作再交給 subagent. 在專案中設定角色與工作範圍, 例如程式碼查找, 文件整理或獨立檢查',
+    },
+    {
+      title: '留下 AI 能回查的文件與紀錄',
+      description:
+        '整理規格, 介面文案, 決策與開發歷程, 記下已完成的修改和待辦事項. AI 接續工作時可以先讀這些紀錄, 找回背景與先前的決定',
+    },
+    {
+      title: '實作後檢查結果',
+      description:
+        '檢查程式碼與修改差異, 核對 API 和套件版本. 依修改內容執行型別檢查, 建置, 測試或瀏覽器操作, 將結果記錄下來再進行下一步',
     },
   ]
 </script>

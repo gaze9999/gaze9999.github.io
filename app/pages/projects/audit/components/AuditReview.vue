@@ -200,7 +200,7 @@ const getPriorityLabel = (priority: string) => {
 }
 
 const submitReview = () => {
-  alert('已完成審核操作示範; 審核內容未送出或儲存')
+  alert('已完成審核操作示範. 審核內容未送出或儲存')
 }
 </script>
 

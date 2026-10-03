@@ -81,7 +81,7 @@
 
       <!-- Content Area -->
       <section class="min-w-0 p-4 sm:p-8">
-        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料; 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
+        <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">這是後台介面示範, 圖表與清單都使用範例資料. 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
         <slot />
       </section>
     </div>
@@ -106,7 +106,7 @@ const navLinks = [
   { label: '人資', to: '/projects/shop-admin/hr', roles: ['admin', 'hr'] as ErpRole[] },
   { label: '銷售', to: '/projects/shop-admin/sales', roles: ['admin', 'sales'] as ErpRole[] },
   { label: '報表', to: '/projects/shop-admin/reports', roles: ['admin', 'manager', 'finance'] as ErpRole[] },
-  { label: '審計', to: '/projects/shop-admin/audit', roles: ['admin'] as ErpRole[] },
+  { label: '稽核', to: '/projects/shop-admin/audit', roles: ['admin'] as ErpRole[] },
 ]
 
 const subNavMap: Record<string, Array<{ label: string; to: string }>> = {

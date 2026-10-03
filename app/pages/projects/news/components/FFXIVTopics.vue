@@ -1,9 +1,9 @@
 <template>
   <div class="ffxiv-topics">
     <div class="topics-header">
-      <h2>FF XIV Topics</h2>
+      <h2>FFXIV 最新消息</h2>
       <p v-if="loading" class="loading-text">載入中...</p>
-      <p v-else class="count-text">共 {{ topics.length }} 則話題</p>
+      <p v-else class="count-text">共 {{ topics.length }} 則消息</p>
     </div>
 
     <div v-if="error" class="error-message">
@@ -12,7 +12,7 @@
     </div>
 
     <div v-else-if="!loading && topics.length === 0" class="empty-state">
-      <p>目前沒有話題資料</p>
+      <p>目前沒有最新消息</p>
     </div>
 
     <ul v-else class="topics-list">
@@ -60,7 +60,7 @@ const fetchTopics = async () => {
     
     topics.value = sortByTimeDesc(formattedTopics)
   } catch (err: any) {
-    error.value = err.message || '載入話題資料失敗'
+    error.value = err.message || '載入最新消息失敗'
     console.error('Failed to fetch topics:', err)
   } finally {
     loading.value = false
