@@ -5,7 +5,7 @@
       <div class="hero-text">
         <p class="eyebrow">Daily News</p>
         <h1>每日新聞抓取範例</h1>
-        <p class="lead">整合 FFXIV Lodestone 新聞與服務狀態，展示外部 API 資料彙整與呈現能力。</p>
+        <p class="lead">整合 FFXIV 新聞與維護公告, 展示外部 API 資料彙整; 公告內容與更新時間依來源服務提供</p>
       </div>
       <div class="hero-controls">
         <div class="locale-switch">
@@ -28,15 +28,15 @@
       <div class="info-grid">
         <article class="info-card">
           <h3>資料來源</h3>
-          <p>使用 Lodestone News API 獲取 FFXIV 官方最新公告、維護資訊與服務狀態。</p>
+          <p>透過第三方 Lodestone News API 讀取 FFXIV 公告與維護資訊</p>
         </article>
         <article class="info-card">
-          <h3>即時更新</h3>
-          <p>支援多語言切換（日文、英文、法文、德文），即時獲取最新新聞與服務狀態。</p>
+          <h3>載入與重新整理</h3>
+          <p>支援日文, 英文, 法文與德文; 切換語言或重新整理時向外部 API 載入資料</p>
         </article>
         <article class="info-card">
           <h3>結構化資料</h3>
-          <p>展示如何將外部 API 資料轉換為結構化格式，便於前端展示與互動。</p>
+          <p>展示如何將外部 API 資料轉換為結構化格式, 便於前端展示與互動</p>
         </article>
       </div>
     </section>
@@ -70,9 +70,9 @@
     <section class="footer-section">
       <div class="footer-info">
         <p class="footer-note">
-          資料來源：<a href="https://lodestonenews.com/" target="_blank" rel="noopener noreferrer">Lodestone News API</a>
+          資料來源: <a href="https://lodestonenews.com/" target="_blank" rel="noopener noreferrer">Lodestone News API</a>
         </p>
-        <p class="footer-disclaimer">本範例僅作為技術展示用途，所有資料版權歸 Square Enix 所有。</p>
+        <p class="footer-disclaimer">本範例僅作為技術展示用途, 所有資料版權歸 Square Enix 所有</p>
       </div>
       <NuxtLink to="/projects" class="btn">返回專案列表</NuxtLink>
     </section>
@@ -187,7 +187,7 @@ const locales = [
 
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;

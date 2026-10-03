@@ -8,7 +8,7 @@
 
     <!-- Image Lightbox Modal -->
     <div v-if="showModal" class="lightbox-modal" @click="closeLightbox">
-      <button class="modal-close" @click="closeLightbox" aria-label="關閉">&times;</button>
+      <button aria-label="關閉" class="modal-close" @click="closeLightbox">&times;</button>
       <div class="lightbox-content" @click.stop>
         <img :src="selectedImage" :alt="selectedImageAlt" class="full-image">
       </div>
@@ -18,7 +18,7 @@
     <section class="graphics-hero">
       <h1>平面設計作品集</h1>
       <p class="subtitle">Graphic Design Portfolio</p>
-      <p class="lead">多樣化的設計風格展示，包括視覺識別、插畫與網站設計</p>
+      <p class="lead">整理個人標誌, 插畫, 履歷與網站畫面設計; 點選作品可放大查看</p>
     </section>
 
     <!-- Navigation Highlights -->
@@ -42,8 +42,8 @@
           </div>
           <div class="item-content">
             <h3>鹿頭標誌</h3>
-            <p class="description">我喜歡鹿靈巧的氣質，用 Adobe Illustrator 設計了一個個人標誌。融合線條與面積的感受，簡潔而富有辨識度。</p>
-            <p class="tools">工具：Adobe Illustrator</p>
+            <p class="description">以鹿的輪廓為靈感, 使用 Adobe Illustrator 製作個人標誌, 結合線條與色塊</p>
+            <p class="tools">工具: Adobe Illustrator</p>
           </div>
         </div>
 
@@ -53,8 +53,8 @@
           </div>
           <div class="item-content">
             <h3>Buddha Machine</h3>
-            <p class="description">探索禪學意涵的筆畫創作。黑白線條交織，呈現靜謐與機械美的對話。未加上色的淨白設計，留予觀者想像空間。</p>
-            <p class="tools">工具：手繪＆掃描處理</p>
+            <p class="description">以黑白手繪線條探索佛像與機械元素的組合</p>
+            <p class="tools">工具: 手繪&掃描處理</p>
           </div>
         </div>
 
@@ -64,8 +64,8 @@
           </div>
           <div class="item-content">
             <h3>履歷設計</h3>
-            <p class="description">以個人鹿頭標誌為視覺核心，設計的創意履歷版型。將設計元素與資訊組織完美結合，體現個人風格與專業精神。</p>
-            <p class="tools">工具：Adobe InDesign</p>
+            <p class="description">以個人鹿頭標誌作為視覺核心, 整理履歷資訊與版面層次</p>
+            <p class="tools">工具: Adobe InDesign</p>
           </div>
         </div>
       </div>
@@ -82,8 +82,8 @@
           </div>
           <div class="item-content">
             <h3>桌機版設計</h3>
-            <p class="description">完整的桌機版網站設計，採用現代化佈局。充分利用寬屏空間，提供清晰的資訊架構與優雅的視覺層級。注重用戶導航體驗與內容展示的平衡。</p>
-            <p class="tools">工具：Figma / Adobe XD</p>
+            <p class="description">桌機版畫面設計, 以寬版空間安排導覽, 內容區塊與視覺層次</p>
+            <p class="tools">工具: Figma / Adobe XD</p>
           </div>
         </div>
 
@@ -93,8 +93,8 @@
           </div>
           <div class="item-content">
             <h3>行動版設計</h3>
-            <p class="description">針對行動裝置最佳化的設計方案。精簡版面配置，優先展示核心內容，確保觸控易用性。嚴格遵循響應式設計原則，在小螢幕上也能提供流暢體驗。</p>
-            <p class="tools">工具：Figma / Adobe XD</p>
+            <p class="description">行動版畫面設計, 以單欄配置與較大的操作區域呈現核心內容</p>
+            <p class="tools">工具: Figma / Adobe XD</p>
           </div>
         </div>
       </div>
@@ -107,22 +107,22 @@
         <div class="philosophy-card">
           <span class="phil-icon"><i class="fas fa-palette"></i></span>
           <h3>視覺美學</h3>
-          <p>注重色彩和諧、排版清晰、視覺平衡，創造令人驚艷的視覺體驗。</p>
+          <p>以色彩, 排版與留白建立視覺層次</p>
         </div>
         <div class="philosophy-card">
           <span class="phil-icon"><i class="fas fa-lightbulb"></i></span>
           <h3>創意思考</h3>
-          <p>突破傳統框架，運用創意元素，將複雜概念簡化並視覺化。</p>
+          <p>透過圖形與版面整理概念, 探索不同的表達方式</p>
         </div>
         <div class="philosophy-card">
           <span class="phil-icon"><i class="fas fa-mobile-alt"></i></span>
-          <h3>多平台支援</h3>
-          <p>設計兼顧桌機、平板與手機，確保所有裝置上的優秀視覺呈現。</p>
+          <h3>不同尺寸的版面</h3>
+          <p>展示桌機與行動版設計稿, 供比較不同尺寸的版面配置</p>
         </div>
         <div class="philosophy-card">
           <span class="phil-icon"><i class="fas fa-bullseye"></i></span>
           <h3>目標導向</h3>
-          <p>每個設計都有明確的目標受眾與傳達目的，設計用於溝通。</p>
+          <p>以資訊傳達與使用情境作為版面設計方向</p>
         </div>
       </div>
     </section>
@@ -325,7 +325,7 @@ definePageMeta({
   /* Portfolio Section */
   .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(17.5rem, 100%), 1fr));
     gap: 2rem;
     max-width: 75rem;
     margin: 0 auto;

@@ -23,7 +23,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label>優先級</label>
+          <label>優先順序</label>
           <select v-model="queryForm.priority" class="input-field">
             <option value="">全部</option>
             <option value="high">高</option>
@@ -45,10 +45,10 @@
           <i class="fas fa-search"></i> 查詢
         </button>
         <button @click="resetForm" class="btn-secondary">
-          <i class="fas fa-redo"></i> 重置
+          <i class="fas fa-redo"></i> 重設
         </button>
         <button @click="$emit('mode-change', { mode: 'create' })" class="btn-primary">
-          <i class="fas fa-plus"></i> 新建
+          <i class="fas fa-plus"></i> 新增
         </button>
       </div>
     </section>
@@ -56,7 +56,7 @@
     <!-- 查詢結果表格 -->
     <section class="query-results" v-if="showTable">
       <h2>稽核清單</h2>
-      <div class="table-wrapper">
+      <div class="table-wrapper" role="region" aria-label="稽核清單資料表, 可左右捲動" tabindex="0">
         <table class="query-table">
           <thead>
             <tr>
@@ -64,7 +64,7 @@
               <th>稽核項目</th>
               <th>模組</th>
               <th>狀態</th>
-              <th>優先級</th>
+              <th>優先順序</th>
               <th>負責人</th>
               <th>異動日期</th>
               <th style="width: 7.5rem">操作</th>
@@ -89,14 +89,15 @@
               <td>{{ formatDate(item.createdAt) }}</td>
               <td>
                 <div class="action-buttons">
-                  <button 
+                  <button
+                    aria-label="編輯此示範稽核項目"
                     @click="$emit('mode-change', { mode: 'edit', selectedData: item })"
                     class="btn-icon"
-                    title="編輯"
+                    title="編輯示範"
                   >
                     <i class="fas fa-edit"></i>
                   </button>
-                  <button @click="deleteItem(item.id)" class="btn-icon danger" title="刪除">
+                  <button aria-label="刪除此頁的示範稽核項目" @click="deleteItem(item.id)" class="btn-icon danger" title="刪除示範資料">
                     <i class="fas fa-trash"></i>
                   </button>
                 </div>
@@ -111,7 +112,7 @@
         <span>共 {{ totalRecords }} 筆記錄</span>
         <div class="page-buttons">
           <button :disabled="currentPage === 1" @click="currentPage--">上一頁</button>
-          <span>第 {{ currentPage }} 頁，每頁 {{ pageSize }} 筆</span>
+          <span>第 {{ currentPage }} 頁, 每頁 {{ pageSize }} 筆</span>
           <button :disabled="currentPage >= Math.ceil(totalRecords / pageSize)" @click="currentPage++">下一頁</button>
         </div>
       </div>
@@ -137,7 +138,7 @@ const queryForm = ref({
   dateRange: '',
 })
 
-// 表格數據
+// 表格資料
 const showTable = ref(false)
 const tableData = ref<any[]>([])
 const selectedIds = ref<string[]>([])
@@ -145,7 +146,7 @@ const totalRecords = ref(0)
 const currentPage = ref(1)
 const pageSize = 10
 
-// 模擬數據
+// 模擬資料
 const mockData = [
   {
     id: '1',
@@ -185,7 +186,7 @@ const mockData = [
   },
 ]
 
-// 查詢數據
+// 查詢資料
 const queryData = () => {
   tableData.value = mockData.filter(item => {
     if (queryForm.value.checkName && !item.checkName.includes(queryForm.value.checkName)) return false
@@ -221,7 +222,7 @@ const toggleAll = (e: any) => {
 
 // 刪除項目
 const deleteItem = (id: string) => {
-  if (confirm('確定要刪除此項目嗎？')) {
+  if (confirm('確定要從目前畫面刪除此示範項目嗎?')) {
     tableData.value = tableData.value.filter(item => item.id !== id)
     totalRecords.value--
   }
@@ -274,7 +275,7 @@ const formatDate = (date: Date) => {
 
 .form-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(13.75rem, 100%), 1fr));
   gap: 1rem;
   margin-bottom: 1.25rem;
 }
@@ -365,6 +366,7 @@ const formatDate = (date: Date) => {
 
 .query-table {
   width: 100%;
+  min-width: 45rem;
   border-collapse: collapse;
   font-size: 0.8125rem;
 
@@ -399,6 +401,7 @@ const formatDate = (date: Date) => {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 
 .status-badge {
@@ -485,6 +488,7 @@ const formatDate = (date: Date) => {
 
   button {
     padding: 0.375rem 0.75rem;
+    white-space: nowrap;
     border: 0.0625rem solid #e8ecf5;
     border-radius: 0.25rem;
     background: #ffffff;
@@ -499,6 +503,30 @@ const formatDate = (date: Date) => {
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  .query-form,
+  .query-results {
+    padding: 1rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .page-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    span {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      text-align: center;
     }
   }
 }

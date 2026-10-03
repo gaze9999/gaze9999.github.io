@@ -4,39 +4,40 @@
       <button
         @click="togglePlaying"
         class="control-btn"
-        :title="isPlaying ? '暫停' : '播放'"
-        :aria-label="isPlaying ? '暫停所有影片' : '播放所有影片'"
+        :title="isPlaying ? '暫停設定示範' : '播放設定示範'"
+        :aria-label="isPlaying ? '切換為暫停設定示範' : '切換為播放設定示範'"
       >
         <span class="icon">{{ isPlaying ? '⏸' : '▶' }}</span>
-        {{ isPlaying ? '暫停' : '播放' }}
+        {{ isPlaying ? '暫停設定示範' : '播放設定示範' }}
       </button>
 
       <button
         @click="toggleMuted"
         class="control-btn"
-        :title="isMuted ? '開啟音量' : '靜音'"
-        :aria-label="isMuted ? '開啟音量' : '靜音所有影片'"
+        :title="isMuted ? '音量開啟設定示範' : '靜音設定示範'"
+        :aria-label="isMuted ? '切換為音量開啟設定示範' : '切換為靜音設定示範'"
       >
         <span class="icon"><i v-if="isMuted" class="fas fa-volume-mute"></i><i v-else class="fas fa-volume-up"></i></span>
-        {{ isMuted ? '開啟音量' : '靜音' }}
+        {{ isMuted ? '音量開啟設定示範' : '靜音設定示範' }}
       </button>
 
       <button
         @click="toggleChat"
         class="control-btn"
         :class="{ active: showChat }"
-        :title="showChat ? '隱藏聊天' : '顯示聊天'"
+        :title="showChat ? '隱藏聊天室' : '顯示聊天室'"
         :aria-label="showChat ? '隱藏聊天室' : '顯示聊天室'"
       >
         <span class="icon"><i class="fas fa-comments"></i></span>
-        {{ showChat ? '隱藏聊天' : '顯示聊天' }}
+        {{ showChat ? '隱藏聊天室' : '顯示聊天室' }}
       </button>
 
       <button
+
+        aria-label="清空所有影片"
         @click="clearAll"
         class="control-btn danger"
         title="清空所有影片"
-        aria-label="清空所有影片"
       >
         <span class="icon"><i class="fas fa-trash"></i></span>
         清空
@@ -45,7 +46,7 @@
 
     <div class="stats">
       <span class="stat-item">影片數量: {{ videoCount }}</span>
-      <span class="stat-item">播放狀態: {{ isPlaying ? '播放中' : '已暫停' }}</span>
+      <span class="stat-item">播放設定示意: {{ isPlaying ? '播放設定' : '暫停設定' }}</span>
     </div>
   </div>
 </template>
@@ -87,7 +88,7 @@ const toggleChat = () => {
 }
 
 const clearAll = () => {
-  if (confirm('確定要清空所有影片嗎？')) {
+  if (confirm('確定要清空此瀏覽器的影片清單嗎?')) {
     emit('clear-all')
   }
 }

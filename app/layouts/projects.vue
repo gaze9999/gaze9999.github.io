@@ -19,7 +19,7 @@
       </nav>
       
       <div class="mt-auto text-xs text-amber-50/70">
-        <p class="m-0">資料皆為去識別化樣本</p>
+        <p class="m-0">各展示頁面標示資料來源與功能範圍</p>
       </div>
     </aside>
 

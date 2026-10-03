@@ -15,16 +15,16 @@
           </div>
           <h3>Email</h3>
           <a href="mailto:gazell9999@gmail.com" class="contact-link">gazell9999@gmail.com</a>
-          <p class="card-desc">歡迎直接發送郵件，我會盡快回覆</p>
+          <p class="card-desc">歡迎透過 Email 聯繫, 討論作品或交流開發經驗</p>
         </div>
 
         <div class="contact-card">
           <div class="card-icon">
             <i class="fab fa-github"></i>
           </div>
-          <h3>Github</h3>
-          <a href="https://github.com/gaze9999/" target="_blank" class="contact-link">github.com/gaze9999</a>
-          <p class="card-desc">查看我的開源專案和程式碼</p>
+          <h3>GitHub</h3>
+          <a href="https://github.com/gaze9999/" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/gaze9999</a>
+          <p class="card-desc">查看我的公開專案 與程式碼</p>
         </div>
 
         <div class="contact-card">
@@ -32,7 +32,7 @@
             <i class="fab fa-behance"></i>
           </div>
           <h3>Behance</h3>
-          <a href="https://www.behance.net/gazellelin" target="_blank" class="contact-link">Gazellelin</a>
+          <a href="https://www.behance.net/gazellelin" target="_blank" rel="noopener noreferrer" class="contact-link">Gazellelin</a>
           <p class="card-desc">瀏覽我的設計作品集</p>
         </div>
 
@@ -41,23 +41,23 @@
             <i class="fab fa-linkedin"></i>
           </div>
           <h3>LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/lin-wei-76a142193/" target="_blank" class="contact-link">lin-wei-76a142193</a>
-          <p class="card-desc">連接專業交流與合作機會</p>
+          <a href="https://www.linkedin.com/in/lin-wei-76a142193/" target="_blank" rel="noopener noreferrer" class="contact-link">lin-wei-76a142193</a>
+          <p class="card-desc">查看我的專業經歷與交流資訊</p>
         </div>
       </div>
     </section>
 
     <!-- Social Links -->
     <section class="social-section">
-      <h2>追蹤我</h2>
+      <h2>其他平台</h2>
       <div class="social-links">
-        <a href="https://github.com/gaze9999/" target="_blank" class="social-link github" title="Github">
+        <a href="https://github.com/gaze9999/" target="_blank" rel="noopener noreferrer" class="social-link github" title="GitHub" aria-label="開啟 GitHub 個人頁面">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://www.behance.net/gazellelin" target="_blank" class="social-link behance" title="Behance">
+        <a href="https://www.behance.net/gazellelin" target="_blank" rel="noopener noreferrer" class="social-link behance" title="Behance" aria-label="開啟 Behance 個人頁面">
           <i class="fab fa-behance"></i>
         </a>
-        <a href="https://www.linkedin.com/in/lin-wei-76a142193/" target="_blank" class="social-link linkedin" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/lin-wei-76a142193/" target="_blank" rel="noopener noreferrer" class="social-link linkedin" title="LinkedIn" aria-label="開啟 LinkedIn 個人頁面">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -69,6 +69,11 @@
 definePageMeta({
   layout: 'default',
 });
+
+useSeoMeta({
+  title: '聯絡 | gaze9999',
+  description: '透過 Email, GitHub, Behance 與 LinkedIn 聯繫 gaze9999, 交流作品與開發經驗',
+})
 </script>
 
 <style scoped>

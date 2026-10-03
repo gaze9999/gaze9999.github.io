@@ -53,19 +53,19 @@ const addVideo = (videoId: string, title?: string) => {
   const videoIdRegex = /.*youtu\.?be.*\/(.*\?v=)?([\S]{11})(&?|\?=).*/i;
 
   if (!youtubeRegex.test(videoId)) {
-    throw new Error('無效的YouTube連結');
+    throw new Error('無效的 YouTube 連結');
   }
 
   const match = videoId.match(videoIdRegex);
   if (!match || !match[2]) {
-    throw new Error('無法提取影片ID');
+    throw new Error('無法解析影片 ID');
   }
 
   const extractedId = match[2];
 
   // 檢查是否已存在
   if (videos.value.some(v => v.videoId === extractedId)) {
-    throw new Error('此影片已添加');
+    throw new Error('此影片已在清單中');
   }
 
   const newVideo: Video = {

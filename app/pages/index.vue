@@ -1,330 +1,253 @@
 <template>
-  <section class="portfolio-hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="eyebrow">Portfolio Showcase</p>
-        <h1>作品展示集</h1>
+  <div class="home-page">
+    <section class="portfolio-hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="eyebrow">gaze9999 / 個人作品與工程筆記</p>
+        <h1 id="home-title">把工程探索,<br />做成能使用的作品</h1>
         <p class="lead">
-          精選七個代表性作品，呈現企業級系統設計、資料擷取、前端整合與系統監控能力。
+          從前端介面到 Python 工具與 coding-agent 工作流程, 記錄我持續實作, 整理與驗證的過程
         </p>
         <div class="hero-actions">
-          <NuxtLink to="/projects" class="btn btn-primary">查看作品概覽</NuxtLink>
+          <NuxtLink to="/projects" class="btn primary">探索作品概覽 →</NuxtLink>
+          <NuxtLink to="/about" class="btn secondary">關於我的工程方法</NuxtLink>
         </div>
       </div>
+      <aside class="hero-panel" aria-labelledby="featured-title">
+        <p class="eyebrow">近期作品 / 遊戲試玩</p>
+        <h2 id="featured-title">Universe Idle</h2>
+        <p>從一片地面開始, 安排工人, 生產資源, 建造與研究, 逐步推進你的放置遊戲進度</p>
+        <div class="panel-note">地面原型 · 繁體中文 / English · 本機存檔</div>
+        <a
+          href="https://gaze9999.github.io/universe-idle/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn primary"
+          >開啟試玩版 ↗<span class="sr-only"> (另開分頁)</span></a
+        >
+      </aside>
+    </section>
 
-      <div class="hero-panel">
-        <div class="panel-header">
-          <span class="status-dot"></span>
-          <span>展示版工作台</span>
+    <section class="repository-section" aria-labelledby="repositories-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">持續實作的公開專案</p>
+          <h2 id="repositories-title">近期 GitHub 專案</h2>
         </div>
-        <div class="panel-list">
-          <NuxtLink to="/projects/shop-admin" class="panel-item">購物後台管理系統</NuxtLink>
-          <NuxtLink to="/projects/shop" class="panel-item">購物網站系統</NuxtLink>
-          <NuxtLink to="/projects/graphic-design" class="panel-item">圖形設計作品集</NuxtLink>
-          <NuxtLink to="/projects/news" class="panel-item">每日新聞抓取</NuxtLink>
-          <NuxtLink to="/projects/youtube" class="panel-item">YouTube 內嵌展示</NuxtLink>
-          <NuxtLink to="/projects/python-scraper" class="panel-item">Python 爬蟲成果</NuxtLink>
-          <NuxtLink to="/projects/audit" class="panel-item">審計與監控系統</NuxtLink>
+        <a
+          href="https://github.com/gaze9999"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-link"
+          >GitHub 個人頁 ↗<span class="sr-only"> (另開分頁)</span></a
+        >
+      </div>
+      <ProjectsRepositoryCards />
+    </section>
+
+    <section class="demo-section" aria-labelledby="demos-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">本站展示</p>
+          <h2 id="demos-title">介面示範與資料成果</h2>
         </div>
+        <NuxtLink to="/projects#demonstrations" class="text-link">查看全部展示 →</NuxtLink>
       </div>
-    </div>
-  </section>
-
-  <section class="projects-grid">
-    <NuxtLink to="/projects/shop-admin" class="project-card">
-      <div class="card-top">
-        <span class="tag">後台</span>
-        <h2>購物後台管理系統</h2>
+      <p class="section-note">
+        保留電商, 後台與多媒體等互動示範; TGS 2025 爬蟲頁呈現實際擷取的展覽商資料
+      </p>
+      <div class="demo-links">
+        <NuxtLink v-for="demo in demonstrations" :key="demo.path" :to="demo.path">
+          <span>{{ demo.title }}</span>
+          <small>{{ demo.category }}</small>
+        </NuxtLink>
       </div>
-      <p>參考 TSRDERP 組織方式，整合採購、庫存、財務、人資與報表模組。</p>
-      <div class="card-features">
-        <span class="feature">採購管理</span>
-        <span class="feature">庫存追蹤</span>
-        <span class="feature">財務結算</span>
-        <span class="feature">人資管理</span>
-        <span class="feature">報表分析</span>
-        <span class="feature">審計日誌</span>
-      </div>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/python-scraper" class="project-card muted">
-      <div class="card-top">
-        <span class="tag">資料擷取</span>
-        <h2>Python 爬蟲成果</h2>
-      </div>
-      <p>預留展示區域，將由你自行補充實際成果與成果截圖。</p>
-      <span class="cta">保留空間 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/shop" class="project-card">
-      <div class="card-top">
-        <span class="tag">電商</span>
-        <h2>購物網站系統</h2>
-      </div>
-      <p>商品、購物車、結帳與會員歷程的完整展示。</p>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/graphic-design" class="project-card">
-      <div class="card-top">
-        <span class="tag">設計</span>
-        <h2>圖形設計作品集</h2>
-      </div>
-      <p>視覺識別、插畫與網站設計的完整作品展示。</p>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/news" class="project-card">
-      <div class="card-top">
-        <span class="tag">資訊流</span>
-        <h2>每日新聞抓取</h2>
-      </div>
-      <p>結合資料彙整、分類與摘要的新聞展示體驗。</p>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/youtube" class="project-card">
-      <div class="card-top">
-        <span class="tag">多媒體</span>
-        <h2>YouTube 內嵌展示</h2>
-      </div>
-      <p>示範網頁內嵌影音與周邊資訊排版。</p>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-
-    <NuxtLink to="/projects/audit" class="project-card">
-      <div class="card-top">
-        <span class="tag">監控</span>
-        <h2>審計與監控系統</h2>
-      </div>
-      <p>展示操作紀錄追蹤、權限管理、系統日誌與合規報告的完整審計功能。</p>
-      <span class="cta">查看詳情 →</span>
-    </NuxtLink>
-  </section>
+    </section>
+  </div>
 </template>
 
+<script setup lang="ts">
+  import { demonstrations } from '~/modules/projects'
+
+  useSeoMeta({
+    title: 'gaze9999 | 個人作品與工程探索',
+    description:
+      '探索 gaze9999 的公開作品: Universe Idle, Python 開發工具, Codex Skills 與 MCP, 工程工作流程, 以及前端互動示範',
+    ogTitle: 'gaze9999 | 個人作品與工程探索',
+    ogDescription: '從前端介面到 Python 工具與 coding-agent 工作流程, 持續實作與驗證的公開作品',
+  })
+</script>
+
 <style scoped>
-  :root {
-    color-scheme: light;
-  }
-
-  .portfolio-hero {
-    position: relative;
-    padding: 5rem 2rem 3.75rem;
-    background:
-      radial-gradient(circle at top left, #ffe6cc 0%, transparent 60%),
-      radial-gradient(circle at 80% 10%, #d9f4ff 0%, transparent 55%),
-      linear-gradient(135deg, #f5f0e6 0%, #e8dcc8 55%, #d4c4a8 100%);
-    overflow: hidden;
-  }
-
-  .hero-glow {
-    position: absolute;
-    width: 28.75rem;
-    height: 28.75rem;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ffba7a59, transparent 70%);
-    right: -7.5rem;
-    top: -11.25rem;
-    filter: blur(0.375rem);
-  }
-
-  .hero-content {
-    position: relative;
-    max-width: 68.75rem;
+  .home-page {
+    max-width: 76rem;
     margin: 0 auto;
+  }
+  .portfolio-hero {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr);
     align-items: center;
+    gap: 3rem;
+    padding: 2rem 0 4rem;
   }
-
-  .hero-text h1 {
-    margin: 0.75rem 0 1rem;
-    font-size: 2.75rem;
-    font-family: 'Playfair Display', 'Times New Roman', serif;
-    color: #1f1b2d;
-  }
-
   .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.1875rem;
+    color: #a65327;
     font-size: 0.75rem;
-    color: #9a7c5a;
-    margin: 0;
+    letter-spacing: 0.08em;
+    font-weight: 800;
   }
-
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    margin: 1rem 0 1.5rem;
+  }
   .lead {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #4d4a57;
-    margin: 0 0 1.5rem;
+    color: #676472;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    max-width: 38rem;
   }
-
   .hero-actions {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
   }
-
   .btn {
-    padding: 0.75rem 1.75rem;
-    border-radius: 62.4375rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.9rem;
+    border-radius: 999px;
+    padding: 0.75rem 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 700;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.875rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
-  .btn-primary {
+  .primary {
     background: #ff9f4a;
     color: #1f1b2d;
-    box-shadow: 0 0.625rem 1.25rem #ff9f4a40;
   }
-
-  .btn-primary:hover {
-    transform: translateY(-0.125rem);
+  .secondary {
+    border: 1px solid #20212b26;
+    color: #20212b;
   }
-
-  .btn-ghost {
-    border: 0.0625rem solid #1f1b2d;
-    color: #1f1b2d;
-  }
-
   .hero-panel {
     background: #1f1b2d;
     color: #f5f0e6;
-    border-radius: 1.125rem;
-    padding: 1.5rem;
-    box-shadow: 0 1.125rem 2.5rem #1f1b2d40;
-    animation: floatIn 0.8s ease both;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 1.5rem 3.5rem #20212b24;
   }
-
-  .panel-header {
+  .hero-panel .eyebrow {
+    color: #ffb782;
+  }
+  .hero-panel h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+  .hero-panel p:not(.eyebrow) {
+    line-height: 1.9;
+    color: #d6d1df;
+  }
+  .panel-note {
+    color: #d6d1df;
+    font-size: 0.78rem;
+    margin: 1.5rem 0;
+  }
+  .repository-section,
+  .demo-section {
+    padding-bottom: 4rem;
+  }
+  .section-heading {
     display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    font-size: 0.8125rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .status-dot {
-    width: 0.625rem;
-    height: 0.625rem;
-    border-radius: 50%;
-    background: #9effc0;
-  }
-
-  .panel-list {
-    display: grid;
-    gap: 0.75rem;
-    font-size: 0.875rem;
-  }
-
-  .panel-item {
-    background: #ffffff14;
-    padding: 0.625rem 0.75rem;
-    border-radius: 0.625rem;
-    text-decoration: none;
-    color: #f5f0e6;
-    display: block;
-    transition: background 0.3s ease;
-    cursor: pointer;
-  }
-
-  .panel-item:hover {
-    background: #ffffff1f;
-  }
-
-  .projects-grid {
-    max-width: 68.75rem;
-    margin: 3.75rem auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.25rem;
-    border-radius: 1rem;
-    text-decoration: none;
-    background: #ffffff;
-    color: #1f1b2d;
-    box-shadow: 0 0.75rem 1.625rem #1f1b2d14;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 1.125rem 2rem #1f1b2d1f;
-  }
-
-  .project-card.muted {
-    background: #f8f7fb;
-  }
-
-  .card-top {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .tag {
-    font-size: 0.6875rem;
-    letter-spacing: 0.125rem;
-    text-transform: uppercase;
-    color: #9a7c5a;
-  }
-
-  .cta {
-    font-size: 0.8125rem;
-    color: #6b4f3b;
-    font-weight: 600;
-  }
-
-  .card-features {
-    display: flex;
+    align-items: end;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.375rem;
-    margin: 0.25rem 0;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
-
-  .feature {
-    display: inline-block;
-    padding: 0.25rem 0.625rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
-    border-radius: 62.4375rem;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    white-space: nowrap;
+  .section-heading h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 0.6rem 0 0;
   }
-
-  @keyframes floatIn {
-    from {
-      transform: translateY(1.25rem);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  .text-link {
+    color: #6b4f3b;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.4rem 0;
   }
-
-  @media (max-width: 45rem) {
+  .text-link:hover {
+    text-decoration: underline;
+  }
+  .section-note {
+    color: #676472;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .demo-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .demo-links a {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    background: #ffffff8c;
+    border: 1px solid #20212b1a;
+    color: #20212b;
+    text-decoration: none;
+  }
+  .demo-links a:hover {
+    border-color: #e87836;
+  }
+  .demo-links small {
+    color: #676472;
+    font-size: 0.72rem;
+  }
+  a:focus-visible {
+    outline: 3px solid #e87836;
+    outline-offset: 4px;
+  }
+  @media (max-width: 54rem) {
     .portfolio-hero {
-      padding: 3.75rem 1.25rem 2.5rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
     }
+    .demo-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 36rem) {
+    .demo-links {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .hero-panel {
+      padding: 1.4rem;
+    }
+  }
+</style>
 
-    .projects-grid {
-      margin-top: -1.25rem;
-      padding: 0 1.25rem 2.5rem;
-      grid-template-columns: 1fr;
-    }
+<style>
+  html.dark-mode .home-page .eyebrow,
+  html.dark-mode .home-page .text-link {
+    color: #ffab73;
+  }
+  html.dark-mode .home-page .lead,
+  html.dark-mode .home-page .section-note,
+  html.dark-mode .home-page .demo-links small {
+    color: #aeb4c2;
+  }
+  html.dark-mode .home-page .secondary,
+  html.dark-mode .home-page .demo-links a {
+    color: #f0f2f7;
+    border-color: #ffffff1f;
+  }
+  html.dark-mode .home-page .demo-links a {
+    background: #171b2acc;
+  }
+  html.dark-mode .home-page .hero-panel {
+    background: #202538;
   }
 </style>

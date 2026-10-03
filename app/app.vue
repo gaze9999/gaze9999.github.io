@@ -1,39 +1,19 @@
 <template>
   <div class="app">
     <header class="site-header">
-      <h1 class="brand">作品展示集</h1>
+      <p class="brand">gaze9999 / 作品與探索</p>
       <div class="header-actions">
-        <nav class="nav">
+        <nav class="nav" aria-label="主要導覽">
           <NuxtLink to="/"
                     class="nav-link"
                     active-class="active"> 首頁 </NuxtLink>
-          <NuxtLink to="/projects/shop-admin"
-                    class="nav-link"
-                    active-class="active"> 購物後台 </NuxtLink>
-          <NuxtLink to="/projects/shop"
-                    class="nav-link"
-                    active-class="active"> 購物網站 </NuxtLink>
-          <NuxtLink to="/projects/python-scraper"
-                    class="nav-link"
-                    active-class="active"> Python 爬蟲 </NuxtLink>
-          <NuxtLink to="/projects/news"
-                    class="nav-link"
-                    active-class="active"> 新聞收集 </NuxtLink>
-          <NuxtLink to="/projects/youtube"
-                    class="nav-link"
-                    active-class="active"> YouTube 電視牆 </NuxtLink>
-          <NuxtLink to="/projects/graphic-design"
-                    class="nav-link"
-                    active-class="active"> 圖形設計 </NuxtLink>
-          <NuxtLink to="/projects/audit"
-                    class="nav-link"
-                    active-class="active"> 審計系統 </NuxtLink>
-          <NuxtLink to="/contact"
-                    class="nav-link"
-                    active-class="active"> 聯絡 </NuxtLink>
+          <NuxtLink to="/projects" class="nav-link" exact-active-class="active"> 作品概覽 </NuxtLink>
           <NuxtLink to="/about"
                     class="nav-link"
                     active-class="active"> 關於 </NuxtLink>
+          <NuxtLink to="/contact"
+                    class="nav-link"
+                    active-class="active"> 聯絡 </NuxtLink>
         </nav>
         <button type="button" class="theme-toggle" @click="toggleTheme">
           <span class="toggle-indicator" :class="{ active: isDark }"></span>
@@ -49,7 +29,7 @@
     </main>
 
     <footer class="site-footer">
-      <p>&copy; 2025 Gazelle Design. Built with Nuxt 3 and Vue 3.</p>
+      <p>&copy; {{ currentYear }} gaze9999 / 使用 Nuxt 4 與 Vue 3 建置</p>
     </footer>
   </div>
 </template>
@@ -57,10 +37,11 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 
+const currentYear = useState('site-year', () => new Date().getFullYear())
 const isDark = ref(!1)
 const isThemeReady = ref(!1)
 
-const applyTheme = (dark: boolean) => {
+const applyTheme = (dark: boolean): void => {
   if (!import.meta.client) return
   const html = document.documentElement
   html.classList.toggle('dark-mode', dark)
@@ -68,7 +49,7 @@ const applyTheme = (dark: boolean) => {
   localStorage.setItem('theme', dark ? 'dark' : 'light')
 }
 
-const toggleTheme = () => {
+const toggleTheme = (): void => {
   isDark.value = !isDark.value
   applyTheme(isDark.value)
 }
@@ -100,6 +81,8 @@ watch(isDark, (value) => {
 
 .site-header {
   display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
@@ -121,6 +104,8 @@ watch(isDark, (value) => {
   font-size: 1.25rem;
   letter-spacing: 0.025rem;
   color: #1f1b2d;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .nav {
@@ -178,6 +163,12 @@ watch(isDark, (value) => {
     transform 120ms ease,
     background 120ms ease;
   white-space: nowrap;
+}
+
+.nav-link:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 3px solid #e87836;
+  outline-offset: 3px;
 }
 
 .nav-link:hover,
@@ -254,6 +245,18 @@ watch(isDark, (value) => {
 
   .header-actions {
     justify-content: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .site-header {
+    padding-inline: 1rem;
+  }
+
+  .page {
+    padding-inline: 1rem;
   }
 }
 </style>

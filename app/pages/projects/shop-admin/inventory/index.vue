@@ -1,34 +1,34 @@
 <template>
   <section class="page-block">
     <h2>庫存與倉儲</h2>
-    <p class="lead">即時庫存、批次追溯與異動警示。</p>
+    <p class="lead">以固定示範資料呈現庫存, 批次資訊與異動警示</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、營運主管</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 營運主管</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
       <article class="card" v-for="item in stockItems" :key="item.name">
         <h3>{{ item.name }}</h3>
-        <p>庫存：{{ item.qty }}</p>
-        <p>安全值：{{ item.safe }}</p>
-        <p>狀態：{{ item.status }}</p>
+        <p>庫存: {{ item.qty }}</p>
+        <p>安全值: {{ item.safe }}</p>
+        <p>狀態: {{ item.status }}</p>
       </article>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：庫存查詢</h3>
-        <p>即時查詢所有貨物庫存、批次資訊與異動歷程。</p>
+        <h3>子頁面: 庫存查詢</h3>
+        <p>查詢示範貨物的庫存, 批次資訊與異動歷程</p>
       </div>
       <NuxtLink to="/projects/shop-admin/inventory/query" class="sub-link">前往查詢頁面 →</NuxtLink>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：庫存調整單</h3>
-        <p>追蹤盤點差異、調整原因與簽核進度。</p>
+        <h3>子頁面: 庫存調整單</h3>
+        <p>追蹤盤點差異, 調整原因與簽核進度</p>
       </div>
       <NuxtLink to="/projects/shop-admin/inventory/adjustments" class="sub-link">前往調整單 →</NuxtLink>
     </div>
@@ -39,7 +39,7 @@
         <div v-for="step in stockFlow" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
           <p class="note">{{ step.note }}</p>
@@ -49,26 +49,28 @@
 
     <div class="table-section">
       <h3>近期異動紀錄</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>品項</th>
-            <th>類型</th>
-            <th>數量</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="row in movements" :key="row.id">
-            <td>{{ row.date }}</td>
-            <td>{{ row.item }}</td>
-            <td>{{ row.type }}</td>
-            <td>{{ row.qty }}</td>
-            <td><span :class="['badge', row.status]">{{ row.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="庫存異動資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>品項</th>
+              <th>類型</th>
+              <th>數量</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in movements" :key="row.id">
+              <td>{{ row.date }}</td>
+              <td>{{ row.item }}</td>
+              <td>{{ row.type }}</td>
+              <td>{{ row.qty }}</td>
+              <td><span :class="['badge', row.status]">{{ row.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>

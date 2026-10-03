@@ -3,7 +3,7 @@
     <section class="overview-cards">
       <article class="overview-card">
         <div class="card-header">
-          <h3>操作審計</h3>
+          <h3>操作稽核</h3>
           <span class="icon"><i class="fas fa-clipboard"></i></span>
         </div>
         <p class="description">追蹤系統中所有重要操作與資料變更</p>
@@ -35,20 +35,20 @@
           <h3>合規報告</h3>
           <span class="icon">✅</span>
         </div>
-        <p class="description">生成審計與合規相關報告</p>
+        <p class="description">生成稽核與合規相關報告</p>
         <div class="info-badge">計畫中</div>
       </article>
     </section>
 
     <section class="stats-section">
-      <h2>審計統計</h2>
+      <h2>稽核統計</h2>
       <div class="stats-grid">
         <div class="stat-box">
           <p class="stat-label">本日操作</p>
           <h3 class="stat-value">{{ stats.todayOperations }}</h3>
         </div>
         <div class="stat-box">
-          <p class="stat-label">本周操作</p>
+          <p class="stat-label">本週操作</p>
           <h3 class="stat-value">{{ stats.weekOperations }}</h3>
         </div>
         <div class="stat-box">

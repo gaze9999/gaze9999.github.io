@@ -24,7 +24,7 @@ export const getFFXIVTopics = async (locale: Locale = 'jp'): Promise<Topic[]> =>
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`資料載入失敗 (HTTP ${response.status})`);
     }
 
     const data = await response.json();
@@ -49,7 +49,7 @@ export const getFFXIVMaintenance = async (locale: Locale = 'jp'): Promise<Mainte
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`資料載入失敗 (HTTP ${response.status})`);
     }
 
     const data = await response.json();
@@ -74,7 +74,7 @@ export const getFFXIVMaintenanceCurrent = async (locale: Locale = 'jp'): Promise
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`資料載入失敗 (HTTP ${response.status})`);
     }
 
     const data = await response.json();

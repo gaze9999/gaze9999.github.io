@@ -12,7 +12,7 @@
       <tbody>
         <tr v-for="row in rows" :key="row.id">
           <td>{{ row.item }}</td>
-          <td><span :class="['level', row.status]">{{ row.status }}</span></td>
+          <td><span :class="['level', row.status]">{{ row.status === 'critical' ? '高風險' : row.status === 'warning' ? '需注意' : row.status === 'pending' ? '待處理' : row.status }}</span></td>
           <td>{{ row.owner }}</td>
           <td>{{ row.updated }}</td>
         </tr>

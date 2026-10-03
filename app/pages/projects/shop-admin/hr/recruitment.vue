@@ -3,35 +3,37 @@
     <div class="header">
       <div>
         <h2>招募進度</h2>
-        <p class="lead">追蹤職缺、面談安排與錄用狀態。</p>
+        <p class="lead">追蹤職缺, 面談安排與錄用狀態</p>
       </div>
-      <div class="badge">可存取：系統管理、人資專員</div>
+      <div class="badge">可存取: 系統管理, 人資專員</div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>職缺</th>
-          <th>進度</th>
-          <th>負責人</th>
-          <th>面談場次</th>
-          <th>狀態</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in recruitments" :key="row.role">
-          <td>{{ row.role }}</td>
-          <td>{{ row.stage }}</td>
-          <td>{{ row.owner }}</td>
-          <td>{{ row.sessions }}</td>
-          <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto" role="region" aria-label="招募進度資料表, 可左右捲動" tabindex="0">
+      <table class="data-table min-w-[35rem]">
+        <thead>
+          <tr>
+            <th>職缺</th>
+            <th>進度</th>
+            <th>負責人</th>
+            <th>面談場次</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in recruitments" :key="row.role">
+            <td>{{ row.role }}</td>
+            <td>{{ row.stage }}</td>
+            <td>{{ row.owner }}</td>
+            <td>{{ row.sessions }}</td>
+            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note-card">
       <h3>提醒</h3>
-      <p>人力缺口較高的職缺需優先安排面談。</p>
+      <p>人力缺口較高的職缺需優先安排面談</p>
     </div>
   </section>
 </template>

@@ -3,10 +3,10 @@
     <section class="hero" aria-labelledby="about-title">
       <div class="hero-copy">
         <p class="eyebrow">About / Engineering Profile</p>
-        <h1 id="about-title">把複雜的前端系統，整理成可靠且可持續演進的產品體驗。</h1>
+        <h1 id="about-title">把複雜的前端系統, 整理成可靠且可持續演進的產品體驗</h1>
         <p class="hero-summary">
-          專注於企業級 Web 前端與系統整合，累積十年以上的開發經驗。從 Angular、TypeScript 到 Vue /
-          Nuxt，我重視可維護的架構、可量測的效能，以及能讓團隊安心協作的交付品質。
+          專注於企業級 Web 前端與系統整合, 持續累積實作與維護經驗; 從 Angular, TypeScript 到 Vue /
+          Nuxt, 我重視可維護的架構, 可量測的效能, 以及能讓團隊安心協作的交付品質
         </p>
         <div class="hero-actions">
           <NuxtLink to="/projects" class="primary-action">查看作品與實作</NuxtLink>
@@ -16,12 +16,12 @@
 
       <aside class="focus-card" aria-label="目前專注方向">
         <p class="focus-label">Current Focus</p>
-        <h2>Frontend Engineering<br />&amp; System Analysis</h2>
+        <h2>前端工程<br />與個人工具探索</h2>
         <ul>
           <li>大型前端系統的架構演進與維護</li>
-          <li>資料流程、API 整合與 SSR 體驗</li>
-          <li>效能量測、問題定位與漸進式改善</li>
-          <li>從資深前端延伸至技術規劃與系統分析</li>
+          <li>資料流程, API 整合與 SSR 體驗</li>
+          <li>Python 文件處理與開發流程工具</li>
+          <li>Codex Skills, MCP 與可驗證的 agent 工作流程</li>
         </ul>
       </aside>
     </section>
@@ -32,7 +32,7 @@
           <p class="section-index">01</p>
           <div>
             <h2 id="skills-title">技術視角</h2>
-            <p>技術選擇服務於問題本身；我偏好以清楚的邊界、型別與資料流，降低系統長期維護成本。</p>
+            <p>技術選擇服務於問題本身; 我偏好以清楚的邊界, 型別與資料流, 降低系統長期維護成本</p>
           </div>
         </div>
 
@@ -53,7 +53,7 @@
           <p class="section-index">02</p>
           <div>
             <h2 id="experience-title">工程實踐</h2>
-            <p>不只完成畫面，也處理資料量、版本演進、效能與團隊協作帶來的系統性挑戰。</p>
+            <p>不只完成畫面, 也處理資料量, 版本演進, 效能與團隊協作帶來的系統性挑戰</p>
           </div>
         </div>
 
@@ -76,7 +76,7 @@
           <p class="section-index">03</p>
           <div>
             <h2 id="approach-title">工程方法</h2>
-            <p>以證據推進決策，讓每一次改善都能被理解、驗證與延續。</p>
+            <p>以證據推進決策, 讓每一次改善都能被理解, 驗證與延續</p>
           </div>
         </div>
 
@@ -93,9 +93,10 @@
 
       <section class="closing" aria-labelledby="direction-title">
         <p class="eyebrow">Next Direction</p>
-        <h2 id="direction-title">在前端工程與系統規劃之間，持續建立更好的協作介面。</h2>
+        <h2 id="direction-title">在前端工程與系統規劃之間, 持續建立更好的協作介面</h2>
         <p>
-          我期待參與需要釐清需求、整合多方限制並長期優化的產品工作，將前端實作轉化為可被團隊共同維護的系統能力。
+          我期待參與需要釐清需求, 整合多方限制並長期優化的產品工作,
+          將前端實作轉化為可被團隊共同維護的系統能力
         </p>
         <NuxtLink to="/projects" class="primary-action">探索作品與實作</NuxtLink>
       </section>
@@ -124,15 +125,18 @@
   }
 
   useSeoMeta({
-    title: '關於｜前端工程與系統分析',
-    description: '聚焦 Angular、TypeScript、Vue / Nuxt、SSR 與效能優化的前端工程介紹。',
+    title: '關於 | gaze9999 的前端工程與工具探索',
+    description:
+      'gaze9999 的前端工程背景, 聚焦 Angular, TypeScript, Vue / Nuxt, Python 工具與 Codex 工作流程的持續實作',
+    ogTitle: '關於 | gaze9999 的前端工程與工具探索',
+    ogDescription: '從企業前端與系統整合, 延伸至 Python 工具, coding-agent 工作流程與遊戲原型',
   })
 
   const skillCategories: SkillCategory[] = [
     {
       kicker: 'Primary Expertise',
       title: '前端工程',
-      description: '以 Angular 為主要實戰場域，兼顧元件設計、狀態管理與跨裝置體驗。',
+      description: '以 Angular 為主要實戰場域, 兼顧元件設計, 狀態管理與跨裝置體驗',
       skills: [
         'Angular 9–19',
         'TypeScript',
@@ -147,7 +151,7 @@
     {
       kicker: 'Full-stack Context',
       title: 'Web 整合',
-      description: '理解從前端呈現到 API、伺服端渲染與非同步流程之間的整體資料路徑。',
+      description: '理解從前端呈現到 API, 伺服端渲染與非同步流程之間的整體資料路徑',
       skills: [
         'Vue 3',
         'Nuxt',
@@ -162,7 +166,7 @@
     {
       kicker: 'Product Quality',
       title: '體驗與品質',
-      description: '把效能與可用性視為產品品質的一部分，從設計到上線持續觀察與調整。',
+      description: '把效能與可用性視為產品品質的一部分, 從設計到上線持續觀察與調整',
       skills: [
         'Core Web Vitals',
         'Lighthouse',
@@ -176,17 +180,18 @@
     {
       kicker: 'Technical Exploration',
       title: '技術探索',
-      description: '保持跨領域實作能力，將遊戲開發與本機 AI 工具的經驗帶回工程思考。',
+      description:
+        '透過 Python 文件工具, Codex Skills / MCP 與 Universe Idle 地面原型, 持續探索可重建的開發流程與互動設計',
       skills: [
-        'Unity',
-        'C#',
-        'FSM',
-        'Behavior Tree',
-        'ScriptableObject',
-        'Stable Diffusion',
-        'ComfyUI',
-        'LoRA',
-        'Local LLM',
+        'Python',
+        '文件轉 Markdown',
+        'Codex',
+        'Skills',
+        'MCP',
+        '本機活動監看',
+        '增量與放置遊戲',
+        'Unity / C#',
+        'ComfyUI / Local LLM',
       ],
     },
   ]
@@ -195,62 +200,62 @@
     {
       label: 'Enterprise Frontend',
       title: '大型 Angular 系統維護與演進',
-      summary: '在企業前端情境中，處理元件規模、資料一致性與既有架構逐步演進的需求。',
+      summary: '在企業前端情境中, 處理元件規模, 資料一致性與既有架構逐步演進的需求',
       highlights: [
-        '維護超過 100 個 Angular 元件，持續整理可重用的介面與互動模式。',
-        '運用 Signals、computed、effect、RxJS 與 NgRx，讓狀態與非同步流程更容易追蹤。',
-        '以 Map / Set 處理大量資料比對，降低資料轉換與查找的複雜度。',
+        '維護 Angular 元件, 持續整理可重用的介面與互動模式',
+        '運用 Signals, computed, effect, RxJS 與 NgRx, 讓狀態與非同步流程更容易追蹤',
+        '以 Map / Set 處理大量資料比對, 降低資料轉換與查找的複雜度',
       ],
     },
     {
       label: 'Migration & Architecture',
       title: '版本升級與架構落地',
-      summary: '面對框架升級時，先辨識相依性與風險，再將轉換拆成可驗證的階段。',
+      summary: '面對框架升級時, 先辨識相依性與風險, 再將轉換拆成可驗證的階段',
       highlights: [
-        '參與 Angular 9 至 15 的升級工作，也投入 Angular 18–19 的專案開發。',
-        '在既有系統中逐步導入較清楚的型別、元件邊界與資料流。',
-        '與設計、後端及需求端協作，讓技術決策能回應實際使用情境。',
+        '參與 Angular 9 至 15 的升級工作, 也投入 Angular 18–19 的專案開發',
+        '在既有系統中逐步導入較清楚的型別, 元件邊界與資料流',
+        '與設計, 後端及需求端協作, 讓技術決策能回應實際使用情境',
       ],
     },
     {
       label: 'SSR & Performance',
       title: '以量測驅動效能改善',
-      summary: '從真實載入路徑與 Core Web Vitals 出發，找出影響體驗的瓶頸並驗證改善結果。',
+      summary: '從真實載入路徑與 Core Web Vitals 出發, 找出影響體驗的瓶頸並驗證改善結果',
       highlights: [
-        '結合 Angular SSR 與 TransferState，避免不必要的重複資料請求。',
-        '曾將 LCP 由約 20 秒改善至 4 秒內，並將 CLS 由 0.9 降至 0.001。',
-        '使用 Lighthouse 與 Chrome DevTools 檢視載入、渲染與互動過程。',
+        '結合 Angular SSR 與 TransferState, 避免不必要的重複資料請求',
+        '以 LCP 與 CLS 等指標追蹤載入體驗, 檢查改善前後的差異',
+        '使用 Lighthouse 與 Chrome DevTools 檢視載入, 渲染與互動過程',
       ],
     },
     {
       label: 'Integration',
       title: 'API 與資料視覺化整合',
-      summary: '以 Node.js 與 REST API 的整合經驗，協助前端穩定處理資料交換與非同步互動。',
+      summary: '以 Node.js 與 REST API 的整合經驗, 協助前端穩定處理資料交換與非同步互動',
       highlights: [
-        '設計可追蹤的請求、錯誤與載入狀態，讓 UI 能正確回應資料生命週期。',
-        '使用 D3.js 將資料關係與趨勢轉化為容易理解的視覺呈現。',
-        '在 Vue 3 / Nuxt / Pinia 專案中，實作 SSR / SSG 與前端狀態管理。',
+        '設計可追蹤的請求, 錯誤與載入狀態, 讓 UI 能正確回應資料生命週期',
+        '使用 D3.js 將資料關係與趨勢轉化為容易理解的視覺呈現',
+        '在 Vue 3 / Nuxt / Pinia 專案中, 實作 SSR / SSG 與前端狀態管理',
       ],
     },
   ]
 
   const principles: Principle[] = [
     {
-      title: '先拆解，再承諾',
-      description: '先確認需求、假設與限制，將模糊問題拆成可討論、可驗證的工作單位。',
+      title: '先拆解, 再承諾',
+      description: '先確認需求, 假設與限制, 將模糊問題拆成可討論, 可驗證的工作單位',
     },
     {
       title: '以量測定位根因',
-      description: '不以直覺取代證據；透過效能指標、瀏覽器工具與資料流觀察來判斷改善方向。',
+      description: '不以直覺取代證據; 透過效能指標, 瀏覽器工具與資料流觀察來判斷改善方向',
     },
     {
       title: '漸進式改善',
-      description: '尊重既有系統與交付節奏，以低風險、可回溯的步驟持續降低複雜度。',
+      description: '尊重既有系統與交付節奏, 以低風險, 可回溯的步驟持續降低複雜度',
     },
     {
       title: 'AI 輔助後仍人工驗證',
       description:
-        '善用 AI 加速探索與草擬，但仍以人工 Code Review、型別檢查、API 與套件版本確認、Build 和實際測試守住品質。',
+        '善用 AI 加速探索與草擬, 但仍以人工 Code Review, 型別檢查, API 與套件版本確認, Build 和實際測試守住品質',
     },
   ]
 </script>

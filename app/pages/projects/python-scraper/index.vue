@@ -3,7 +3,7 @@
     <div class="hero-text">
       <p class="eyebrow">Data Scraping Results</p>
       <h1>TGS 2025 展覽商爬蟲成果</h1>
-      <p class="lead">使用 Python 爬蟲技術從 Tokyo Game Show 2025 官方資料中提取展覽商資訊，進行資料清洗與可視化呈現。</p>
+      <p class="lead">呈現由 Tokyo Game Show 2025 官方資料整理的展覽商資料集, 提供搜尋, 篩選與排序; 此頁使用歷史資料, 非當期展覽名單</p>
       <p class="notion-source">
         本資料原建立於 
         <a 
@@ -14,13 +14,13 @@
         >
           Notion 資料庫
         </a>
-        ，現已轉移至此展示。
+        , 現已轉移至此展示
       </p>
     </div>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">{{ stats.recordsProcessed }}</div>
-        <div class="stat-label">總展覽商</div>
+        <div class="stat-label">資料集展覽商筆數</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">{{ stats.internationalExhibitors }}</div>
@@ -68,56 +68,58 @@
       </div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th class="col-exhibitor" @click="toggleSort('exhibitor')">
-            <div class="th-content">
-              <span>展覽商</span>
-              <span class="sort-icon">{{ getSortIcon('exhibitor') }}</span>
-            </div>
-          </th>
-          <th class="col-area" @click="toggleSort('area')">
-            <div class="th-content">
-              <span>展示區域</span>
-              <span class="sort-icon">{{ getSortIcon('area') }}</span>
-            </div>
-          </th>
-          <th class="col-booth" @click="toggleSort('boothNumber')">
-            <div class="th-content">
-              <span>攤位號</span>
-              <span class="sort-icon">{{ getSortIcon('boothNumber') }}</span>
-            </div>
-          </th>
-          <th class="col-country" @click="toggleSort('country')">
-            <div class="th-content">
-              <span>國家</span>
-              <span class="sort-icon">{{ getSortIcon('country') }}</span>
-            </div>
-          </th>
-          <th class="col-location" @click="toggleSort('location')">
-            <div class="th-content">
-              <span>場地</span>
-              <span class="sort-icon">{{ getSortIcon('location') }}</span>
-            </div>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in paginatedExhibitors" :key="row.uid">
-          <td class="col-exhibitor exhibitor-name">{{ row.exhibitor }}</td>
-          <td class="col-area">
-            <span class="area-badge">{{ row.area }}</span>
-          </td>
-          <td class="col-booth booth">{{ row.boothNumber }}</td>
-          <td class="col-country country">{{ row.country || '日本' }}</td>
-          <td class="col-location location">{{ row.location }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-scroll" role="region" aria-label="展覽商資料表, 可左右捲動" tabindex="0">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th class="col-exhibitor" @click="toggleSort('exhibitor')">
+              <div class="th-content">
+                <span>展覽商</span>
+                <span class="sort-icon">{{ getSortIcon('exhibitor') }}</span>
+              </div>
+            </th>
+            <th class="col-area" @click="toggleSort('area')">
+              <div class="th-content">
+                <span>展示區域</span>
+                <span class="sort-icon">{{ getSortIcon('area') }}</span>
+              </div>
+            </th>
+            <th class="col-booth" @click="toggleSort('boothNumber')">
+              <div class="th-content">
+                <span>攤位號</span>
+                <span class="sort-icon">{{ getSortIcon('boothNumber') }}</span>
+              </div>
+            </th>
+            <th class="col-country" @click="toggleSort('country')">
+              <div class="th-content">
+                <span>國家</span>
+                <span class="sort-icon">{{ getSortIcon('country') }}</span>
+              </div>
+            </th>
+            <th class="col-location" @click="toggleSort('location')">
+              <div class="th-content">
+                <span>場地</span>
+                <span class="sort-icon">{{ getSortIcon('location') }}</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in paginatedExhibitors" :key="row.uid">
+            <td class="col-exhibitor exhibitor-name">{{ row.exhibitor }}</td>
+            <td class="col-area">
+              <span class="area-badge">{{ row.area }}</span>
+            </td>
+            <td class="col-booth booth">{{ row.boothNumber }}</td>
+            <td class="col-country country">{{ row.country || '日本' }}</td>
+            <td class="col-location location">{{ row.location }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="table-footer">
       <div class="table-summary">
-        搜尋結果：{{ filteredExhibitors.length }} / {{ pythonScraperMockData.length }} 筆
+        搜尋結果: {{ filteredExhibitors.length }} / {{ pythonScraperMockData.length }} 筆
       </div>
       <div class="pagination">
         <button 
@@ -193,7 +195,7 @@ const uniqueCountries = computed(() => {
 })
 
 const uniqueLocations = computed(() => {
-  const locations = pythonScraperMockData.map(item => item.location)
+  const locations = pythonScraperMockData.map(item => item.location).filter(Boolean)
   return [...new Set(locations)].sort()
 })
 
@@ -453,6 +455,11 @@ const getSortIcon = (column: keyof ExhibitorItem): string => {
 
 .filter-select:hover {
   border-color: #ff9f4a;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-radius: 8px;
 }
 
 .data-table {
@@ -716,6 +723,11 @@ const getSortIcon = (column: keyof ExhibitorItem): string => {
 
 /* 響應式設計 */
 @media (max-width: 768px) {
+  .scraper-hero,
+  .scraper-section {
+    padding: 32px 16px;
+  }
+
   .filters {
     flex-direction: column;
   }
@@ -729,6 +741,7 @@ const getSortIcon = (column: keyof ExhibitorItem): string => {
   }
 
   .data-table {
+    min-width: 640px;
     font-size: 12px;
   }
 
@@ -761,11 +774,24 @@ const getSortIcon = (column: keyof ExhibitorItem): string => {
   .table-footer {
     flex-direction: column;
     gap: 12px;
+    padding-inline: 0;
   }
 
   .pagination {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     width: 100%;
-    justify-content: center;
+  }
+
+  .pagination-btn {
+    padding-inline: 6px;
+    white-space: nowrap;
+  }
+
+  .page-info {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    min-width: 0;
   }
 }
 </style>

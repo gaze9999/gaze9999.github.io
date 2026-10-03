@@ -14,7 +14,7 @@
     <!-- Hero Section -->
     <section class="hero-section" id="displays">
       <div class="hero-title">
-        <h2>購物網站系統</h2>
+        <h2>商城視覺設計示範</h2>
         <p class="subtitle">E-Commerce Experience Design</p>
       </div>
       <div class="hero-showcase">
@@ -61,29 +61,29 @@
 
     <!-- Introduce Section -->
     <section class="introduce-section" id="introduce">
-      <h2>ABOUT OUR PLATFORM</h2>
+      <h2>介面設計重點</h2>
       <div class="intro-content">
         <div class="intro-card">
-          <h3>精選商品策展</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <h3>商品資訊層次</h3>
+          <p>以商品名稱, 價格與圖示示範卡片排版, 讓資訊層次容易辨識</p>
+          <p>商品與價格皆為固定展示內容, 未提供購物車或結帳</p>
         </div>
         <div class="intro-card">
-          <h3>品質保證承諾</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-          <p>Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+          <h3>品牌介紹版面</h3>
+          <p>以三欄圖文區塊呈現介紹內容, 示範色彩, 留白與文字配置</p>
+          <p>這些區塊展示介面設計, 不代表實際商店的品質或服務保證</p>
         </div>
         <div class="intro-card">
-          <h3>優質購物體驗</h3>
-          <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-          <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+          <h3>導覽與閱讀動線</h3>
+          <p>頁內導覽連結可前往商品, 介紹與聯絡區塊</p>
+          <p>輪播主視覺搭配分區內容, 呈現商城首頁的閱讀動線</p>
         </div>
       </div>
     </section>
 
     <!-- Products Section -->
     <section class="products-section" id="products">
-      <h2>FEATURED PRODUCTS</h2>
+      <h2>商品卡片示範</h2>
       <div class="products-showcase">
         <div class="product-row" v-for="(row, rowIndex) in productRows" :key="`row-${rowIndex}`">
           <div class="product-card" v-for="item in row" :key="item.id">
@@ -97,7 +97,7 @@
 
     <!-- Services Section -->
     <section class="services-section">
-      <h2>PREMIUM SERVICES</h2>
+      <h2>服務資訊版面示範</h2>
       <div class="services-grid">
         <div class="service-card" v-for="service in servicesData" :key="service.id">
           <div class="service-icon"><i :class="service.icon"></i></div>
@@ -109,7 +109,7 @@
 
     <!-- Business Info Section -->
     <section class="business-section">
-      <h2>BUSINESS TIME</h2>
+      <h2>營業資訊版面示範</h2>
       <div class="business-grid">
         <div class="business-item">
           <span class="label">Monday-Friday</span>
@@ -124,8 +124,8 @@
           <span class="time">Closed</span>
         </div>
         <div class="business-item">
-          <span class="label">Holiday Support</span>
-          <span class="time">Available</span>
+          <span class="label">假日資訊示例</span>
+          <span class="time">僅供版面示範</span>
         </div>
       </div>
     </section>
@@ -137,26 +137,26 @@
         <div class="contact-info">
           <div class="contact-item">
             <span class="icon"><i class="fas fa-envelope"></i></span>
-            <p>support@ecommerce.com</p>
+            <p>Email 聯絡資訊示意</p>
           </div>
           <div class="contact-item">
             <span class="icon"><i class="fas fa-phone"></i></span>
-            <p>+886-2-XXXX-XXXX</p>
+            <p>電話聯絡資訊示意</p>
           </div>
           <div class="contact-item">
             <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
-            <p>Taipei, Taiwan</p>
+            <p>商店位置資訊示意</p>
           </div>
         </div>
         <div class="contact-map">
-          <div class="map-placeholder"><i class="fas fa-map-marker-alt"></i> Location Map</div>
+          <div class="map-placeholder"><i class="fas fa-map-marker-alt"></i> 位置圖示意</div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="shop-footer">
-      <p>&copy; 2025 Gazelle Design</p>
+      <p>Gazelle Design | 商城介面示範</p>
       <NuxtLink to="/" class="footer-link">← 返回首頁</NuxtLink>
     </footer>
   </div>
@@ -747,8 +747,17 @@
       gap: 20px;
     }
 
+    .business-section,
+    .contact-section {
+      padding: 40px 16px;
+    }
+
+    .contact-map {
+      padding: 16px;
+    }
+
     .business-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
     }
   }
 </style>
@@ -764,21 +773,21 @@ const heroSlides = [
     id: 'hero-01',
     eyebrow: 'Featured Flow',
     title: '沉浸式購物導覽',
-    description: '以燈箱式大圖傳達視覺節奏，凸顯品牌溫度與商品亮點。',
+    description: '以輪播大圖示範品牌視覺與商品焦點配置',
     background: 'linear-gradient(120deg, rgba(31, 27, 45, 0.15), rgba(31, 27, 45, 0.45)), url("https://images.unsplash.com/photo-1521337581100-8ca9a73a5f79?auto=format&fit=crop&w=1400&q=80")',
   },
   {
     id: 'hero-02',
     eyebrow: 'Conversion Focus',
     title: '促銷節點聚焦',
-    description: '以高對比主視覺鎖定限時優惠，帶動關鍵轉換行為。',
+    description: '以高對比色彩呈現促銷區塊的視覺層次',
     background: 'linear-gradient(120deg, rgba(31, 27, 45, 0.1), rgba(31, 27, 45, 0.5)), url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80")',
   },
   {
     id: 'hero-03',
     eyebrow: 'Trust & Delivery',
     title: '物流與信任感視覺化',
-    description: '以安心色調與柔焦質感呈現配送效率與服務可靠度。',
+    description: '以柔和色調示範服務資訊區塊的視覺風格',
     background: 'linear-gradient(120deg, rgba(31, 27, 45, 0.12), rgba(31, 27, 45, 0.4)), url("https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1400&q=80")',
   },
 ]
@@ -831,21 +840,21 @@ const productRows = [
 const servicesData = [
   { 
     id: 'service-01', 
-    name: '即時客服服務', 
+    name: '客服資訊區塊',
     icon: 'fas fa-phone',
-    description: '24/7 全天候專業客服團隊，即時解決您的購物疑問。'
+    description: '以圖示與簡短說明呈現客服資訊, 此頁未提供客服服務'
   },
   { 
     id: 'service-02', 
-    name: '退換貨保障', 
+    name: '退換貨說明區塊',
     icon: 'fas fa-undo',
-    description: '30 天無條件退換貨，讓您安心購物無負擔。'
+    description: '展示售後服務說明的排版, 不代表實際退換貨政策'
   },
   { 
     id: 'service-03', 
-    name: '節慶禮物包裝',
+    name: '包裝資訊區塊',
     icon: 'fas fa-gift',
-    description: '精美禮盒包裝服務，為您的心意增添溫度。'
+    description: '展示商品包裝介紹的視覺配置, 未提供包裝服務'
   },
 ]
 </script>

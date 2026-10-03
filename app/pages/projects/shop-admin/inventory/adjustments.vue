@@ -3,35 +3,37 @@
     <div class="header">
       <div>
         <h2>庫存調整單</h2>
-        <p class="lead">盤點差異與調整原因彙整。</p>
+        <p class="lead">盤點差異與調整原因彙整</p>
       </div>
-      <div class="badge">可存取：系統管理、營運主管</div>
+      <div class="badge">可存取: 系統管理, 營運主管</div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>調整單號</th>
-          <th>品項</th>
-          <th>差異</th>
-          <th>原因</th>
-          <th>狀態</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in adjustments" :key="row.id">
-          <td>{{ row.id }}</td>
-          <td>{{ row.item }}</td>
-          <td>{{ row.diff }}</td>
-          <td>{{ row.reason }}</td>
-          <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto" role="region" aria-label="庫存調整資料表, 可左右捲動" tabindex="0">
+      <table class="data-table min-w-[35rem]">
+        <thead>
+          <tr>
+            <th>調整單號</th>
+            <th>品項</th>
+            <th>差異</th>
+            <th>原因</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in adjustments" :key="row.id">
+            <td>{{ row.id }}</td>
+            <td>{{ row.item }}</td>
+            <td>{{ row.diff }}</td>
+            <td>{{ row.reason }}</td>
+            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note-card">
       <h3>注意事項</h3>
-      <p>差異達門檻時需同步財務覆核並更新庫位。</p>
+      <p>差異達門檻時需同步財務覆核並更新庫位</p>
     </div>
   </section>
 </template>

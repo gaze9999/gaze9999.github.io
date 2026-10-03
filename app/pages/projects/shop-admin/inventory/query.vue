@@ -3,14 +3,14 @@
     <div class="page-header">
       <div>
         <h2>庫存查詢</h2>
-        <p class="lead">即時查詢貨物庫存、批次資訊與異動歷程。</p>
+        <p class="lead">查詢固定示範資料中的庫存, 批次資訊與異動歷程</p>
       </div>
       <NuxtLink to="/projects/shop-admin/inventory" class="btn-secondary">← 返回庫存管理</NuxtLink>
     </div>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、營運主管、倉儲人員</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 營運主管, 倉儲人員</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <!-- 搜尋與篩選區 -->
@@ -22,7 +22,7 @@
             id="search"
             v-model="searchQuery"
             type="text"
-            placeholder="商品名稱、編號或批次號"
+            placeholder="商品名稱, 編號或批次號"
             class="search-input"
           />
         </div>
@@ -57,8 +57,8 @@
       </div>
       <div class="filter-actions">
         <button @click="handleSearch" class="btn-primary">查詢</button>
-        <button @click="handleReset" class="btn-secondary">重置</button>
-        <button @click="handleExport" class="btn-outline">匯出報表</button>
+        <button @click="handleReset" class="btn-secondary">重設</button>
+        <button @click="handleExport" class="btn-outline">匯出示意</button>
       </div>
     </div>
 
@@ -110,7 +110,7 @@
           <i class="fas fa-search"></i>
         </div>
         <h3>請設定查詢條件</h3>
-        <p>請在上方輸入搜尋條件或選擇篩選項目，然後點擊「查詢」按鈕</p>
+        <p>請在上方輸入搜尋條件或選擇篩選項目, 然後點擊[查詢]按鈕</p>
       </div>
 
       <!-- 查詢結果為空 -->
@@ -119,10 +119,10 @@
           <i class="fas fa-inbox"></i>
         </div>
         <h3>查無資料</h3>
-        <p>找不到符合條件的庫存記錄，請調整查詢條件後重試</p>
+        <p>找不到符合條件的庫存記錄, 請調整查詢條件後重試</p>
       </div>
 
-      <div v-else class="table-wrapper">
+      <div v-else class="table-wrapper" role="region" aria-label="庫存查詢資料表, 可左右捲動" tabindex="0">
         <table class="data-table">
           <thead>
             <tr>
@@ -197,10 +197,10 @@
                 </span>
               </td>
               <td class="actions">
-                <button @click="viewDetails(item)" class="btn-icon" title="查看詳情">
+                <button aria-label="查看示範商品詳情" @click="viewDetails(item)" class="btn-icon" title="查看詳情">
                   <i class="fas fa-eye"></i>
                 </button>
-                <button @click="editItem(item)" class="btn-icon" title="編輯">
+                <button aria-label="示範商品編輯操作" @click="editItem(item)" class="btn-icon" title="編輯操作示範">
                   <i class="fas fa-edit"></i>
                 </button>
               </td>
@@ -390,7 +390,7 @@ const selectedItem = ref<InventoryItem | null>(null)
 
 // 類別和倉庫選項
 const categories = ['原料', '包材', '零件', '成品', '耗材']
-const warehouses = ['A 倉', 'B 倉', 'C 倉', 'D 倉（冷藏）', 'E 倉（危險品）']
+const warehouses = ['A 倉', 'B 倉', 'C 倉', 'D 倉(冷藏)', 'E 倉(危險品)']
 
 // 模擬庫存資料
 const inventoryItems = ref<InventoryItem[]>([
@@ -559,7 +559,7 @@ const inventoryItems = ref<InventoryItem[]>([
     code: 'FIN-I-002',
     name: '成品 I-LED 燈具',
     category: '成品',
-    warehouse: 'D 倉（冷藏）',
+    warehouse: 'D 倉(冷藏)',
     quantity: 320,
     safeLevel: 300,
     unit: '組',
@@ -579,7 +579,7 @@ const inventoryItems = ref<InventoryItem[]>([
     code: 'CON-J-002',
     name: '耗材 J-清潔劑',
     category: '耗材',
-    warehouse: 'E 倉（危險品）',
+    warehouse: 'E 倉(危險品)',
     quantity: 45,
     safeLevel: 50,
     unit: '瓶',
@@ -696,7 +696,7 @@ const handleReset = () => {
 }
 
 const handleExport = () => {
-  alert('匯出功能開發中...')
+  alert('匯出操作示範; 此頁不會產生或下載報表')
 }
 
 const toggleSort = (column: keyof InventoryItem) => {
@@ -729,7 +729,7 @@ const viewDetails = (item: InventoryItem) => {
 }
 
 const editItem = (item: InventoryItem) => {
-  alert(`編輯功能開發中...\n商品：${item.name}`)
+  alert(`編輯操作示範; 不會修改商品資料\n商品: ${item.name}`)
 }
 
 const closeModal = () => {
@@ -1123,6 +1123,7 @@ watch([filterCategory, filterWarehouse, filterStatus], () => {
 }
 
 .pagination-btn {
+  white-space: nowrap;
   padding: 0.5rem 1rem;
   border: 0.0625rem solid #e5e7eb;
   background: white;
@@ -1337,7 +1338,37 @@ watch([filterCategory, filterWarehouse, filterStatus], () => {
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stat-card {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .stat-content {
+    min-width: 0;
+  }
+
+  .stat-value {
+    overflow-wrap: anywhere;
+  }
+
+  .pagination {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .pagination-btn {
+    padding-inline: 0.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .page-info {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: center;
+    padding: 0;
   }
 
   .data-table {

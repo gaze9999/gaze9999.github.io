@@ -1,25 +1,25 @@
 <template>
   <section class="page-block">
     <h2>報表中心</h2>
-    <p class="lead">展示營運、財務與績效報表的輸出範例。</p>
+    <p class="lead">展示營運, 財務與績效報表的輸出範例</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、營運主管、財務專員</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 營運主管, 財務專員</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
       <article class="card" v-for="report in reports" :key="report.name">
         <h3>{{ report.name }}</h3>
         <p>{{ report.desc }}</p>
-        <span class="meta">更新：{{ report.updated }}</span>
+        <span class="meta">更新: {{ report.updated }}</span>
       </article>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：報表排程</h3>
-        <p>彙整自動產出排程與通知設定。</p>
+        <h3>子頁面: 報表排程</h3>
+        <p>展示報表排程與通知對象的範例清單</p>
       </div>
       <NuxtLink to="/projects/shop-admin/reports/schedule" class="sub-link">前往排程 →</NuxtLink>
     </div>
@@ -30,7 +30,7 @@
         <div v-for="step in reportFlow" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
           <p class="note">{{ step.note }}</p>
@@ -41,33 +41,36 @@
     <div class="table-section">
       <div class="table-header">
         <h3>排程清單</h3>
+        <p>匯出按鈕僅為操作示意, 不會產生或下載檔案</p>
         <div class="export-actions">
-          <button class="export-btn excel-btn" @click="exportToExcel" title="匯出為 Excel">
-            <i class="fas fa-file-excel"></i> Excel
+          <button class="export-btn excel-btn" @click="exportToExcel" title="Excel 匯出操作示意, 不會下載檔案">
+            <i class="fas fa-file-excel"></i> Excel 匯出示意
           </button>
-          <button class="export-btn csv-btn" @click="exportToCsv" title="匯出為 CSV">
-            <i class="fas fa-file-csv"></i> CSV
+          <button class="export-btn csv-btn" @click="exportToCsv" title="CSV 匯出操作示意, 不會下載檔案">
+            <i class="fas fa-file-csv"></i> CSV 匯出示意
           </button>
         </div>
       </div>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>報表</th>
-            <th>頻率</th>
-            <th>負責人</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="schedule in schedules" :key="schedule.name">
-            <td>{{ schedule.name }}</td>
-            <td>{{ schedule.frequency }}</td>
-            <td>{{ schedule.owner }}</td>
-            <td><span :class="['badge', schedule.status]">{{ schedule.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="報表排程資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>報表</th>
+              <th>頻率</th>
+              <th>負責人</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="schedule in schedules" :key="schedule.name">
+              <td>{{ schedule.name }}</td>
+              <td>{{ schedule.frequency }}</td>
+              <td>{{ schedule.owner }}</td>
+              <td><span :class="['badge', schedule.status]">{{ schedule.status === 'done' ? '已完成' : schedule.status === 'active' ? '進行中' : schedule.status === 'pending' ? '待處理' : schedule.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>
@@ -91,7 +94,7 @@ const roleLabel = computed(() => {
 })
 
 const reportFlow = [
-  { id: '01', title: '數據彙整', status: 'done', note: '已完成資料抽取' },
+  { id: '01', title: '資料彙整', status: 'done', note: '已完成資料抽取' },
   { id: '02', title: '主管審閱', status: 'active', note: '等待營運主管確認' },
   { id: '03', title: '財務覆核', status: 'pending', note: '排程中' },
   { id: '04', title: '發布與寄送', status: 'pending', note: '待審核完成' },
@@ -232,6 +235,8 @@ const exportToCsv = () => {
 
   .table-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.75rem;
@@ -243,10 +248,12 @@ const exportToCsv = () => {
 
   .export-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
   .export-btn {
+    white-space: nowrap;
     padding: 0.5rem 0.875rem;
     border: none;
     border-radius: 0.5rem;

@@ -1,26 +1,26 @@
 <template>
   <section class="page-block">
     <h2>人資管理</h2>
-    <p class="lead">人力配置、排班與績效追蹤範例。</p>
+    <p class="lead">人力配置, 排班與績效追蹤範例</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、人資專員</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 人資專員</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
       <article class="card" v-for="team in teams" :key="team.name">
         <h3>{{ team.name }}</h3>
-        <p>人數：{{ team.count }}</p>
-        <p>本週出勤：{{ team.attendance }}</p>
-        <p>關鍵職缺：{{ team.openings }}</p>
+        <p>人數: {{ team.count }}</p>
+        <p>本週出勤: {{ team.attendance }}</p>
+        <p>關鍵職缺: {{ team.openings }}</p>
       </article>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：招募進度</h3>
-        <p>追蹤招募管道、面談排程與錄用進度。</p>
+        <h3>子頁面: 招募進度</h3>
+        <p>追蹤招募管道, 面談排程與錄用進度</p>
       </div>
       <NuxtLink to="/projects/shop-admin/hr/recruitment" class="sub-link">前往招募 →</NuxtLink>
     </div>
@@ -31,7 +31,7 @@
         <div v-for="step in hiringFlow" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
           <p class="note">{{ step.note }}</p>
@@ -41,24 +41,26 @@
 
     <div class="table-section">
       <h3>待處理任務</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>任務</th>
-            <th>負責人</th>
-            <th>期限</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="task in hrTasks" :key="task.title">
-            <td>{{ task.title }}</td>
-            <td>{{ task.owner }}</td>
-            <td>{{ task.due }}</td>
-            <td><span :class="['badge', task.status]">{{ task.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="人資任務資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>任務</th>
+              <th>負責人</th>
+              <th>期限</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="task in hrTasks" :key="task.title">
+              <td>{{ task.title }}</td>
+              <td>{{ task.owner }}</td>
+              <td>{{ task.due }}</td>
+              <td><span :class="['badge', task.status]">{{ task.status === 'done' ? '已完成' : task.status === 'active' ? '進行中' : task.status === 'pending' ? '待處理' : task.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>

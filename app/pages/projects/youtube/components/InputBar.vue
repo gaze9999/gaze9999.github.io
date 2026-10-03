@@ -4,15 +4,15 @@
       v-model.trim="inputLink"
       type="text"
       class="input-field"
-      placeholder="輸入YouTube連結或影片ID"
+      placeholder="輸入 YouTube 影片連結"
       @keyup.enter="handleSubmit"
-      aria-label="YouTube連結輸入欄"
+      aria-label="YouTube 影片連結輸入欄"
     />
     <button
+      aria-label="送出影片連結"
       @click="handleSubmit"
       class="submit-btn"
       :disabled="!inputLink"
-      aria-label="送出影片連結"
     >
       送出
     </button>
@@ -53,7 +53,7 @@ const handleSubmit = () => {
 
   try {
     emit('submit', inputLink.value)
-    successMessage.value = '已添加影片'
+    successMessage.value = '已送出連結, 請確認下方影片清單'
     inputLink.value = ''
     
     // 3秒後清除成功訊息
@@ -61,7 +61,7 @@ const handleSubmit = () => {
       successMessage.value = ''
     }, 3000)
   } catch (error: any) {
-    errorMessage.value = error.message || '添加影片失敗'
+    errorMessage.value = error.message || '新增影片失敗'
   }
 }
 </script>
@@ -77,6 +77,7 @@ const handleSubmit = () => {
 
   .input-field {
     flex: 1;
+    min-width: 0;
     padding: 12px 16px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -96,6 +97,8 @@ const handleSubmit = () => {
   }
 
   .submit-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
     padding: 12px 24px;
     background: #333;
     color: white;
@@ -112,6 +115,17 @@ const handleSubmit = () => {
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .input-bar {
+    flex-direction: column;
+    padding: 16px;
+
+    .submit-btn {
+      align-self: flex-end;
     }
   }
 }

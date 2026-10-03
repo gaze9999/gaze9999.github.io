@@ -1,8 +1,9 @@
 <template>
   <div class="checks-page">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <header class="page-header">
-      <h1>審計檢查管理</h1>
-      <p class="subtitle">新增、編輯和執行檢查項目</p>
+      <h1>稽核檢查管理</h1>
+      <p class="subtitle">新增, 編輯和執行檢查項目</p>
     </header>
 
     <!-- 檢查列表 -->
@@ -12,7 +13,7 @@
         <button class="btn btn-primary">+ 新增檢查</button>
       </div>
 
-      <div class="table-wrapper">
+      <div class="table-wrapper" role="region" aria-label="稽核檢查資料表, 可左右捲動" tabindex="0">
         <table class="checks-table">
           <thead>
             <tr>
@@ -219,6 +220,7 @@
   }
 
   .checks-table {
+    min-width: 45rem;
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
@@ -357,7 +359,7 @@
 
     .filters-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
       gap: 16px;
     }
   }

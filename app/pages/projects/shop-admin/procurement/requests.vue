@@ -3,37 +3,39 @@
     <div class="header">
       <div>
         <h2>採購申請清單</h2>
-        <p class="lead">彙整各部門需求、預算與審核狀態。</p>
+        <p class="lead">彙整各部門需求, 預算與審核狀態</p>
       </div>
-      <div class="badge">可存取：系統管理、營運主管</div>
+      <div class="badge">可存取: 系統管理, 營運主管</div>
     </div>
 
     <div class="table-section">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>申請單號</th>
-            <th>部門</th>
-            <th>項目</th>
-            <th>金額</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="row in requestRows" :key="row.id">
-            <td>{{ row.id }}</td>
-            <td>{{ row.department }}</td>
-            <td>{{ row.item }}</td>
-            <td>{{ row.amount }}</td>
-            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="採購申請資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>申請單號</th>
+              <th>部門</th>
+              <th>項目</th>
+              <th>金額</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="row in requestRows" :key="row.id">
+              <td>{{ row.id }}</td>
+              <td>{{ row.department }}</td>
+              <td>{{ row.item }}</td>
+              <td>{{ row.amount }}</td>
+              <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="note-card">
       <h3>審核節點</h3>
-      <p>需求提出 → 部門主管 → 供應商比價 → 財務覆核 → 下單。</p>
+      <p>需求提出 → 部門主管 → 供應商比價 → 財務覆核 → 下單</p>
     </div>
   </section>
 </template>

@@ -1,8 +1,9 @@
 <template>
   <div class="results-page">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <header class="page-header">
-      <h1>審計結果</h1>
-      <p class="subtitle">查看和分析審計檢查結果</p>
+      <h1>稽核結果</h1>
+      <p class="subtitle">查看和分析稽核檢查結果</p>
     </header>
 
     <!-- 結果統計 -->
@@ -72,7 +73,7 @@
     <!-- 結果清單 -->
     <section class="results-list-section">
       <h2>詳細結果</h2>
-      <div class="results-table">
+      <div class="results-table" role="region" aria-label="稽核結果資料表, 可左右捲動" tabindex="0">
         <table>
           <thead>
             <tr>
@@ -106,13 +107,13 @@
       </div>
     </section>
 
-    <!-- 導出選項 -->
+    <!-- 匯出選項 -->
     <section class="export-section">
-      <h2>導出報告</h2>
+      <h2>報告匯出示意</h2>
       <div class="export-buttons">
-        <button class="export-btn"><i class="fas fa-file-pdf"></i> 導出 PDF</button>
-        <button class="export-btn"><i class="fas fa-file-excel"></i> 導出 Excel</button>
-        <button class="export-btn"><i class="fas fa-file-csv"></i> 導出 CSV</button>
+        <button class="export-btn"><i class="fas fa-file-pdf"></i> PDF 匯出示意</button>
+        <button class="export-btn"><i class="fas fa-file-excel"></i> Excel 匯出示意</button>
+        <button class="export-btn"><i class="fas fa-file-csv"></i> CSV 匯出示意</button>
       </div>
     </section>
   </div>
@@ -150,7 +151,7 @@
       name: '資料加密檢查',
       status: 'pass',
       executedAt: '2024-02-10 14:30',
-      remarks: '所有數據加密配置正確',
+      remarks: '所有資料加密配置正確',
     },
     {
       id: '2',
@@ -182,7 +183,7 @@
       name: '日誌記錄檢查',
       status: 'fail',
       executedAt: '2024-02-08 16:45',
-      remarks: '某些關鍵操作日誌丟失',
+      remarks: '某些關鍵操作日誌遺失',
     },
   ])
 </script>
@@ -304,14 +305,16 @@
 
     .chart-container {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 40px;
     }
 
     .pie-chart {
       display: flex;
-      width: 200px;
-      height: 200px;
+      width: min(200px, 100%);
+      aspect-ratio: 1;
+      flex-shrink: 0;
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -382,6 +385,7 @@
 
     table {
       width: 100%;
+      min-width: 40rem;
       border-collapse: collapse;
       font-size: 14px;
 

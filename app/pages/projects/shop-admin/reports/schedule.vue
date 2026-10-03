@@ -3,35 +3,37 @@
     <div class="header">
       <div>
         <h2>報表排程</h2>
-        <p class="lead">自動化報表產出與通知設定。</p>
+        <p class="lead">報表排程與通知對象的固定資料示範</p>
       </div>
-      <div class="badge">可存取：系統管理、營運主管、財務專員</div>
+      <div class="badge">可存取: 系統管理, 營運主管, 財務專員</div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>報表</th>
-          <th>頻率</th>
-          <th>下次時間</th>
-          <th>接收人</th>
-          <th>狀態</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in schedules" :key="row.name">
-          <td>{{ row.name }}</td>
-          <td>{{ row.frequency }}</td>
-          <td>{{ row.next }}</td>
-          <td>{{ row.owner }}</td>
-          <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto" role="region" aria-label="報表排程資料表, 可左右捲動" tabindex="0">
+      <table class="data-table min-w-[35rem]">
+        <thead>
+          <tr>
+            <th>報表</th>
+            <th>頻率</th>
+            <th>下次時間</th>
+            <th>接收人</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in schedules" :key="row.name">
+            <td>{{ row.name }}</td>
+            <td>{{ row.frequency }}</td>
+            <td>{{ row.next }}</td>
+            <td>{{ row.owner }}</td>
+            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note-card">
       <h3>提醒</h3>
-      <p>報表排程可設定通知群組與安全下載連結。</p>
+      <p>此清單展示排程欄位, 未執行報表產出, 通知寄送或下載連結建立</p>
     </div>
   </section>
 </template>

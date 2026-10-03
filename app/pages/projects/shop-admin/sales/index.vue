@@ -1,18 +1,18 @@
 <template>
   <section class="page-block">
     <h2>銷售管理</h2>
-    <p class="lead">訂單、客戶與業績達成率追蹤。</p>
+    <p class="lead">訂單, 客戶與業績達成率追蹤</p>
 
     <div class="permission-card">
-      <p>可存取角色：系統管理、銷售主管</p>
-      <p>目前角色：{{ roleLabel }}</p>
+      <p>可存取角色: 系統管理, 銷售主管</p>
+      <p>目前角色: {{ roleLabel }}</p>
     </div>
 
     <div class="grid">
       <article class="card">
         <h3>本月訂單</h3>
         <p>{{ salesSummary.orders }}</p>
-        <p>金額：{{ salesSummary.revenue }}</p>
+        <p>金額: {{ salesSummary.revenue }}</p>
       </article>
       <article class="card">
         <h3>前五大客戶</h3>
@@ -23,14 +23,14 @@
       <article class="card">
         <h3>達成率</h3>
         <p>{{ salesSummary.achievement }}</p>
-        <p>成長趨勢：穩定</p>
+        <p>成長趨勢: 穩定</p>
       </article>
     </div>
 
     <div class="subpage-card">
       <div>
-        <h3>子頁面：銷售管線</h3>
-        <p>顯示各階段案件進度與預估成交率。</p>
+        <h3>子頁面: 銷售管線</h3>
+        <p>顯示各階段案件進度與預估成交率</p>
       </div>
       <NuxtLink to="/projects/shop-admin/sales/pipeline" class="sub-link">前往管線 →</NuxtLink>
     </div>
@@ -41,7 +41,7 @@
         <div v-for="step in salesFlow" :key="step.id" class="flow-card">
           <div class="flow-header">
             <span class="step">{{ step.id }}</span>
-            <span :class="['badge', step.status]">{{ step.status }}</span>
+            <span :class="['badge', step.status]">{{ step.status === 'done' ? '已完成' : step.status === 'active' ? '進行中' : step.status === 'pending' ? '待處理' : step.status }}</span>
           </div>
           <h4>{{ step.title }}</h4>
           <p class="note">{{ step.note }}</p>
@@ -51,24 +51,26 @@
 
     <div class="table-section">
       <h3>重點客戶</h3>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>客戶</th>
-            <th>本月成交</th>
-            <th>業績占比</th>
-            <th>狀態</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="client in keyClients" :key="client.name">
-            <td>{{ client.name }}</td>
-            <td>{{ client.amount }}</td>
-            <td>{{ client.share }}</td>
-            <td><span :class="['badge', client.status]">{{ client.status }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto" role="region" aria-label="銷售任務資料表, 可左右捲動" tabindex="0">
+        <table class="data-table min-w-[35rem]">
+          <thead>
+            <tr>
+              <th>客戶</th>
+              <th>本月成交</th>
+              <th>業績占比</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="client in keyClients" :key="client.name">
+              <td>{{ client.name }}</td>
+              <td>{{ client.amount }}</td>
+              <td>{{ client.share }}</td>
+              <td><span :class="['badge', client.status]">{{ client.status === 'done' ? '已完成' : client.status === 'active' ? '進行中' : client.status === 'pending' ? '待處理' : client.status }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>

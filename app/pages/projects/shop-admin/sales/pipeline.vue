@@ -3,35 +3,37 @@
     <div class="header">
       <div>
         <h2>銷售管線</h2>
-        <p class="lead">展示案件階段、預估金額與成交機率。</p>
+        <p class="lead">展示案件階段, 預估金額與成交機率</p>
       </div>
-      <div class="badge">可存取：系統管理、銷售主管</div>
+      <div class="badge">可存取: 系統管理, 銷售主管</div>
     </div>
 
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>客戶</th>
-          <th>階段</th>
-          <th>預估金額</th>
-          <th>可能性</th>
-          <th>狀態</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="row in pipeline" :key="row.client">
-          <td>{{ row.client }}</td>
-          <td>{{ row.stage }}</td>
-          <td>{{ row.amount }}</td>
-          <td>{{ row.probability }}</td>
-          <td><span :class="['status', row.status]">{{ row.status }}</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto" role="region" aria-label="銷售管線資料表, 可左右捲動" tabindex="0">
+      <table class="data-table min-w-[35rem]">
+        <thead>
+          <tr>
+            <th>客戶</th>
+            <th>階段</th>
+            <th>預估金額</th>
+            <th>可能性</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in pipeline" :key="row.client">
+            <td>{{ row.client }}</td>
+            <td>{{ row.stage }}</td>
+            <td>{{ row.amount }}</td>
+            <td>{{ row.probability }}</td>
+            <td><span :class="['status', row.status]">{{ row.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="note-card">
       <h3>提醒</h3>
-      <p>高價值案件需建立專案計畫並設定追蹤節點。</p>
+      <p>高價值案件需建立專案計畫並設定追蹤節點</p>
     </div>
   </section>
 </template>

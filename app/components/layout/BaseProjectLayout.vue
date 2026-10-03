@@ -17,7 +17,7 @@
         </NuxtLink>
       </nav>
       <div class="sidebar-footer">
-        <p>資料皆為去識別化樣本</p>
+        <p>固定示範資料, 用於展示後台介面</p>
       </div>
     </aside>
 
@@ -38,6 +38,7 @@
       </header>
 
       <section class="erp-content">
+        <p>介面示範: 圖表與清單使用固定示範資料, 不代表實際營運狀態; 角色切換只模擬畫面權限, 未連接登入與後端作業</p>
         <slot />
       </section>
     </div>

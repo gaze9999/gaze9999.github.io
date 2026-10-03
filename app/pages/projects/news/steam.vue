@@ -5,7 +5,7 @@
       <div class="header-content">
         <p class="eyebrow">Steam Store News</p>
         <h1 class="title">Steam 商店新聞</h1>
-        <p class="description">整合 Steam 社群新聞與特賣活動資訊，即時掌握熱門遊戲動態與優惠情報。</p>
+        <p class="description">透過伺服器 API 展示 Steam 社群與活動新聞; GitHub Pages 靜態版本不提供此功能</p>
       </div>
       <button @click="refreshCurrentTab" class="refresh-button" :disabled="loading">
         <span class="refresh-icon"><i v-if="loading" class="fas fa-hourglass-end"></i><i v-else class="fas fa-sync"></i></span>
@@ -37,16 +37,10 @@
     <!-- Error State -->
     <div v-else-if="error" class="error-container">
       <div class="error-icon"><i v-if="error.includes('API Key')" class="fas fa-key"></i><i v-else class="fas fa-exclamation-triangle"></i></div>
-      <h3 class="error-title">{{ error.includes('API Key') ? 'API Key 未配置' : '無法載入新聞' }}</h3>
+      <h3 class="error-title">{{ error.includes('API Key') ? '服務尚未設定' : '無法載入新聞' }}</h3>
       <p class="error-message">{{ error }}</p>
       <div class="error-info" v-if="error.includes('API Key')">
-        <p class="info-text">如需使用 Steam 新聞功能，請按以下步驟設定：</p>
-        <ol class="steps-list">
-          <li>前往 <a href="https://steamcommunity.com/dev/apikey" target="_blank" rel="noopener noreferrer" class="link">Steam Web API Key 頁面</a></li>
-          <li>登入 Steam 帳號並取得 API Key</li>
-          <li>在專案根目錄的 <code>.env</code> 檔案中設定 <code>NUXT_STEAM_API_KEY</code></li>
-          <li>重新啟動開發伺服器</li>
-        </ol>
+        <p class="info-text">此服務需要網站維護者設定, 訪客不需提供 API Key</p>
       </div>
       <button v-else @click="refreshCurrentTab" class="retry-button">重試</button>
     </div>
@@ -111,7 +105,7 @@
           <i class="fas fa-chevron-left"></i>
           上一頁
         </button>
-        <span class="page-info">第 {{ currentPage }} 頁，共 {{ currentNews.length }} 則新聞</span>
+        <span class="page-info">第 {{ currentPage }} 頁, 共 {{ currentNews.length }} 則新聞</span>
         <button 
           @click="goToNextPage" 
           class="pagination-btn"
@@ -142,7 +136,7 @@ definePageMeta({
 type TabId = 'community' | 'sales'
 
 const serverFeaturesEnabled = useRuntimeConfig().public.serverFeaturesEnabled
-const staticDeploymentMessage = 'Steam 新聞需要 Nuxt 伺服器 API，此功能在 GitHub Pages 靜態版本中暫停使用。'
+const staticDeploymentMessage = '此靜態版本未提供 Steam 新聞服務; 請至 Steam 官方網站查看最新消息'
 
 interface Tab {
   id: TabId

@@ -8,7 +8,7 @@
     </div>
 
     <div class="content">
-      <!-- 檢查信息概覽 -->
+      <!-- 檢查資訊概覽 -->
       <section class="info-panel">
         <div class="info-item">
           <span class="label">稽核項目</span>
@@ -19,7 +19,7 @@
           <span class="value">{{ selectedData?.category || '採購' }}</span>
         </div>
         <div class="info-item">
-          <span class="label">優先級</span>
+          <span class="label">優先順序</span>
           <span :class="['value', 'priority-' + (selectedData?.priority || 'high')]">
             {{ getPriorityLabel(selectedData?.priority || 'high') }}
           </span>
@@ -85,8 +85,8 @@
                 <h4>{{ suggestion.title }}</h4>
                 <p>{{ suggestion.description }}</p>
                 <div class="suggestion-meta">
-                  <span>優先級：{{ suggestion.priority }}</span>
-                  <span>預計工作量：{{ suggestion.effort }}</span>
+                  <span>優先順序: {{ suggestion.priority }}</span>
+                  <span>預計工作量: {{ suggestion.effort }}</span>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@
           <i class="fas fa-times"></i> 返回
         </button>
         <button @click="submitReview" class="btn-submit">
-          <i class="fas fa-check"></i> 提交審核
+          <i class="fas fa-check"></i> 審核示範
         </button>
       </div>
     </div>
@@ -171,19 +171,19 @@ const results = ref({
   suggestions: [
     {
       title: '強化採購簽核節點',
-      description: '針對高金額採購增加二級審核節點，避免單點審核風險。',
+      description: '針對高金額採購增加二級審核節點, 避免單點審核風險',
       priority: 'high',
       effort: '中',
     },
     {
       title: '建立庫存盤點追蹤機制',
-      description: '針對盤點差異建立批次追蹤，並定期檢討差異原因。',
+      description: '針對盤點差異建立批次追蹤, 並定期檢討差異原因',
       priority: 'medium',
       effort: '大',
     },
     {
       title: '更新財務憑證核對規範',
-      description: '統一憑證核對規格與資料來源，降低漏登風險。',
+      description: '統一憑證核對規格與資料來源, 降低漏登風險',
       priority: 'low',
       effort: '小',
     },
@@ -200,7 +200,7 @@ const getPriorityLabel = (priority: string) => {
 }
 
 const submitReview = () => {
-  alert('審核已提交！')
+  alert('已完成審核操作示範; 審核內容未送出或儲存')
 }
 </script>
 
@@ -212,6 +212,7 @@ const submitReview = () => {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -226,6 +227,8 @@ const submitReview = () => {
 }
 
 .btn-back {
+  flex-shrink: 0;
+  white-space: nowrap;
   padding: 0.625rem 1rem;
   background: #e8ecf5;
   border: none;
@@ -253,7 +256,7 @@ const submitReview = () => {
 .info-panel {
   padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(12.5rem, 100%), 1fr));
   gap: 1rem;
   background: #f9fafb;
   border-bottom: 0.0625rem solid #e8ecf5;
@@ -530,6 +533,7 @@ const submitReview = () => {
 
 .radio-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
@@ -569,6 +573,7 @@ textarea.input-field {
 .form-actions {
   padding: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: flex-end;
   background: #f9fafb;
@@ -578,6 +583,7 @@ textarea.input-field {
 .btn-cancel,
 .btn-submit {
   padding: 0.625rem 1.5rem;
+  white-space: nowrap;
   border: none;
   border-radius: 0.375rem;
   font-weight: 600;
@@ -605,6 +611,25 @@ textarea.input-field {
   &:hover {
     transform: translateY(-0.125rem);
     box-shadow: 0 0.5rem 1rem #667eea4d;
+  }
+}
+
+@media (max-width: 48rem) {
+  .header {
+    padding: 0 1rem;
+  }
+
+  .info-panel,
+  .form-section,
+  .form-actions {
+    padding: 1rem;
+  }
+
+  .tab-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 0.25rem;
+    white-space: nowrap;
   }
 }
 

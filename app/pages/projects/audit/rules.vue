@@ -1,8 +1,9 @@
 <template>
   <div class="rules-page">
+    <p class="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">固定示範資料: 按鈕與表單為介面示意, 未執行檢查, 編輯, 刪除或檔案匯出</p>
     <header class="page-header">
       <h1>檢查規則管理</h1>
-      <p class="subtitle">定義和配置審計檢查規則</p>
+      <p class="subtitle">定義和配置稽核檢查規則</p>
     </header>
 
     <!-- 規則清單 -->
@@ -95,16 +96,16 @@
     },
     {
       id: 'RULE002',
-      name: '數據庫加密',
-      description: '驗證數據庫中的敏感字段已加密',
+      name: '資料庫加密',
+      description: '驗證資料庫中的敏感欄位已加密',
       status: 'active',
-      category: '數據保護',
+      category: '資料保護',
       priority: 'high',
     },
     {
       id: 'RULE003',
-      name: '密鑰管理',
-      description: '檢查加密密鑰的安全管理',
+      name: '金鑰管理',
+      description: '檢查加密金鑰的安全管理',
       status: 'active',
       category: '金鑰管理',
       priority: 'high',
@@ -114,7 +115,7 @@
       name: '密碼強度',
       description: '驗證密碼符合複雜度要求',
       status: 'active',
-      category: '身份驗證',
+      category: '身分驗證',
       priority: 'medium',
     },
     {
@@ -122,15 +123,15 @@
       name: '存取控制',
       description: '檢查是否實施最小權限原則',
       status: 'active',
-      category: '訪問控制',
+      category: '存取控制',
       priority: 'high',
     },
     {
       id: 'RULE006',
       name: '日誌記錄',
-      description: '驗證詳細的審計日誌記錄',
+      description: '驗證詳細的稽核日誌記錄',
       status: 'inactive',
-      category: '審計日誌',
+      category: '稽核日誌',
       priority: 'medium',
     },
   ])
@@ -208,7 +209,7 @@
 
   .rules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
     gap: 20px;
   }
 
@@ -374,7 +375,7 @@
 
     .stats-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
       gap: 16px;
     }
 
