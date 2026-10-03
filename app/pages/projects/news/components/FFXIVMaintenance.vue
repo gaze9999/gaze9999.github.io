@@ -25,7 +25,7 @@
     <!-- 當前服務狀態 -->
     <div v-if="currentStatus" class="service-status">
       <h3>目前維護公告</h3>
-      <p>依 API 提供的維護清單顯示, 不代表即時連線或服務可用性檢測</p>
+      <p>下方顯示來源提供的維護資訊, 目前沒有檢測伺服器是否能連線</p>
       <div class="status-grid">
         <!-- Game Status -->
         <div class="status-item">

@@ -2,10 +2,10 @@
   <section class="scraper-hero">
     <div class="hero-text">
       <p class="eyebrow">Data Scraping Results</p>
-      <h1>TGS 2025 展覽商爬蟲成果</h1>
-      <p class="lead">呈現由 Tokyo Game Show 2025 官方資料整理的展覽商資料集, 提供搜尋, 篩選與排序; 此頁使用歷史資料, 非當期展覽名單</p>
+      <h1>TGS 2025 展覽商資料</h1>
+      <p class="lead">根據 Tokyo Game Show 2025 官方資料整理的展覽商名單, 可以搜尋, 篩選與排序; 內容為 2025 年的歷史資料</p>
       <p class="notion-source">
-        本資料原建立於 
+        這份資料最初整理在
         <a 
           href="https://typhoon-name-be1.notion.site/26d4f7be343f80838781ce35ec520bd0?v=26d4f7be343f80ab8433000c0949466b" 
           target="_blank" 
@@ -14,13 +14,13 @@
         >
           Notion 資料庫
         </a>
-        , 現已轉移至此展示
+        , 也可以在這裡查詢
       </p>
     </div>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">{{ stats.recordsProcessed }}</div>
-        <div class="stat-label">資料集展覽商筆數</div>
+        <div class="stat-label">展覽商筆數</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">{{ stats.internationalExhibitors }}</div>

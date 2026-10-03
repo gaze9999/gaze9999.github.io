@@ -9,7 +9,7 @@
       </div>
     </header>
     <main class="max-w-7xl mx-auto px-4 sm:px-8 py-8">
-      <p class="mb-6 text-sm text-gray-600">此頁展示 TGS 2025 固定資料集與查詢介面, 不會在瀏覽時執行爬蟲或更新展覽資訊</p>
+      <p class="mb-6 text-sm text-gray-600">這裡收錄的是 TGS 2025 當時收集的展覽商資料, 瀏覽時不會重新抓取或更新內容</p>
       <slot />
     </main>
   </div>

@@ -10,19 +10,19 @@
     <!-- Hero Section -->
     <section class="hero-section">
       <h1 class="title">YouTube 電視牆</h1>
-      <p class="subtitle">展示多個 YouTube 嵌入影片, 提供影片清單管理與聊天室顯示切換</p>
+      <p class="subtitle">把多部 YouTube 影片放在同一個頁面, 管理影片清單並切換聊天室</p>
     </section>
 
     <!-- Information Section -->
     <section class="info-section">
       <div class="info-grid">
         <article class="info-card">
-          <h3>功能說明</h3>
-          <p>在下方輸入 YouTube 連結, 解析影片 ID 後加入清單; 能否嵌入播放依影片與瀏覽器限制</p>
+          <h3>加入影片</h3>
+          <p>貼上 YouTube 連結即可加入清單; 影片需要允許嵌入, 瀏覽器也可能限制自動播放</p>
         </article>
         <article class="info-card">
-          <h3>控制範圍</h3>
-          <p>上方播放與音量按鈕為設定示範, 尚未控制嵌入播放器; 請使用各影片內的播放控制, 清單與設定會嘗試儲存在此瀏覽器</p>
+          <h3>播放與儲存</h3>
+          <p>請使用各影片內的按鈕播放或調整音量; 上方的播放與音量按鈕還在示範階段, 不會控制影片, 清單與設定會嘗試儲存在瀏覽器</p>
         </article>
         <article class="info-card">
           <h3>連結格式與限制</h3>

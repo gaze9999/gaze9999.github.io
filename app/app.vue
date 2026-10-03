@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <header class="site-header">
-      <p class="brand">gaze9999 / 作品與探索</p>
+      <p class="brand">gaze9999 / 作品與開發筆記</p>
       <div class="header-actions">
         <nav class="nav" aria-label="主要導覽">
           <NuxtLink to="/"

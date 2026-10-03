@@ -17,14 +17,14 @@
         </NuxtLink>
       </nav>
       <div class="sidebar-footer">
-        <p>固定示範資料, 用於展示後台介面</p>
+        <p>使用範例資料的後台示範</p>
       </div>
     </aside>
 
     <div class="erp-main">
       <header class="erp-topbar">
         <div>
-          <p class="topbar-label">模組標題</p>
+          <p class="topbar-label">目前頁面</p>
           <h1 class="topbar-title">{{ activeTitle }}</h1>
         </div>
         <div class="topbar-actions">
@@ -38,7 +38,7 @@
       </header>
 
       <section class="erp-content">
-        <p>介面示範: 圖表與清單使用固定示範資料, 不代表實際營運狀態; 角色切換只模擬畫面權限, 未連接登入與後端作業</p>
+        <p>這是後台介面示範, 圖表與清單都使用範例資料; 切換角色可以查看不同的頁面權限, 未串接登入或後端系統</p>
         <slot />
       </section>
     </div>
