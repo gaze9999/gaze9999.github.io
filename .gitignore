@@ -202,3 +202,18 @@ ui-debug.log
 # PWA Runtime
 sw.js
 workbox-*.js
+
+# BEGIN agent files (codex-setup local-ignores: agent-output, agent-governance)
+/.codex/
+/.claude/
+/.serena/
+/.playwright-mcp/
+/.playwright-cli/
+/.local/
+/AGENTS.md
+/AGENTS.override.md
+/CLAUDE.md
+/CLAUDE.local.md
+/AI.md
+/agent-guidance/
+# END agent files
